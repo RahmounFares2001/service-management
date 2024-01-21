@@ -16,6 +16,10 @@
   }
 } */
 
+*{
+  font-family: Montserrat, sans-serif;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -52,3 +56,5 @@ body {
     height: 20px;
   }
 }
+
+/* side bare */

@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { CustomAppProvider } from "./context/index";
+// import { CustomAppProvider } from "./dashboard/context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,11 +14,7 @@ export default function RootLayout({children}) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <CustomAppProvider.Provider>
-          <div>
             {children}
-          </div>
-        </CustomAppProvider.Provider>
       </body>
     </html>
   );
