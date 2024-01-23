@@ -34,12 +34,12 @@ export default function Sign() {
     };
 
   return (
-    <div className='flex justify-center items-center h-screen '>
+    <div className='flex justify-center items-center h-screen'>
 
         {/* sign in  */}
         {/* sign in form */}
         <div className='flex justify-center items-center shadow-lg shadow-gray-500 w-4/5 lg:w-4/5 max-h-min rounded-xl '>
-            <div className={`${signInForm} w-1/2`} >
+            <div className={`${signInForm} w-1/2 signInForm`} >
                 <form action="" className='flex flex-col justify-center items-center mx-8 py-20 gap-5'>
                     <h1 className='text-4xl font-bold w-80 text-center'>Sign In</h1>
                     <div className='flex gap-4'>
@@ -57,7 +57,7 @@ export default function Sign() {
                 </form>
             </div>
 
-            <div className= {`${signIn} w-1/2`}>
+            <div className= {`${signIn} w-1/2 signUpForm`}>
                 <div className="flex flex-col justify-center items-center px-10 py-6 gap-7 text-center" >
                     <h1 className='text-4xl font-bold'>Hello, Client!</h1>
                     <h1>Enter your personal details and start journey with us</h1>
@@ -67,7 +67,7 @@ export default function Sign() {
 
             
             {/* sign up */}
-            <div className={`${signUp} w-1/2`}>
+            <div className={`${signUp} w-1/2 signInForm`}>
                 <div className="flex flex-col justify-center items-center px-10 py-6 gap-7 text-center" >
                     <h1 className='text-4xl font-bold'>Hello, Client!</h1>
                     <h1>Enter your personal details and start journey with us</h1>
@@ -76,7 +76,7 @@ export default function Sign() {
             </div>
 
             {/* sign up form */}
-            <div className={`${signUpForm} w-1/2`} >
+            <div className={`${signUpForm} w-1/2 signUpForm`} >
                 <form action="" className='flex flex-col justify-center items-center  mx-8 py-20 gap-5'>
                     <h1 className='text-4xl font-bold w-80 text-center'>Sign Up</h1>
                     <div className='flex gap-4'>
