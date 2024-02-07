@@ -1,20 +1,20 @@
-"use client"
+// "use client"
 
-import React, { useContext, useState } from 'react'
+// import React, { useContext, useState } from 'react'
 
-// components
+// // components
 
 
-// context
-// export const dashboardContext = React.createContext()
+// // context
+// // export const dashboardContext = React.createContext()
 
-export default function Dashboard() {
-  const [ test, setTest ] = useState("")
+// export default function Dashboard() {
+//   const [ test, setTest ] = useState("")
 
-  return (
-    <dashboardContext.Provider value={{test}}>
+//   return (
+//     <dashboardContext.Provider value={{test}}>
   
 
-    </dashboardContext.Provider>
-  )
-}
+//     </dashboardContext.Provider>
+//   )
+// }
