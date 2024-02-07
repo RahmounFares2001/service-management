@@ -2,11 +2,11 @@ import React from 'react'
 
 export default function About() {
   return (
-    <section className='flex gap-14 lg:gap-5 justify-center md:px-28 md:mb-24 flex-col-reverse lg:flex-row'>
+    <section className='flex gap-14 lg:gap-5 justify-center md:px-28 md:mb-24 mb-20 flex-col-reverse lg:flex-row'>
         {/* left */}
         <div className='text-gray-200 w-full lg:w-1/2 flex flex-col gap-2 sm:gap-5 justify-center sm:px-7 px-4'>
 
-            <div className='flex flex-col gap-1'>
+            <div className='flex flex-col gap-4 md:gap-2'>
               <p className='underline underline-offset-8 text-rose-700 sm:text-xl font-bold'>Get to Know</p>
               <h1 className='text-3xl sm:text-5xl font-bold'>About Us</h1>
             </div>
