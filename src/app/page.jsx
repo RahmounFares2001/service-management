@@ -9,7 +9,8 @@ export default function Home() {
       <Header />
       <Homee />
 
-      <section style={{backgroundColor: "#010101"}}>
+      <section style={{backgroundColor: "#010101"}}
+              className="flex flex-col gap-44">
         <Services />
         <About />
 

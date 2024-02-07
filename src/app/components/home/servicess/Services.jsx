@@ -17,13 +17,14 @@ export default function Services() {
         </div>
 
         {/* cards sercices */}
-        <div className='flex flex-col lg:flex-row gap-7 jusify-center items-center w-full px-32 mb-20'>
+        <div className='flex flex-col lg:flex-row gap-7 jusify-center items-center w-full md:px-32 md:mb-0
+                    sm:px-10 '>
           {/* web dev */}
-          <div className='text-gray-200 lg:w-2/6 w-4/5 flex flex-col gap-5 p-5 rounded-xl hover:bg-gradient-to-br
+          <div className='text-gray-200 lg:w-2/6 w-11/12 sm:w-4/5 flex flex-col gap-5 p-5 rounded-xl hover:bg-gradient-to-br
                     hover:from-gray-900 hover:to-black' 
                 style={{backgroundColor: '#0d0d0e'}}> 
             <div className='flex justify-between items-center'>
-              <FaLaptopCode className='text-rose-700 w-24 h-24' />
+              <FaLaptopCode className='text-rose-700 w-16 h-16 sm:w-24 sm:h-24' />
               <h1 className='text-5xl text-rose-800'>01</h1>  
             </div>
             
@@ -36,11 +37,11 @@ export default function Services() {
           </div>
 
           {/* mobile app */}
-          <div className='text-gray-200 lg:w-2/6 w-4/5 flex flex-col gap-5 p-5 rounded-xl hover:bg-gradient-to-br
+          <div className='text-gray-200 lg:w-2/6 w-11/12 sm:w-4/5 flex flex-col gap-5 p-5 rounded-xl hover:bg-gradient-to-br
                     hover:from-gray-900 hover:to-black' 
                 style={{backgroundColor: '#0d0d0e'}}> 
             <div className='flex justify-between items-center'>
-              <FaAndroid className='text-rose-700 w-24 h-24' />
+              <FaAndroid className='text-rose-700 w-16 h-16 sm:w-24 sm:h-24' />
               <h1 className='text-5xl text-rose-800'>02</h1>  
             </div>
             
@@ -53,11 +54,11 @@ export default function Services() {
           </div>
 
           {/* ui ux */}
-          <div className='text-gray-200 lg:w-2/6 w-4/5 flex flex-col gap-5 p-5 rounded-xl hover:bg-gradient-to-br
+          <div className='text-gray-200 lg:w-2/6 w-11/12 sm:w-4/5 flex flex-col gap-5 p-5 rounded-xl hover:bg-gradient-to-br
                     hover:from-gray-900 hover:to-black' 
                 style={{backgroundColor: '#0d0d0e'}}> 
             <div className='flex justify-between items-center'>
-              <SiMaterialdesignicons className='text-rose-700 w-24 h-24' />
+              <SiMaterialdesignicons className='text-rose-700 w-16 h-16 sm:w-24 sm:h-24' />
               <h1 className='text-5xl text-rose-800'>03</h1>  
             </div>
             
