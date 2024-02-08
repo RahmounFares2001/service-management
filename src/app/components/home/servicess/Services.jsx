@@ -21,8 +21,8 @@ export default function Services() {
                     sm:px-10 '>
           {/* web dev */}
           <div className='text-gray-200 lg:w-2/6 w-11/12 sm:w-4/5 flex flex-col gap-5 p-5 rounded-xl hover:bg-gradient-to-br
-                    hover:from-gray-900 hover:to-black' 
-                style={{backgroundColor: '#0d0d0e'}}> 
+                    hover:from-gray-800 hover:to-black' 
+                style={{backgroundColor: '#191a1c'}}> 
             <div className='flex justify-between items-center'>
               <FaLaptopCode className='text-rose-700 w-16 h-16 sm:w-24 sm:h-24' />
               <h1 className='text-5xl text-rose-800'>01</h1>  
@@ -38,8 +38,8 @@ export default function Services() {
 
           {/* mobile app */}
           <div className='text-gray-200 lg:w-2/6 w-11/12 sm:w-4/5 flex flex-col gap-5 p-5 rounded-xl hover:bg-gradient-to-br
-                    hover:from-gray-900 hover:to-black' 
-                style={{backgroundColor: '#0d0d0e'}}> 
+                    hover:from-gray-800 hover:to-black' 
+                style={{backgroundColor: '#191a1c'}}> 
             <div className='flex justify-between items-center'>
               <FaAndroid className='text-rose-700 w-16 h-16 sm:w-24 sm:h-24' />
               <h1 className='text-5xl text-rose-800'>02</h1>  
@@ -55,8 +55,8 @@ export default function Services() {
 
           {/* ui ux */}
           <div className='text-gray-200 lg:w-2/6 w-11/12 sm:w-4/5 flex flex-col gap-5 p-5 rounded-xl hover:bg-gradient-to-br
-                    hover:from-gray-900 hover:to-black' 
-                style={{backgroundColor: '#0d0d0e'}}> 
+                    hover:from-gray-800 hover:to-black' 
+                style={{backgroundColor: '#191a1c'}}> 
             <div className='flex justify-between items-center'>
               <SiMaterialdesignicons className='text-rose-700 w-16 h-16 sm:w-24 sm:h-24' />
               <h1 className='text-5xl text-rose-800'>03</h1>  

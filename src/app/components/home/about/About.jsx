@@ -18,14 +18,14 @@ export default function About() {
 
             {/* card */}
             <div className='flex flex-col gap-5 font-bold rounded-3xl px-10 md:py-6 sm:py-4 py-3 shadow-lg shadow-rose-700/70
-                        mt-5 sm:mt-0'
+                        mt-5 sm:mt-0 hover:bg-gradient-to-br hover:from-gray-800 hover:to-black'
                     style={{backgroundColor: '#0d0d0e'}}>
                 <div className='flex items-center gap-2 cursor-pointer' >
                     <img src="/images/home/logo.jpg" alt="logo"
                         className='md:w-10 md:h-10 w-10 h-10' />
                         <h1 className='md:text-xl text-base'>KYO CONSEIL</h1>
                 </div>
-                <div className='sm:text-xl text-base'>
+                <div className='sm:text-xl text-base '>
                   <h1>Best Creative IT Agency And Solutions</h1>
                   <h1 className='text-rose-700'>Since 2011.</h1>
                 </div>

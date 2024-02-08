@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link';
 import React, { useState } from 'react'
 
 
@@ -20,6 +21,13 @@ export default function Header() {
     <nav className='flex justify-between items-center text-gray-200
               md:px-10 md:py-10 sm:px-6 sm:py-6 px-3 py-6' >
 
+      
+      {/* overlay */}
+        {menuPressed && 
+          <div className='fixed bg-gray-400/40 index-2 top-0 right-0 left-0 w-screen h-full'
+                onClick={()=> setMenuPressed(false)}>
+          </div>  }
+
       {/* logo */}
       <div className='flex items-center gap-2 cursor-pointer' >
           <img src="/images/home/logo.jpg" alt="logo"
@@ -30,8 +38,8 @@ export default function Header() {
       <div className='flex flex-row-reverse gap-10'>
         <GiHamburgerMenu className='lg:hidden block w-10 h-10' onClick={showMenu} /> 
         {/* button showed on md */}
-        <button className='border-2 border-gray-300 px-7 py-1 hover:border-rose-500 hover:text-rose-500
-                  sm:block hidden lg:hidden'>Get Started</button>
+        <Link href="/sign"><div className='border-2 border-gray-300 px-7 py-1 hover:border-rose-500 hover:text-rose-500
+                  sm:block hidden lg:hidden'>Get Started</div></Link>
       </div>
 
       
@@ -45,13 +53,13 @@ export default function Header() {
         </ul>
 
         {/* get started login signUp */}
-        <button className='border-2 border-gray-300 px-7 py-1 hover:border-rose-500 hover:text-rose-500
-                hidden lg:block'>Get Started</button>
+        <Link href="/sign" className='hidden lg:block'><div className='border-2 border-gray-300 px-7 py-1 hover:border-rose-500 hover:text-rose-500
+                '>Get Started</div></Link>
 
         {/* responsive menu show */}
         {menuPressed && 
-          <div className='absolute bg-white left-0 top-0 h-full md:w-2/5 sm:w-3/6 w-10/12
-                    flex flex-col gap-5'>
+          <div className=' bg-white left-0 top-0 h-full md:w-2/5 sm:w-3/6 w-10/12
+                    flex flex-col gap-5 fixed'>
 
             {/* logo */}
             <div className='flex items-center justify-center gap-3 cursor-pointer pt-10' >
@@ -81,15 +89,14 @@ export default function Header() {
 
              {/* get started login signUp on responsive*/}
             <div className='flex justify-center pt-14'>
-                <button className='border-2 border-black bg-black mx-8 py-2 
+              <Link href='/sign' className='border-2 border-black bg-black mx-8 py-2 
                         hover:border-rose-500 hover:bg-rose-700
-                        w-3/5 rounded-sm'>Get Started</button>
+                        w-3/5 rounded-sm flex justify-center' ><span className='text-center'>Get Started</span></Link>
             </div>
 
           </div>
         }
 
-      
     </nav>
   )
 }

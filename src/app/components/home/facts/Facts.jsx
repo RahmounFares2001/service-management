@@ -17,10 +17,11 @@ export default function Facts() {
         </div>
 
         {/* cards */}
-        <div className='flex flex-col md:flex-row gap-8 justify-center px-6 sm:px-32 md:px-14 lg:px-32'>
+        <div className='flex flex-col md:flex-row gap-8 justify-center px-6 sm:px-32 md:px-14 lg:px-32 '>
             {/* projects completed */}
             <div className='flex flex-col gap-2 md:gap-3 lg:gap-5 justify-center items-center rounded-xl w-full
-             shadow-md shadow-rose-700 py-8 lg:py-14'
+             shadow-md shadow-rose-700 py-8 lg:py-14
+             hover:bg-gradient-to-br hover:from-gray-800 hover:to-black'
                         style={{backgroundColor: '#0d0d0f'}}>
                 <FaHandshake className='w-16 h-16 lg:w-20 lg:h-20 text-rose-700' />
                 <div>
@@ -31,7 +32,8 @@ export default function Facts() {
             
             {/* satisfied clients */}
             <div className='flex flex-col gap-2 md:gap-3 lg:gap-5 justify-center items-center rounded-xl w-full
-            shadow-md shadow-rose-700 py-8 lg:py-14'
+            shadow-md shadow-rose-700 py-8 lg:py-14
+            hover:bg-gradient-to-br hover:from-gray-800 hover:to-black'
                         style={{backgroundColor: '#0d0d0f'}}>
                 <BsEmojiSmileFill className='w-16 h-16 lg:w-20 lg:h-20 text-rose-700' />
                 <div>
@@ -42,7 +44,8 @@ export default function Facts() {
 
             {/* expert team */}
             <div className='flex flex-col gap-2 md:gap-3 lg:gap-5 justify-center items-center rounded-xl w-full
-            shadow-md shadow-rose-700 py-8 lg:py-14'
+            shadow-md shadow-rose-700 py-8 lg:py-14
+            hover:bg-gradient-to-br hover:from-gray-800 hover:to-black'
                         style={{backgroundColor: '#0d0d0f'}}>
                 <IoIosPeople className='w-16 h-16 lg:w-20 lg:h-20 text-rose-700' />
                 <div>

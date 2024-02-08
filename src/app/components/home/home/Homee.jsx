@@ -6,7 +6,7 @@ export default function Home() {
 
       {/* left */}
       <div className='flex flex-col gap-8 sm:gap-14 lg:gap-7 justify-center'>
-        <div className='flex flex-col gap-2 md:text-6xl sm:text-5xl text-3xl font-bold'>
+        <div className='flex flex-col gap-2 xl:text-6xl md:text-5xl sm:text-5xl text-3xl font-bold'>
           <h1 className='text-center'>Creative & Minimal</h1>
           <h1 className='text-center lg:text-start'>IT AGENCY .</h1> 
         </div>
