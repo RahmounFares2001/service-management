@@ -9,8 +9,10 @@ import { IoIosPeople } from "react-icons/io";
 
 
 export default function Facts() {
+
+
   return (
-    <section className='text-gray-300 font-bold pt-24 flex flex-col gap-10 mb-24 md:mb-32'>
+    <section className='text-gray-300 font-bold pt-24 flex flex-col gap-10 mb-24 md:mb-32 fun'>
         <div className='text-center flex flex-col gap-3'>
             <p className='underline underline-offset-8 text-rose-700 sm:text-xl'>Care Study</p>
             <h1 className='text-3xl sm:text-5xl text-gray-200'>Fun Facts</h1>
@@ -54,8 +56,6 @@ export default function Facts() {
                 </div>
             </div>
         </div>
-
-
     </section>
   )
 }

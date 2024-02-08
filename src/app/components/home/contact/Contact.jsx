@@ -12,7 +12,7 @@ import { FaStopwatch } from "react-icons/fa";
 
 export default function Contact() {
   return (
-    <section className='text-gray-300 flex flex-col justify-center items-center gap-10 mb-24'>
+    <section className='text-gray-300 flex flex-col justify-center items-center gap-10 mb-24 contact'>
        <h1 className='text-center text-4xl sm:text-5xl font-bold'>CONTACT INFO</h1>
 
       <div className='flex flex-col gap-7'>

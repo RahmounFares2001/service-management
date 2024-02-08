@@ -10,7 +10,7 @@ import { SiMaterialdesignicons } from "react-icons/si";
 
 export default function Services() {
   return (
-    <section className='pt-32 flex flex-col gap-20' >
+    <section className='pt-32 flex flex-col gap-20 services' >
         <div className='flex flex-col gap-3 justify-center items-center font-bold'>
             <p className='text-rose-700 text-xl underline underline-offset-8' >Our Solutions</p>
             <h1 className='text-5xl text-gray-300'>Services</h1>

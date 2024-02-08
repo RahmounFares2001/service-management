@@ -17,9 +17,14 @@ export default function Header() {
     setMenuPressed(!menuPressed);
   }
 
+  // scroll into sections
+  const scrollBtn = (section) => {
+    document.querySelector(`.${section}`).scrollIntoView({ behavior: "smooth" });
+    };
+
   return (
     <nav className='flex justify-between items-center text-gray-200
-              md:px-10 md:py-10 sm:px-6 sm:py-6 px-3 py-6' >
+              md:px-10 md:py-10 sm:px-6 sm:py-6 px-3 py-6 home' >
 
       
       {/* overlay */}
@@ -44,12 +49,13 @@ export default function Header() {
 
       
       {/* links */}
-        <ul className='lg:flex items-center gap-10 hidden'>
-          <li className='cursor-pointer hover:text-rose-500 hover:border-b-2 hover:border-b-rose-500 pb-1'>Home</li>
-          <li className='cursor-pointer hover:text-rose-500 hover:border-b-2 hover:border-b-rose-500 pb-1'>Services</li>
-          <li className='cursor-pointer hover:text-rose-500 hover:border-b-2 hover:border-b-rose-500 pb-1'>About Us</li>
-          <li className='cursor-pointer hover:text-rose-500 hover:border-b-2 hover:border-b-rose-500 pb-1'>Portfolio</li>
-          <li className='cursor-pointer hover:text-rose-500 hover:border-b-2 hover:border-b-rose-500 pb-1'>Contact</li>
+        <ul className='lg:flex items-center gap-7 xl:gap-10 hidden'>
+          <li onClick={()=>{scrollBtn('home')}} className='cursor-pointer hover:text-rose-500 hover:border-b-2 hover:border-b-rose-500 pb-1'>Home</li>
+          <li onClick={()=>{scrollBtn('services')}} className='cursor-pointer hover:text-rose-500 hover:border-b-2 hover:border-b-rose-500 pb-1'>Services</li>
+          <li onClick={()=>{scrollBtn('about')}} className='cursor-pointer hover:text-rose-500 hover:border-b-2 hover:border-b-rose-500 pb-1'>About Us</li>
+          <li onClick={()=>{scrollBtn('fun')}} className='cursor-pointer hover:text-rose-500 hover:border-b-2 hover:border-b-rose-500 pb-1'>Fun Facts</li>
+          <li onClick={()=>{scrollBtn('contact')}} className='cursor-pointer hover:text-rose-500 hover:border-b-2 hover:border-b-rose-500 pb-1'>Contact</li>
+          <a href='https://kyo-conseil.com/portfolio/' target='_blank' ><li className='cursor-pointer hover:text-rose-500 hover:border-b-2 hover:border-b-rose-500 pb-1'>Portfolio</li></a>
         </ul>
 
         {/* get started login signUp */}
@@ -74,16 +80,18 @@ export default function Header() {
 
             <div className='pt-5'>
               <ul className='flex flex-col items-start gap-1 text-black'>
-                <li className='cursor-pointer pl-4 hover:text-rose-500'>Home</li>
+                <li onClick={()=>{scrollBtn('home')}} className='cursor-pointer pl-4 hover:text-rose-500'>Home</li>
                 <hr className='w-full bg-rose-700/20' />
-                <li className='cursor-pointer pl-4 hover:text-rose-500 pt-3'>Services</li>
+                <li onClick={()=>{scrollBtn('services'); setMenuPressed(false)}} className='cursor-pointer pl-4 hover:text-rose-500 pt-3'>Services</li>
                 <hr className='w-full bg-rose-700/20' />
-                <li className='cursor-pointer pl-4 hover:text-rose-500 pt-3'>About Us</li>
-                <hr className='w-full bg-rose-700/20' />                
-                <li className='cursor-pointer pl-4 hover:text-rose-500 pt-3'>Portfolio</li>
-                <hr className='w-full bg-rose-700/20' />                
-                <li className='cursor-pointer pl-4 hover:text-rose-500 pt-3'>Contact</li>
+                <li onClick={()=>{scrollBtn('about'); setMenuPressed(false)}} className='cursor-pointer pl-4 hover:text-rose-500 pt-3'>About Us</li>
                 <hr className='w-full bg-rose-700/20' />
+                <li onClick={()=>{scrollBtn('fun'); setMenuPressed(false)}} className='cursor-pointer pl-4 hover:text-rose-500 pt-3'>Fun Facts</li>
+                <hr className='w-full bg-rose-700/20' />                 
+                <li onClick={()=>{scrollBtn('contact'); setMenuPressed(false) }} className='cursor-pointer pl-4 hover:text-rose-500 pt-3'>Contact</li>
+                <hr className='w-full bg-rose-700/20' />
+                <a href="https://kyo-conseil.com/portfolio/" target='_blank'><li className='cursor-pointer pl-4 hover:text-rose-500 pt-3'>Portfolio</li></a>
+                <hr className='w-full bg-rose-700/20' />  
               </ul>
             </div>
 
