@@ -1,5 +1,5 @@
 .signInForm{
-    animation: opacityAnimation1 1s ease-in-out;
+    animation: opacityAnimation1 1s 0.2s ease-in-out forwards;
   }
 @keyframes opacityAnimation1 {
     from {
@@ -13,7 +13,7 @@
     }
   }
 .signUpForm{
-    animation: opacityAnimation2 1s ease-in-out;
+    animation: opacityAnimation2 1s 0.2s ease-in-out forwards;
   }
 @keyframes opacityAnimation2 {
     from {
@@ -28,7 +28,7 @@
 }
 
 .fadeIn{
-    animation: fade 1.4s ease-in-out;
+    animation: fade 1.4s 0.2s ease-in-out forwards;
 }
 @keyframes fade {
     from{
