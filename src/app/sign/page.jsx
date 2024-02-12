@@ -60,7 +60,7 @@ export default function Sign() {
             
 
             <div className={`${signInForm} w-full lg:w-1/2 fadeIn opacity-0`} >
-                <form action="" className='flex flex-col justify-center items-center mx-4 sm:mx-8 py-8 sm:py-20 gap-5'>
+                <form action="" className='flex flex-col justify-center items-center mx-4 sm:mx-8 py-20 gap-5'>
                     <h1 className='text-4xl font-bold w-80 text-center text-rose-700'>Sign In</h1>
                     <div className='flex gap-4'>
                         <FaGoogle className='hover:text-gray-300 text-rose-700 w-8 h-8' />
