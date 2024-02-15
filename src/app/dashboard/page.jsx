@@ -1,28 +1,48 @@
-// "use client"
+"use client"
 
-// import React, { useContext, useState } from 'react'
+import React, { useContext, useState } from 'react'
 
-// // components
+//components
+import HeaderDash from '../components/dashboard/header/HeaderDash'
+
 
 
 // // context
-// // export const dashboardContext = React.createContext()
+export const dashboardContext = React.createContext()
 
-// export default function Dashboard() {
-//   const [ test, setTest ] = useState("")
 
-//   return (
-//     <dashboardContext.Provider value={{test}}>
-  
 
-//     </dashboardContext.Provider>
-//   )
-// }
-
-import React from 'react'
 
 export default function page() {
+
+    const [ test, setTest ] = useState("Rahmoun")
+
+     // profile drop menu
+     const [ showProfileMenu, setShowProfileMenu ] = useState(false);
+     const [ showCurrentMenu, setShowCurrentMenu ] = useState(false);
+     const [ showAddMenu, setShowAddMenu ] = useState(false);
+
+     // show responsive header
+     const [ showResponsiveHeader, setShowResponsiveHeader ] = useState(false);
+
+     const contextElement = {
+      showProfileMenu,
+      setShowProfileMenu,
+      showCurrentMenu,
+      setShowCurrentMenu,
+      showAddMenu,
+      setShowAddMenu,
+      showResponsiveHeader,
+      setShowResponsiveHeader
+     }
+
   return (
-    <div>page</div>
+    <div className='w-full h-screen bg-primary '>
+      <dashboardContext.Provider value={contextElement}>
+        <HeaderDash />
+
+
+      </dashboardContext.Provider>
+    </div>
   )
 }
