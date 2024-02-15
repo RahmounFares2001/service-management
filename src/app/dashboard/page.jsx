@@ -13,7 +13,7 @@ export const dashboardContext = React.createContext()
 
 
 
-export default function Dashboard() {
+export default function Page() {
 
 
      // profile drop menu
