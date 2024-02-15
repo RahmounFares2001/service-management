@@ -70,12 +70,12 @@ export default function HeaderDash() {
 
         {/* header */}
 
-        <div className='flex justify-between px-20 lg:px-24 py-4'>
+        <div className='flex justify-between px-1 sm:px-8 md:px-20 lg:px-24 py-4'>
 
             <div className='flex gap-2 items-center cursor-pointer'>
                 <img src="./images/home/logo.jpg" alt="logo" 
                         className='w-10 h-10'/>
-                <h1 className='text-gray-300'>KYO CONSEIL</h1>
+                <h1 className='text-gray-300 text-sm sm:text-base'>KYO CONSEIL</h1>
             </div>
 
             {/* profile */}
