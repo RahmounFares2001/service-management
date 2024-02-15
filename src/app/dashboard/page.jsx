@@ -13,9 +13,8 @@ export const dashboardContext = React.createContext()
 
 
 
-export default function page() {
+export default function Dashboard() {
 
-    const [ test, setTest ] = useState("Rahmoun")
 
      // profile drop menu
      const [ showProfileMenu, setShowProfileMenu ] = useState(false);
