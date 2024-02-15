@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useContext, useState } from 'react'
 import { dashboardContext } from '@/app/dashboard/page';
 
