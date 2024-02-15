@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 
 //components
 import HeaderDash from '../components/dashboard/header/HeaderDash'
@@ -13,8 +13,7 @@ export const dashboardContext = React.createContext()
 
 
 
-export default function Page() {
-
+export default function Dashboard() {
 
      // profile drop menu
      const [ showProfileMenu, setShowProfileMenu ] = useState(false);
