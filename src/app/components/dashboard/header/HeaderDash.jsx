@@ -70,28 +70,28 @@ export default function HeaderDash() {
 
         {/* header */}
 
-        <div className='flex justify-between px-1 sm:px-8 md:px-20 lg:px-24 py-4'>
+        <div className='flex justify-between py-4 px-3 sm:px-8 md:px-20 lg:px-24 2xl:px-24'>
 
             <div className='flex gap-2 items-center cursor-pointer'>
                 <img src="./images/home/logo.jpg" alt="logo" 
-                        className='w-10 h-10'/>
-                <h1 className='text-gray-300 text-sm sm:text-base'>KYO CONSEIL</h1>
+                        className='w-10 h-10 2xl:w-14 2xl:h-14'/>
+                <h1 className='text-gray-300 text-sm sm:text-base 2xl:text-2xl'>KYO CONSEIL</h1>
             </div>
 
             {/* profile */}
             <div className='flex gap-8 items-center'>
-                <IoIosNotificationsOutline className='w-7 h-7 text-gray-300 hover:text-rose-700 cursor-pointer
+                <IoIosNotificationsOutline className='w-7 h-7 2xl:w-10 2xl:h-10 text-gray-300 hover:text-rose-700 cursor-pointer
                               hidden lg:block' />
 
                 <div className='relative hidden lg:block'>
                   <img src="./images/dashboard/header/profile.jpg" alt="profile" 
-                        className='rounded-full w-10 h-10 cursor-pointer' 
+                        className='rounded-full w-10 h-10 2xl:w-20 2xl:h-20 cursor-pointer' 
                         onClick={()=>{setShowProfileMenu(!showProfileMenu)}}/>
 
                     {/* menu drop down */}
                     {showProfileMenu && 
-                    <ul className='w-44 h-max bg-secondly text-gray-300 text-sm 
-                              absolute right-0 flex flex-col gap-2 py-3 '>
+                    <ul className='w-44 2xl:w-72 h-max bg-secondly text-gray-300 text-sm 
+                              absolute right-0 flex flex-col gap-2 py-3 2xl:text-2xl'>
                         <li className='flex flex-col items-center gap-1'>
                           <img src="./images/dashboard/header/profile.jpg" alt="profile" 
                                 className='rounded-full w-10 h-10 cursor-pointer' />
@@ -145,8 +145,8 @@ export default function HeaderDash() {
 
         {/* menu */}
 
-        <div className='text-gray-400 px-24 py-4 justify-between text-sm 2xl:text-base
-                  hidden lg:flex'>
+        <div className='text-gray-400 px-24 py-4 justify-between text-sm 2xl:text-2xl
+                  hidden lg:flex 2xl:flex-wrap 2xl:px-24'>
           {/* dashboard */}
           <Link href=''
                 className='flex gap-2 items-center hover:text-rose-700 cursor-pointer'>
@@ -160,17 +160,17 @@ export default function HeaderDash() {
                 onMouseLeave={()=> {setShowCurrentMenu(false)}}>
 
               <div className='flex gap-2 items-center hover:text-rose-700 cursor-pointer'>
-                <AiOutlineFundProjectionScreen className='w-5 h-5' />
+                <AiOutlineFundProjectionScreen className='w-5 h-5 2xl:w-10 2xl:h-10' />
                 <h1>Current Projects</h1>
                 {showCurrentMenu ? 
-                      <RiArrowDropUpLine  className='w-7 h-7' /> :
-                      <RiArrowDropDownLine className='w-7 h-7' /> }
+                      <RiArrowDropUpLine  className='w-7 h-7 2xl:w-10 2xl:h-10' /> :
+                      <RiArrowDropDownLine className='w-7 h-7 2xl:w-10 2xl:h-10' /> }
               </div>
 
               {/* Current menu Projects  */}
               {showCurrentMenu &&
               <ul className='w-max h-max bg-secondly text-gray-300 text-sm 
-                              absolute flex flex-col gap-2 py-1 '>
+                              absolute flex flex-col gap-2 py-1 2xl:text-2xl'>
                   {/* web dev current projects */}
                   <li className='flex items-center gap-3 cursor-pointer pt-1 
                                     hover:text-rose-700 hover:bg-primary py-2 px-7' >
@@ -193,16 +193,16 @@ export default function HeaderDash() {
               onMouseEnter={()=> {setShowAddMenu(true)}}
               onMouseLeave={()=> {setShowAddMenu(false)}}>
             <div className='flex gap-2 items-center hover:text-rose-700 cursor-pointer' >
-              <TiDocumentAdd className='w-5 h-5' />
+              <TiDocumentAdd className='w-5 h-5 2xl:w-10 2xl:h-10' />
               <h1>Add Project</h1>
               {showAddMenu ? 
-                      <RiArrowDropUpLine  className='w-7 h-7' /> :
-                      <RiArrowDropDownLine className='w-7 h-7' /> }
+                      <RiArrowDropUpLine  className='w-7 h-7 2xl:w-10 2xl:h-10' /> :
+                      <RiArrowDropDownLine className='w-7 h-7 2xl:w-10 2xl:h-10' /> }
             </div>
               
             {/* Current menu Projects  */}
             {showAddMenu &&
-              <ul className='w-max h-max bg-secondly text-gray-300 text-sm 
+              <ul className='w-max h-max bg-secondly text-gray-300 text-sm 2xl:text-2xl
                         absolute flex flex-col gap-2 py-1'
                    >
                   {/* web dev current projects */}
@@ -225,21 +225,21 @@ export default function HeaderDash() {
           {/* reserve appointment  */}
           <Link href=''
                 className='flex gap-2 items-center hover:text-rose-700 cursor-pointer'>
-              <RiReservedLine className='w-5 h-5' />
+              <RiReservedLine className='w-5 h-5 2xl:w-10 2xl:h-10' />
               <h1>Reserve Appointment</h1>
           </Link>
 
           {/* Portfolio  */}
           <Link href='https://kyo-conseil.com/portfolio/' target='_blank'
                 className='flex gap-2 items-center hover:text-rose-700 cursor-pointer'>
-              <BiShow className='w-5 h-5' />
+              <BiShow className='w-5 h-5 2xl:w-10 2xl:h-10' />
               <h1>Porfolio</h1>
           </Link>
 
           {/* settings  */}
           <Link href=''
                 className='flex gap-2 items-center hover:text-rose-700 cursor-pointer'>
-              <IoMdSettings className='w-5 h-5' />
+              <IoMdSettings className='w-5 h-5 2xl:w-10 2xl:h-10' />
               <h1>Settings</h1>
           </Link>
 

@@ -35,7 +35,7 @@ export default function Dashboard() {
      }
 
   return (
-    <div className='w-full h-screen bg-primary '>
+    <div className='w-full h-screen bg-forthly'>
       <dashboardContext.Provider value={contextElement}>
         <HeaderDash />
 
