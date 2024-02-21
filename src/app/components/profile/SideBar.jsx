@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 
 // icons 
@@ -16,14 +16,20 @@ import { IoHomeOutline } from "react-icons/io5";
 import { IoMenu } from "react-icons/io5";
 
 
+// context
+import { profileContext } from '@/app/userAccount/page';
+
+
 
 export default function SideBar() {
 
-    const [ showMenu, setShowMenu ] = useState(true)
+    const { showMenu, setShowMenu } = useContext(profileContext);
 
   return (
-    <div className='w-3/12 h-dvh pt-5 lg:flex flex-col gap-10 bg-forthl bg-forthl bg-thirdly
-            hidden'>
+    <>
+    {showMenu ? <></> : 
+    <div className='w-10/12 sm:w-3/5 md:w-2/5 lg:w-3/12 h-dvh pt-5 flex-col gap-10 bg-forthly
+                absolute lg:relative top-0 left-0 z-10 hidden lg:flex'>
         
 
          {/* profile photo */}
@@ -38,41 +44,94 @@ export default function SideBar() {
         <ul className='flex flex-col text-gray-30 text-gray-300 font-bold'>
 
             {/* user account */}
-            <li className='flex gap-3 items-center pl-10 bg-gray-100 text-black py-3'>
+            <li className='flex gap-3 items-center pl-3 sm:pl-10 bg-gray-100 text-black py-3'>
                 <FaRegUser />
                 <h1>User Account</h1>
             </li>
 
             {/* bank cards */}
-            <li className='flex gap-3 items-center pl-10 hover:bg-gray-100 hover:text-black py-3'>
+            <li className='flex gap-3 items-center pl-3 sm:pl-10 hover:bg-gray-100 hover:text-black py-3'>
                 <CiCreditCard1 />
                 <h1>Bank Cards</h1>
             </li>
 
             {/* security */}
-            <li className='flex gap-3 items-center pl-10 hover:bg-gray-100 hover:text-black py-3'>
+            <li className='flex gap-3 items-center pl-3 sm:pl-10 hover:bg-gray-100 hover:text-black py-3'>
                 <GrSecure />
                 <h1>Security Settings</h1>
             </li>
 
             {/* logout */}
-            <li className='flex gap-3 items-center pl-10 hover:bg-gray-100 hover:text-black py-3'>
+            <li className='flex gap-3 items-center pl-3 sm:pl-10 hover:bg-gray-100 hover:text-black py-3'>
                 <FiLogOut />
                 <h1>Logout</h1>
             </li>
         </ul>
 
         <div className='flex justify-center font-bold'>
-        <div  className='flex justify-center items-center gap-5 bg-gray-300 hover:bg-gray-100 text-black py-3 rounded-md cursor-pointer
-                            w-4/5'>
+        <div  className='flex justify-center items-center gap-5 bg-gray-300 hover:bg-gray-100 text-black rounded-md cursor-pointer
+                            w-5/6 sm:w-4/5 py-3'>
             <IoHomeOutline className='text-black' />
             <span>Back to Home</span>
         </div>
         </div>
+    
+    </div> }
+
+    
+    {/* mobile */}
+
+    {showMenu &&
+    <div className='w-10/12 sm:w-3/5 md:w-2/5 lg:w-3/12 h-dvh pt-5 flex flex-col gap-10 bg-forthly
+                absolute lg:relative top-0 left-0 z-10 lg:hidden'>
         
 
-      
-        
-    </div>
+         {/* profile photo */}
+         <div className='flex flex-col gap-5 items-center'>
+          <img src="./images/dashboard/header/profile.jpg" alt="photo"
+              className='rounded-full w-20 h-20 cursor-pointer border-gray-300 border' />
+            <div className='flex flex-col gap-2'>
+              <h1 className='font-bold text-2xl pointer-events-none text-gray-300'>Rahmoun Fares</h1>
+            </div>
+        </div>
+
+        <ul className='flex flex-col text-gray-30 text-gray-300 font-bold'>
+
+            {/* user account */}
+            <li className='flex gap-3 items-center pl-3 sm:pl-10 bg-gray-100 text-black py-3'>
+                <FaRegUser />
+                <h1>User Account</h1>
+            </li>
+
+            {/* bank cards */}
+            <li className='flex gap-3 items-center pl-3 sm:pl-10 hover:bg-gray-100 hover:text-black py-3'>
+                <CiCreditCard1 />
+                <h1>Bank Cards</h1>
+            </li>
+
+            {/* security */}
+            <li className='flex gap-3 items-center pl-3 sm:pl-10 hover:bg-gray-100 hover:text-black py-3'>
+                <GrSecure />
+                <h1>Security Settings</h1>
+            </li>
+
+            {/* logout */}
+            <li className='flex gap-3 items-center pl-3 sm:pl-10 hover:bg-gray-100 hover:text-black py-3'>
+                <FiLogOut />
+                <h1>Logout</h1>
+            </li>
+        </ul>
+
+        <div className='flex justify-center font-bold'>
+        <div  className='flex justify-center items-center gap-5 bg-gray-300 hover:bg-gray-100 text-black rounded-md cursor-pointer
+                            w-5/6 sm:w-4/5 py-3'>
+            <IoHomeOutline className='text-black' />
+            <span>Back to Home</span>
+        </div>
+        </div>
+    
+    </div> }
+
+    </>
   )
 }
