@@ -20,8 +20,6 @@ export default function UserAccount() {
   const [ showMenu, setShowMenu ] = useState(false);
 
   
-  const width = window.innerWidth;
-
 
   const contextElement = {
     showMenu,
