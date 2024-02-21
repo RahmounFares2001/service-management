@@ -14,9 +14,7 @@
   font-family: Nunito, sans-serif;
 } */
 body{
-  /* background-color: #191a1c; */
-  background: -webkit-linear-gradient(0deg, #000000 0%, #520f0f 180%);
-
+  background-color: #191a1c;
 }
 
 /* body {

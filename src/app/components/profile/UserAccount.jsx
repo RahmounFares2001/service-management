@@ -1,57 +1,19 @@
-'use client'
-
-import React, { createContext, useState } from 'react'
-import SideBar from '../components/profile/SideBar'
+import React from 'react'
 
 
 // css 
 import styles from "./userAccount.module.css"
 
-// icons
-import { IoMenu } from "react-icons/io5";
-
-
-// context
-export const profileContext = createContext();
 
 
 export default function UserAccount() {
-
-  const [ showMenu, setShowMenu ] = useState(false);
-
-  
-
-  const contextElement = {
-    showMenu,
-    setShowMenu
-  }
-
-
   return (
-    <profileContext.Provider value={contextElement}>
+    <>
 
-    {showMenu && 
-    <div className='absolute top-0 right-0 w-screen h-screen bg-gray-200/90 z-10 lg:hidden'
-          onClick={()=> {setShowMenu(false)}}>
-    </div> }
-     
-
-
-    <div className='flex lg:flex-row lg:justify-normal lg:gap-24 bg-gray-100
-          font-mono h-dvh relative'>
-      <SideBar />
-      
-
-      <div className='flex justify-end lg:hidden absolute top-1 right-3'
-            onClick={()=> {setShowMenu(true)}}>
-        <IoMenu className='w-16 h-16' />
-      </div>
-      
-
-
-      <form action="" className='text-gray-30 text-black flex flex-col  lg:items-stretch gap-10 
-           w-full sm:px-10 md:px-20 lg:px-0 lg:w-6/12 pt-5 sm:pt-10 pb-20'>
-        <h1 className='text-3xl font-bold text-center sm:text-start'>User Account</h1>
+<form action="" className='text-black flex flex-col  lg:items-stretch gap-10 
+           w-full sm:px-10 md:px-20 lg:px-0 lg:w-7/12 pt-5 sm:pt-10 pb-20'> 
+        
+        <h1 className='text-3xl font-bold text-center sm:text-start text-gray-700'>User Account</h1>
 
         {/* form details */}
 
@@ -90,6 +52,9 @@ export default function UserAccount() {
               </li>
             </ul>
 
+            {/* adress */}
+            <h1 className='text-2xl font-bold text-gray-700 text-center lg:text-start'>Adress</h1>
+
              {/* lign 3 */}
             <ul className='flex flex-col sm:flex-row items-center gap-10'>
               {/* adress */}
@@ -113,7 +78,7 @@ export default function UserAccount() {
                 <li className={`${styles.inputBox} relative w-4/5 sm:w-1/2`}>
                   <input type="text" placeholder='' required='required'
                       className='py-2 pt-5 px-3 bg-gray-100 border border-gray-600 rounded-md w-full'/>
-                  <span className='absolute top-1 left-2 pointer-events-none duration-500'>Surname</span>
+                  <span className='absolute top-1 left-2 pointer-events-none duration-500'>City</span>
                 </li>
 
                 {/* State */}
@@ -154,7 +119,7 @@ export default function UserAccount() {
 
         </form>
 
-    </div>
-    </profileContext.Provider>
+
+    </>
   )
 }
