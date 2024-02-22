@@ -24,14 +24,17 @@ import { profileContext } from '@/app/profile/page';
 
 export default function SideBar() {
 
-  const { showMenu, btn, setBtn } = useContext(profileContext);
+  const { showMenu, setShowMenu ,btn, setBtn } = useContext(profileContext);
+  const activeBtn = (id) => {
+    return btn == id ? 'bg-gray-100 text-black' : ''
+  };
 
   return (
     <>
     {showMenu ? <></> : 
     <div className='w-10/12 sm:w-3/5 md:w-2/5 lg:w-3/1 lg:w-80 pt-5 flex-col gap-10 bg-forthly bg-rose-95 bg-whit
                 absolute lg:fixed top-0 left-0 z-10 hidden lg:flex shadow-2xl shadow-black
-                d rounded-r-sm h-screen '>
+                d rounded-r-sm h-screen'>
         
 
          {/* profile photo */}
@@ -46,21 +49,21 @@ export default function SideBar() {
         <ul className='flex flex-col text-gray-30 text-gray-300 font-bold'>
 
             {/* user account */}
-            <li className='flex gap-3 items-center pl-3 sm:pl-10 bg-gray-100 text-black py-3'
+            <li className={`flex gap-3 items-center pl-3 sm:pl-10 ${activeBtn('userAccount')} hover:bg-gray-100 hover:text-black py-3`}
                         onClick={()=> {setBtn("userAccount")}}>
                 <FaRegUser />
                 <h1>User Account</h1>
             </li>
 
             {/* bank cards */}
-            <li className='flex gap-3 items-center pl-3 sm:pl-10 hover:bg-gray-100 hover:text-black py-3'
+            <li className={`flex gap-3 items-center pl-3 sm:pl-10 ${activeBtn('bankCards')} hover:bg-gray-100 hover:text-black py-3`}
                         onClick={()=> {setBtn("bankCards")}}>
                 <CiCreditCard1 />
                 <h1>Bank Cards</h1>
             </li>
 
             {/* security */}
-            <li className='flex gap-3 items-center pl-3 sm:pl-10 hover:bg-gray-100 hover:text-black py-3'
+            <li className={`flex gap-3 items-center pl-3 sm:pl-10 ${activeBtn('security')} hover:bg-gray-100 hover:text-black py-3`}
                         onClick={()=> {setBtn("security")}}>
                 <GrSecure />
                 <h1>Security Settings</h1>
@@ -87,9 +90,9 @@ export default function SideBar() {
     {/* mobile */}
 
     {showMenu &&
-    <div className='w-10/12 sm:w-3/5 md:w-2/5 lg:w-3/12 h-full pt-5 flex-col gap-10 bg-forthly
-    absolute lg:relative top-0 left-0 z-30 lg:hidden flex shadow-2xl shadow-black
-    rounded-r-lg '>
+    <div className='w-10/12 sm:w-3/5 md:w-2/5 lg:w-3/12 pt-5 flex-col gap-10 bg-forthly
+    absolute lg:fixed top-0 left-0 z-30 lg:hidden flex shadow-2xl shadow-black
+    rounded-r-lg h-screen'>
         
 
          {/* profile photo */}
@@ -103,20 +106,27 @@ export default function SideBar() {
 
         <ul className='flex flex-col text-gray-30 text-gray-300 font-bold'>
 
+
             {/* user account */}
-            <li className='flex gap-3 items-center pl-3 sm:pl-10 bg-gray-100 text-black py-3'>
+            <li className={`flex gap-3 items-center pl-3 sm:pl-10 ${activeBtn('userAccount')} hover:bg-gray-100 hover:text-black py-3`}
+                    onClick={()=> {setBtn("userAccount");
+                                    setShowMenu(false)}}>
                 <FaRegUser />
                 <h1>User Account</h1>
             </li>
 
             {/* bank cards */}
-            <li className='flex gap-3 items-center pl-3 sm:pl-10 hover:bg-gray-100 hover:text-black py-3'>
+            <li className={`flex gap-3 items-center pl-3 sm:pl-10 ${activeBtn('bankCards')} hover:bg-gray-100 hover:text-black py-3`}
+                    onClick={()=> {setBtn("bankCards");
+                                    setShowMenu(false)}}>
                 <CiCreditCard1 />
                 <h1>Bank Cards</h1>
             </li>
 
             {/* security */}
-            <li className='flex gap-3 items-center pl-3 sm:pl-10 hover:bg-gray-100 hover:text-black py-3'>
+            <li className={`flex gap-3 items-center pl-3 sm:pl-10 ${activeBtn('security')} hover:bg-gray-100 hover:text-black py-3`}
+                    onClick={()=> {setBtn("security");
+                                    setShowMenu(false)}}>
                 <GrSecure />
                 <h1>Security Settings</h1>
             </li>

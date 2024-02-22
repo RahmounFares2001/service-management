@@ -17,6 +17,16 @@ export default function UserAccount() {
           pb-20 lg:pb-5
           border border-gray-700'> 
         
+        {/* mobile profile pic */}
+        <div className='flex justify-center gap-5 items-center'>
+          <img src="./images/dashboard/header/profile.jpg" alt="photo"
+              className='rounded-full w-16 h-16 sm:w-20 sm:h-20 cursor-pointer border-gray-300 border' />
+            <div className='flex flex-col gap-2'>
+              <h1 className='font-bold text-xl sm:text-2xl pointer-events-none text-gray-300'>Rahmoun Fares</h1>
+            </div>
+        </div>
+
+
         <h1 className='text-3xl font-bold text-center sm:text-start text-gray-300'>User Account</h1>
 
         {/* form details */}
@@ -43,14 +53,14 @@ export default function UserAccount() {
             <ul className='flex flex-col sm:flex-row items-center gap-10 text-gray-300'>
               {/* email */}
               <li className={`${styles.inputBox} relative w-4/5 sm:w-1/2`}>
-                  <input type="text" placeholder='' required='required'
+                  <input type="email" placeholder='' required='required'
                       className='py-2 pt-5 px-3 bg-forthly border border-gray-600 rounded-md w-full'/>
                   <span className='absolute top-1 left-2 pointer-events-none duration-500'>Email Adress</span>
               </li>
 
               {/* Phone */}
               <li className={`${styles.inputBox} relative w-4/5 sm:w-1/2`}>
-                  <input type="text" placeholder='' required='required'
+                  <input type="number" placeholder='' required='required'
                       className='py-2 pt-5 px-3 bg-forthly border border-gray-600 rounded-md w-full'/>
                   <span className='absolute top-1 left-2 pointer-events-none duration-500'>Phone Number</span>
               </li>
@@ -99,7 +109,7 @@ export default function UserAccount() {
               {/* Zip code */}
               <ul className='flex flex-col sm:flex-row items-center gap-10 text-gray-300'>
                 <li className={`${styles.inputBox} relative w-4/5 sm:w-2/6`}>
-                    <input type="text" placeholder='' required='required'
+                    <input type="number" placeholder='' required='required'
                         className='py-2 pt-5 px-3 bg-forthly border border-gray-600 
                           rounded-md w-full'/>
                     <span className='absolute top-1 left-2 pointer-events-none duration-500'>Zip code</span>
@@ -116,8 +126,9 @@ export default function UserAccount() {
                 </li>
               </ul>
 
-              <ul>
-                <button className='hover:bg-white px-20 py-2 text-xl bg-gray-300' >Submit</button>
+              {/* sumbit btn */}
+              <ul className='flex justify-center sm:justify-normal' >
+                <button className='hover:bg-white px-20 py-2 text-xl bg-gray-300' >Save</button>
               </ul>
               
 
