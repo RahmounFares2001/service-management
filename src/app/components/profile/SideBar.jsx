@@ -29,9 +29,9 @@ export default function SideBar() {
   return (
     <>
     {showMenu ? <></> : 
-    <div className='w-10/12 sm:w-3/5 md:w-2/5 lg:w-3/1 lg:w-80 pt-5 flex-col gap-10 bg-forthl bg-rose-950
-                absolute lg:relative top-0 left-0 z-10 hidden lg:flex shadow-2xl shadow-rose-700
-                d rounded-r-sm h-dvh'>
+    <div className='w-10/12 sm:w-3/5 md:w-2/5 lg:w-3/1 lg:w-80 pt-5 flex-col gap-10 bg-forthly bg-rose-95 bg-whit
+                absolute lg:fixed top-0 left-0 z-10 hidden lg:flex shadow-2xl shadow-black
+                d rounded-r-sm h-screen '>
         
 
          {/* profile photo */}
@@ -87,9 +87,9 @@ export default function SideBar() {
     {/* mobile */}
 
     {showMenu &&
-    <div className='w-10/12 sm:w-3/5 md:w-2/5 lg:w-3/12 h-dvh pt-5 flex-col gap-10 bg-forthl bg-rose-950
-    absolute lg:relative top-0 left-0 z-10 lg:hidden flex shadow-2xl shadow-rose-700
-    d rounded-r-lg'>
+    <div className='w-10/12 sm:w-3/5 md:w-2/5 lg:w-3/12 h-full pt-5 flex-col gap-10 bg-forthly
+    absolute lg:relative top-0 left-0 z-30 lg:hidden flex shadow-2xl shadow-black
+    rounded-r-lg '>
         
 
          {/* profile photo */}

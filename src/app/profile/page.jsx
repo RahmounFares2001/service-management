@@ -40,21 +40,23 @@ export default function Proifle() {
   return (
     <profileContext.Provider value={contextElement}>
 
+
     {/* overlay when mobile menu is showed */}
     {showMenu && 
-    <div className='absolute top-0 right-0 w-screen h-screen bg-gray-200/90 z-10 lg:hidden'
+    <div className='absolute top-0 right-0 w-screen h-screen bg-gray-200/90 z-20 lg:hidden'
           onClick={()=> {setShowMenu(false)}}>
     </div> }
 
     {/* Menu Icon */}
-    <div className='flex justify-end lg:hidden absolute top-1 right-3 z-20'
+    
+    <div className='flex justify-end lg:hidden absolute top-1 right-3 z-10'
             onClick={()=> {setShowMenu(true)}}>
-      <IoMenu className='w-16 h-16' />
-    </div>
+      <IoMenu className='w-16 h-16 text-gray-300' />
+    </div> 
 
      
 
-    <div className='flex lg:flex-row lg:justify-normal lg:gap-24 bg-gray-100
+    <div className='flex lg:flex-row lg:justify-center lg:pl-56 lg:gap-24 bg-gray-10 bg-forthly
           font-mono h-full relative pt-20 lg:pt-0'>
 
     
@@ -64,8 +66,6 @@ export default function Proifle() {
       {btn == "bankCards" && <BankCards />}
       {btn == "security" && <Security />}
       
-
-
       
 
     </div>
