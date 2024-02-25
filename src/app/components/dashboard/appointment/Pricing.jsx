@@ -54,7 +54,7 @@ export default function Pricing() {
         {/* card */}
         {cards.map((card, index) => (
         
-          <div className='flex flex-col pt-7 items-center justify-center lg:px-0'>
+          <div className='flex flex-col pt-7 items-center justify-center lg:px-0' key={index}>
 
           <div className='w-full md:w-5/6 2xl:w-4/5 h-96 sm:h-64 flex flex-col sm:flex-row rounded-2xl border border-primary'>
 
@@ -70,7 +70,7 @@ export default function Pricing() {
             <div className='w-full sm:w-9/12 h-4/6 sm:h-full bg-forthly flex items-center justify-center '>
               <ul className='grid grid-flow-col grid-rows-4 lg:grid-rows-2 lg:pl-8 2xl:pl-0 text-sm gap-3 sm:gap-7 pt-10  '>
                 {card.list.map((ull, index) => (
-                  <li className='underline underline-offset-8'>
+                  <li className='underline underline-offset-8' key={index} >
                   <FaCheck className='inline-block mr-2 text-rose-700 w-5 h-5' />{ull.l}</li>
                 ))}
               </ul>
