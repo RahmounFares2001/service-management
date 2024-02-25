@@ -90,7 +90,7 @@ export default function SideBar() {
     {/* mobile */}
 
     {showMenu &&
-    <div className='w-10/12 sm:w-3/5 md:w-2/5 lg:w-3/12 pt-5 flex-col gap-10 bg-forthly
+    <div className='w-10/12 sm:w-3/5 md:w-2/5 lg:w-3/12 pt-5 flex-col gap-10 bg-forthl bg-white
     absolute lg:fixed top-0 left-0 z-30 lg:hidden flex shadow-2xl shadow-black
     rounded-r-lg h-screen'>
         
@@ -100,11 +100,11 @@ export default function SideBar() {
           <img src="./images/dashboard/header/profile.jpg" alt="photo"
               className='rounded-full w-20 h-20 cursor-pointer border-gray-300 border' />
             <div className='flex flex-col gap-2'>
-              <h1 className='font-bold text-2xl pointer-events-none text-gray-300'>Rahmoun Fares</h1>
+              <h1 className='font-bold text-2xl pointer-events-none text-black'>Rahmoun Fares</h1>
             </div>
         </div>
 
-        <ul className='flex flex-col text-gray-30 text-gray-300 font-bold'>
+        <ul className='flex flex-col text-gray-30 text-black font-bold sm:text-xl'>
 
 
             {/* user account */}
@@ -114,6 +114,7 @@ export default function SideBar() {
                 <FaRegUser />
                 <h1>User Account</h1>
             </li>
+            <hr className='w-full bg-rose-700/20' />
 
             {/* bank cards */}
             <li className={`flex gap-3 items-center pl-3 sm:pl-10 ${activeBtn('bankCards')} hover:bg-gray-100 hover:text-black py-3`}
@@ -122,6 +123,7 @@ export default function SideBar() {
                 <CiCreditCard1 />
                 <h1>Bank Cards</h1>
             </li>
+            <hr className='w-full bg-rose-700/20' />
 
             {/* security */}
             <li className={`flex gap-3 items-center pl-3 sm:pl-10 ${activeBtn('security')} hover:bg-gray-100 hover:text-black py-3`}
@@ -130,19 +132,22 @@ export default function SideBar() {
                 <GrSecure />
                 <h1>Security Settings</h1>
             </li>
+            <hr className='w-full bg-rose-700/20' />
 
             {/* logout */}
             <li className='flex gap-3 items-center pl-3 sm:pl-10 hover:bg-gray-100 hover:text-black py-3'>
                 <FiLogOut />
                 <h1>Logout</h1>
             </li>
+            <hr className='w-full bg-rose-700/20' />
         </ul>
 
+        {/* back to Dashboard btn */}
         <div className='flex justify-center font-bold'>
-        <div  className='flex justify-center items-center gap-5 bg-gray-300 hover:bg-gray-100 text-black rounded-md cursor-pointer
-                            w-5/6 sm:w-4/5 py-3'>
-            <IoHomeOutline className='text-black' />
-            <span>Back to Home</span>
+        <div  className='flex justify-center items-center gap-5 bg-primary hover:bg-thirdly rounded-md cursor-pointer
+                            w-5/6 sm:w-4/5 py-3 sm:text-xl'>
+            <IoHomeOutline className='text-gray-300' />
+            <span className='text-gray-300'>Back to Dashboard</span>
         </div>
         </div>
     

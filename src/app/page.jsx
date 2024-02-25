@@ -10,7 +10,7 @@ import Services from "./components/home/servicess/Services";
 
 export default function Home() {
   return (
-    <div className="font-mono">
+    <div> 
       <Header />
       <Homee />
 

@@ -1,4 +1,6 @@
-import React, { useRef, useState } from 'react'
+'use client'
+
+import React, { useState } from 'react'
 
 
 // css
@@ -27,16 +29,14 @@ export default function BankCards() {
     */
 
   // make it visa numbers form XXXX XXXX ...
-  const inputRef = useRef(null);
+  const [inputValue, setInputValue] = useState('');
 
-  const formatInput = () => {
-   
-    let inputValue = inputRef.current.value.replace(/\D/g, '');
-    let formattedValue = inputValue.replace(/(\d{4})(?=\d)/g, '$1 ');
+  const formatInput = (event) => {
+    let newValue = event.target.value.replace(/\D/g, '');
+    newValue = newValue.replace(/(\d{4})(?=\d)/g, '$1 ');
 
-    inputRef.current.value = formattedValue;
+    setInputValue(newValue);
   };
-
 
 
   // Allow only numeric input in CCV
@@ -46,8 +46,8 @@ export default function BankCards() {
     setNumericPassword(numericValue);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault(); }
+  // hide card state
+  const [ hideCard, setHideCard ] = useState(false);
 
   return (
     <div className='text-black flex flex-col  lg:items-stretch gap-10 
@@ -70,13 +70,18 @@ export default function BankCards() {
 
             {/* input visa numbers */}
             <input type="text" placeholder='xxxx xxxx xxxx xxxx' 
-                  onChange={formatInput} maxlength="19" ref={inputRef}
+                  onChange={formatInput} maxlength="19" value={inputValue}
                   className='absolute bottom-14 left-10 w-4/6 px-2 py-2 text-center font-bold
                   bg-gray-100'/>
             
           </div>
-          <div className='text-xl text-gray-300 cursor-pointer hover:text-yellow-600'>Hide Card</div>
-        </div>
+          {hideCard ?
+              <div className='text-base sm:text-xl text-gray-300 cursor-pointer hover:text-yellow-600'
+                    onClick={()=> {setHideCard(false)}}>Show Card</div> :
+        
+              <div className='text-base sm:text-xl text-gray-300 cursor-pointer hover:text-yellow-600'
+                    onClick={()=> {setHideCard(true)}}>Hide Card</div> }
+       </div>
         
 
         {/* form */}
@@ -86,7 +91,7 @@ export default function BankCards() {
 
               {/* Expiration date */}
               <li className={`${styles.inputBox} relative w-4/5 sm:w-3/5 lg:w-4/5 flex `}>
-                <input type="number" placeholder='' required='required'
+                <input type="date" placeholder='' required='required'
                   className='py-2 pt-5 px-3 bg-forthly border border-gray-600 rounded-md w-full'/>
               <span className='absolute top-1 left-2 pointer-events-none duration-500'>Expiration date</span>
               </li>
@@ -117,12 +122,21 @@ export default function BankCards() {
 
                   {/* input visa numbers */}
                   <input type="text" placeholder='xxxx xxxx xxxx xxxx' 
-                        onChange={formatInput} maxlength="19" ref={inputRef}
+                        onChange={formatInput} maxlength="19" value={inputValue}
                         className='absolute bottom-8 sm:bottom-14 left-5 sm:left-10 w-4/5 sm:w-4/6 px-2 py-2 text-center font-bold
                         bg-gray-100 text-xs sm:text-base text-black'/>
                   
                 </div>
-                <div className='text-base sm:text-xl text-gray-300 cursor-pointer hover:text-yellow-600'>Hide Card</div>
+                
+                {hideCard ?
+                  <div className='text-base sm:text-xl text-gray-300 cursor-pointer hover:text-yellow-600'
+                  onClick={()=> {setHideCard(false)}}>Show Card</div> :
+        
+                  <div className='text-base sm:text-xl text-gray-300 cursor-pointer hover:text-yellow-600'
+                          onClick={()=> {setHideCard(true)}}>Hide Card</div>
+                }
+                
+                
               </div>
 
               {/* sumbit btn */}
