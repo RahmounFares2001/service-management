@@ -20,7 +20,7 @@ import Security from '../components/profile/Security';
 export const profileContext = createContext();
 
 
-export default function Proifle() {
+export default function Profile() {
 
   // menu state
   const [ showMenu, setShowMenu ] = useState(false);
@@ -48,7 +48,6 @@ export default function Proifle() {
     </div> }
 
     {/* Menu Icon */}
-    
     <div className='flex justify-end lg:hidden absolute top-1 right-3 z-10'
             onClick={()=> {setShowMenu(true)}}>
       <IoMenu className='w-16 h-16 text-gray-300' />

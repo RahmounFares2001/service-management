@@ -120,11 +120,11 @@ export default function HeaderDash() {
                         </a>
 
                         {/* Settings */}
-                        <li className='flex items-center gap-3 cursor-pointer pl-5 pt-1 
+                        <Link href='/profile' className='flex items-center gap-3 cursor-pointer pl-5 pt-1 
                                   hover:text-rose-700 hover:bg-primary py-2'>
                           <IoMdSettings className='w-5 h-5' />
                           <h1>Settings</h1>                        
-                        </li>
+                        </Link>
 
                         {/* Logout */}
                         <li className='flex items-center gap-3 cursor-pointer pl-5 pt-1 
@@ -315,7 +315,7 @@ export default function HeaderDash() {
           <hr className='w-full bg-rose-700/20' />
 
               {/* reserve appointment */}
-              <Link href=''
+              <Link href='/dashboard/appointment'
                   className={`flex gap-2 items-center cursor-pointer hover:bg-gray-300 hover:text-black
                   pl-3 sm:pl-6 py-2 ${clickedBtn('reserve')}`}
                         onClick={()=> {setBtn('reserve')}}>

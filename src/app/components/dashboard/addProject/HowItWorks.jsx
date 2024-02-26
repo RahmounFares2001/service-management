@@ -35,8 +35,10 @@ export default function HowItWorks() {
                 
                 {showBtn && 
                 <div className='absolute w-full h-full bg-rose-800 top-0 rounded-xl flex justify-center items-center'>
-                    <Link href='' className='px-8 py-2 text-xl text-gray-800 bg-gray-200 hover:bg-gray-300
-                            rounded-md shadow-md shadow-black border-2 border-white'>Place Order</Link>
+                    {/* <Link href='' className='px-8 py-2 text-xl text-gray-800 bg-gray-200 hover:bg-gray-300
+                            rounded-md shadow-md shadow-black border-2 border-white'>Place Order</Link> */}
+                    <Image src='/images/dashboard/appointment/reservation.jpg' width={400} height={400}
+                            className='w-full h-full' />
                 </div>  }
 
             </div>
