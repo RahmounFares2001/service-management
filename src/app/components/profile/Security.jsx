@@ -40,7 +40,7 @@ export default function Security() {
 
              {/* sumbit btn */}
             <li className='flex justify-center sm:justify-normal text-black' >
-                <button className='hover:bg-white px-20 py-2 text-xl bg-gray-300' >Save</button>
+                <button className='hover:bg-white px-20 py-2 text-xl bg-gray-300 rounded-md' >Save</button>
             </li>
           </ul>
       </form>

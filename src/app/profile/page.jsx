@@ -43,7 +43,7 @@ export default function Proifle() {
 
     {/* overlay when mobile menu is showed */}
     {showMenu && 
-    <div className='absolute top-0 right-0 w-screen h-screen bg-gray-200/90 z-20 lg:hidden'
+    <div className='fixed top-0 right-0 w-screen h-screen bg-gray-200/90 z-20 lg:hidden'
           onClick={()=> {setShowMenu(false)}}>
     </div> }
 

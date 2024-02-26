@@ -86,10 +86,10 @@ export default function Pricing() {
 
 
       <div className='flex justify-center items-center'>
-        <h1 className='px-20 py-5 text-4xl font-bold bg-primary my-20 rounded-md cursor-pointer
+        <h1 className='px-7 sm:px-20 py-3 sm:py-5 text-xl sm:text-4xl font-bold bg-primary my-20 rounded-md cursor-pointer
                   hover:bg-rose-700 group'>
               <FaShoppingCart className='inline-block text-rose-700 w-10 h-10 group-hover:text-white
-                    mr-5' />Place Order</h1>
+                    mr-3 sm:mr-5' />Place Order</h1>
 
       </div>
 

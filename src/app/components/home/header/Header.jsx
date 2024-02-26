@@ -64,7 +64,7 @@ export default function Header() {
 
         {/* responsive menu show */}
         {menuPressed && 
-          <div className=' bg-white left-0 top-0 h-full md:w-2/5 sm:w-3/6 w-10/12
+          <div className='bg-white left-0 top-0 h-full md:w-2/5 sm:w-3/6 w-10/12
                     flex flex-col gap-5 fixed'>
 
             {/* logo */}

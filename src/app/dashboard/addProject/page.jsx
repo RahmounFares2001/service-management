@@ -1,8 +1,8 @@
 import React from 'react'
 
 // components
-import HowItWorks from '@/app/components/dashboard/appointment/HowItWorks'
-import Pricing from '@/app/components/dashboard/appointment/Pricing'
+import HowItWorks from '/src//app/components/dashboard/addProject/HowItWorks'
+import Pricing from '/src//app/components/dashboard/addProject/Pricing'
 
 export default function AddProject() {
   return (

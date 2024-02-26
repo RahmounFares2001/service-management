@@ -128,7 +128,7 @@ export default function UserAccount() {
 
               {/* sumbit btn */}
               <ul className='flex justify-center sm:justify-normal' >
-                <button className='hover:bg-white px-20 py-2 text-xl bg-gray-300' >Save</button>
+                <button className='hover:bg-white px-20 py-2 text-xl bg-gray-300 rounded-md' >Save</button>
               </ul>
               
 

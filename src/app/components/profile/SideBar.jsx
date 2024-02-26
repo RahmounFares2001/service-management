@@ -18,7 +18,7 @@ import { IoMenu } from "react-icons/io5";
 
 // context
 import Link from 'next/link';
-import { profileContext } from '@/app/profile/page';
+import { profileContext } from '../../profile/page';
 
 
 
@@ -80,7 +80,7 @@ export default function SideBar() {
         <Link href='./dashboard' className='flex justify-center items-center gap-5 bg-gray-300 hover:bg-gray-100 text-black rounded-md cursor-pointer
                             w-5/6 sm:w-4/5 py-3'>
             <IoHomeOutline className='text-black' />
-            <span>Back to Home</span>
+            <span>Back to Dashboard</span>
         </Link>
         </div>
     
@@ -91,7 +91,7 @@ export default function SideBar() {
 
     {showMenu &&
     <div className='w-10/12 sm:w-3/5 md:w-2/5 lg:w-3/12 pt-5 flex-col gap-10 bg-forthl bg-white
-    absolute lg:fixed top-0 left-0 z-30 lg:hidden flex shadow-2xl shadow-black
+    fixed top-0 left-0 z-30 lg:hidden flex shadow-2xl shadow-black
     rounded-r-lg h-screen'>
         
 

@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useContext, useState } from 'react'
-import { dashboardContext } from '@/app/dashboard/layout';
 
 
 // icons
@@ -42,6 +41,7 @@ import { RiArrowDropUpLine } from "react-icons/ri";
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { dashboardContext } from '/src/app/dashboard/layout.jsx';
 
 
 
@@ -236,18 +236,18 @@ export default function HeaderDash() {
       
       {/* overlay responsive header */}
       {showResponsiveHeader &&
-      <div className='absolute w-screen h-screen top-0 bg-gray-200/50'
+      <div className='fixed w-screen h-screen top-0 bg-gray-200/50'
             onClick={()=> {setShowResponsiveHeader(false)}}></div>
       }
 
       {/* responsive header phone */}
       {showResponsiveHeader &&
-      <div className='absolute w-5/6 sm:w-3/5 md:w-3/6 h-full bg-white text-black top-0 left-0 pt-10
-                flex flex-col gap-7'>
+      <div className='fixed w-5/6 sm:w-3/5 md:w-3/6 h-full bg-white text-black top-0 left-0 pt-10
+                flex flex-col gap-7 z-50'>
         {/* profile pic */}
         <div className='flex gap-3 justify-center items-center'>
-            <img src="./images/dashboard/header/profile.jpg" alt="profile" 
-                                className='rounded-full w-10 h-10 cursor-pointer' />
+            <Image src="/images/dashboard/header/profile.jpg" alt="profile" 
+                        className='rounded-full w-10 h-10 cursor-pointer'  width={100} height={100} />
             <h1>Rahmoun Fares</h1>
         </div>
 
@@ -301,7 +301,7 @@ export default function HeaderDash() {
               </ul> }
 
           {/* Add projects */}
-          <Link href='/dashboard/addPorject'
+          <Link href='/dashboard/addProject'
                 className={`flex gap-2 items-center cursor-pointer hover:bg-gray-300 hover:text-black
                    pl-3 sm:pl-6 py-2 ${clickedBtn('add')}`} 
                    onClick={()=> {
