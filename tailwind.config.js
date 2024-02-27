@@ -17,6 +17,7 @@ module.exports = {
         'secondly' : '#252730',
         'thirdly' : '#0d0d0f',
         'forthly' : '#191a1c',
+  
       },
     },
   },

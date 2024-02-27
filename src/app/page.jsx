@@ -1,4 +1,6 @@
+'use client'
 
+import { useEffect, useState } from "react";
 // components
 import About from "./components/home/about/About";
 import Contact from "./components/home/contact/Contact";
@@ -9,6 +11,30 @@ import Homee from "./components/home/home/Homee.jsx"
 import Services from "./components/home/servicess/Services";
 
 export default function Home() {
+
+  // up page button
+  const [goUp, setGoUp] = useState(false);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: (0, 0), behavior: "smooth" });
+  };
+
+  useEffect(() => {
+     const onPageScroll = () => {
+       if (window.pageYOffset > 600) {
+         setGoUp(true);
+       } else {
+         setGoUp(false);
+       }
+     };
+     window.addEventListener("scroll", onPageScroll);
+ 
+     return () => {
+       window.removeEventListener("scroll", onPageScroll);
+     };
+   }, [])
+
+
   return (
     <div> 
       <Header />
@@ -22,6 +48,11 @@ export default function Home() {
 
       <Facts />
       <Contact />
+
+      {/* page up */}
+      <div
+          onClick={scrollToTop}
+          className={`scroll-up ${goUp ? "show-scroll" : ""}`} >^</div>
 
       <Footer />
     </div>

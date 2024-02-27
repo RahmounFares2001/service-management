@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Home() {
   return (
-    <section className='text-gray-300 flex gap-20 xl:gap-32 pt-20 justify-center items-center lg:pb-32 md:pb-36 sm:pb-48 pb-52' >
+    <section className='text-gray-300 flex gap-20 xl:gap-32 pt-20 lg:pt-14 justify-center items-center lg:pb-32 md:pb-36 sm:pb-48 pb-52' >
 
       {/* left */}
       <div className='flex flex-col gap-8 sm:gap-14 lg:gap-7 justify-center'>

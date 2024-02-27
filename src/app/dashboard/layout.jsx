@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 // components
 import HeaderDash from '../components/dashboard/HeaderDash'
@@ -32,15 +32,47 @@ export default function DashboardLayout({children}) {
       setShowResponsiveHeader
      }
 
+
+    // up page button
+     const [goUp, setGoUp] = useState(false);
+
+     const scrollToTop = () => {
+       window.scrollTo({ top: (0, 0), behavior: "smooth" });
+     };
+
+     useEffect(() => {
+        const onPageScroll = () => {
+          if (window.pageYOffset > 600) {
+            setGoUp(true);
+          } else {
+            setGoUp(false);
+          }
+        };
+        window.addEventListener("scroll", onPageScroll);
+    
+        return () => {
+          window.removeEventListener("scroll", onPageScroll);
+        };
+      }, [])
+
     return(
         <>
         <dashboardContext.Provider value={contextElement}>
 
             <HeaderDash />
 
-            <div className=' bg-primary'>
+            <div className=' bg-primary'
+                    onClick={()=> {setShowProfileMenu(false)}}>
                 {children}
             </div>
+
+             {/* page up */}
+            <div
+                onClick={scrollToTop}
+                className={`scroll-up ${goUp ? "show-scroll" : ""}`}
+                >^</div>
+
+
 
             <Footer />
 

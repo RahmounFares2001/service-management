@@ -97,7 +97,7 @@ export default function HeaderDash() {
                     {/* menu drop down */}
                     {showProfileMenu && 
                     <ul className='w-44 2xl:w-72 h-max bg-secondly text-gray-300 text-sm 
-                              absolute right-0 flex flex-col gap-2 py-3 2xl:text-2xl'>
+                              absolute right-0 flex flex-col gap-2 py-3 2xl:text-2xl z-30'>
                         <li className='flex flex-col items-center gap-1'>
                           <Image src="/images/dashboard/header/profile.jpg" alt="profile" 
                                 className='rounded-full w-10 h-10 cursor-pointer' width={100} height={100} />
@@ -152,7 +152,7 @@ export default function HeaderDash() {
         {/* menu */}
 
         <div className='text-gray-300 px-24 py-4 justify-between text-sm 2xl:text-2xl
-                  hidden lg:flex 2xl:flex-wrap 2xl:px-24 font-bold'>
+                  hidden lg:flex 2xl:flex-wrap 2xl:px-24 font-bold border-t border-b '> 
           {/* dashboard */}
           <Link href='/dashboard'
                 className={`flex gap-2 items-center hover:text-rose-700 cursor-pointer ${clickedBtnPc('dashboard')}`}
