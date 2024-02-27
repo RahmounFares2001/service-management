@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react";
+
 // components
 import About from "./components/home/about/About";
 import Contact from "./components/home/contact/Contact";

@@ -11,13 +11,13 @@ import { IoMenu } from "react-icons/io5";
 
 // components
 import UserAccount from '../components/profile/UserAccount';
-import { useStepContext } from '@mui/material';
 import BankCards from '../components/profile/BankCards';
 import Security from '../components/profile/Security';
+import Image from 'next/image';
 
 
 // context
-export const profileContext = createContext();
+export const profileContext = React.createContext();
 
 
 export default function Profile() {
@@ -37,6 +37,26 @@ export default function Profile() {
   }
 
 
+  // componentToRender
+  let componentToRender;
+
+  switch (btn) {
+    case "userAccount":
+      componentToRender = <UserAccount />;
+      break;
+
+    case "bankCards":
+      componentToRender = <BankCards />;
+      break;
+
+    case "security":
+      componentToRender = <Security />;
+      break;
+
+    default:
+      componentToRender = null;
+  }
+
   return (
     <profileContext.Provider value={contextElement}>
 
@@ -55,8 +75,8 @@ export default function Profile() {
 
     {/* kyo logo on mobile */}
     <div className='flex items-center gap-2 sm:gap-3 absolute top-4 sm:top-3 left-3 z-10 lg:hidde'>
-      <img src="./images/home/logo.jpg" alt="KYO" 
-            className='w-10 h-10 sm:w-14 sm:h-14'/>
+      <Image src="/images/home/logo.jpg" alt="KYO" 
+            className='w-10 h-10 sm:w-14 sm:h-14' width={200} height={200} />
       <h1 className='text-gray-300 sm:text-xl'>KYO Conseil</h1>
     </div>
 
@@ -68,9 +88,9 @@ export default function Profile() {
     
       <SideBar />
 
-      {btn == "userAccount" && <UserAccount />}
-      {btn == "bankCards" && <BankCards />}
-      {btn == "security" && <Security />}
+      {/* other components */}
+      {componentToRender}
+
       
       
 
