@@ -2,30 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-} */
 
-
-/* @import url('https://fonts.googleapis.com/css?family=Noto Sans');
-*{
-  font-family: Nunito, sans-serif;
-} */
 body{
   background-color: #191a1c;
 }
 
-/* body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */
 
 
 
@@ -35,24 +16,10 @@ body{
 @media (min-width: 1280px) { ... } */
 
 
-/* Dashboard  */
 
-/* Header */
-@media screen and (min-width : 768px ) and (max-width : 1024px) {
-  .personIcon{
-    width: 20px;
-    height: 20px;
-  }
-  .logoutIcon{
-    width: 20px;
-    height: 20px;
-  }
-}
 
 
 /* sign */
-
-
 
 /* side bare */
 .sideBarBtn:hover {
@@ -63,10 +30,9 @@ body{
 }
 
 
-
 html{
   scrollbar-width: thin;
-  scrollbar-color: #0d0d0f #1f2127;
+  scrollbar-color: #9e1d1d #fcfcfc;
 }
 
 
@@ -95,3 +61,6 @@ html{
 .show-scroll {
   display: flex;
 }
+
+
+

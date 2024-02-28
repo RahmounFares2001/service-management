@@ -144,11 +144,11 @@ export default function SideBar() {
 
         {/* back to Dashboard btn */}
         <div className='flex justify-center font-bold'>
-        <div  className='flex justify-center items-center gap-5 bg-primary hover:bg-thirdly rounded-md cursor-pointer
+        <Link href='/dashboard'  className='flex justify-center items-center gap-5 bg-primary hover:bg-thirdly rounded-md cursor-pointer
                             w-5/6 sm:w-4/5 py-3 sm:text-xl'>
             <IoHomeOutline className='text-gray-300' />
             <span className='text-gray-300'>Back to Dashboard</span>
-        </div>
+        </Link>
         </div>
     
     </div> }

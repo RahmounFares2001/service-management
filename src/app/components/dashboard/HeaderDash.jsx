@@ -32,7 +32,8 @@ import { RiArrowDropUpLine } from "react-icons/ri";
 
 
 
-
+// css
+import styles from "./headerDash.module.css"
 
 
 
@@ -96,8 +97,8 @@ export default function HeaderDash() {
 
                     {/* menu drop down */}
                     {showProfileMenu && 
-                    <ul className='w-44 2xl:w-72 h-max bg-secondly text-gray-300 text-sm 
-                              absolute right-0 flex flex-col gap-2 py-3 2xl:text-2xl z-30'>
+                    <ul className={`${styles.fadeIn} w-44 2xl:w-72 h-max bg-secondly text-gray-300 text-sm 
+                              absolute right-0 flex flex-col gap-2 py-3 2xl:text-2xl z-30 `}>
                         <li className='flex flex-col items-center gap-1'>
                           <Image src="/images/dashboard/header/profile.jpg" alt="profile" 
                                 className='rounded-full w-10 h-10 cursor-pointer' width={100} height={100} />
@@ -152,7 +153,7 @@ export default function HeaderDash() {
         {/* menu */}
 
         <div className='text-gray-300 px-24 py-4 justify-between text-sm 2xl:text-2xl
-                  hidden lg:flex 2xl:flex-wrap 2xl:px-24 font-bold border-t border-b '> 
+                  hidden lg:flex 2xl:flex-wrap 2xl:px-24 font-bold border-t border-b bg-gray-700/30'> 
           {/* dashboard */}
           <Link href='/dashboard'
                 className={`flex gap-2 items-center hover:text-rose-700 cursor-pointer ${clickedBtnPc('dashboard')}`}
@@ -178,8 +179,8 @@ export default function HeaderDash() {
 
               {/* Current menu Projects  */}
               {showCurrentMenu &&
-              <ul className='w-max h-max bg-secondly text-gray-300 text-sm 
-                              absolute flex flex-col gap-2 py-1 2xl:text-2xl'>
+              <ul className={`${styles.fadeIn} w-max h-max bg-secondly text-gray-300 text-sm 
+                              absolute flex flex-col gap-2 py-1 2xl:text-2xl transition-opacity duration-1000`}>
                   {/* web dev current projects */}
                   <li className='flex items-center gap-3 cursor-pointer pt-1 
                                     hover:text-rose-700 hover:bg-primary py-2 px-7' >
@@ -194,6 +195,7 @@ export default function HeaderDash() {
                     <h1>Mobile Dev</h1>
                   </li>
               </ul> }
+
               
           </div>
 
@@ -259,7 +261,8 @@ export default function HeaderDash() {
           <Link href='/dashboard'
                 className={`flex gap-2 items-center cursor-pointer hover:bg-gray-300 hover:text-black
                   pl-3 sm:pl-6 py-2 ${clickedBtn('dashboard')}`}
-                onClick={()=>{ setBtn('dashboard')}}>
+                onClick={()=>{ setBtn('dashboard');
+                          setShowResponsiveHeader(false)}}>
               <RxDashboard className='w-5 h-5' />
               <h1>Dashboard</h1>
           </Link>
@@ -271,7 +274,8 @@ export default function HeaderDash() {
                     onClick={()=> {
                               setShowCurrentMenu(!showCurrentMenu);
                               setShowAddMenu(false);
-                              setBtn('current')}}>
+                              setBtn('current');
+                              setShowResponsiveHeader(false)}}>
               <AiOutlineFundProjectionScreen className='w-5 h-5' />
               <h1>Current Projects</h1>
               {showCurrentMenu ? 
@@ -285,7 +289,8 @@ export default function HeaderDash() {
               <ul className='flex flex-col gap-2 pl-10' >
                   {/* web dev current projects */}
                   <li className='flex items-center gap-3 cursor-pointer hover:bg-gray-300 hover:text-black
-                                pl-4 py-1' >
+                                pl-4 py-1' 
+                          onClick={()=> {setShowResponsiveHeader(false)}}>
                     <CgWebsite />
                     <h1>Web Dev</h1>
                   </li>
@@ -293,7 +298,8 @@ export default function HeaderDash() {
 
                   {/* mobile dev current projects */}
                   <li className='flex items-center gap-3 cursor-pointer hover:bg-gray-300 hover:text-black
-                                pl-4 py-1' >
+                                pl-4 py-1' 
+                          onClick={()=> {setShowResponsiveHeader(false)}}>
                     <FaMobileScreen />
                     <h1>Mobile Dev</h1>
                   </li>
@@ -307,7 +313,8 @@ export default function HeaderDash() {
                    onClick={()=> {
                               setShowAddMenu(!showAddMenu);
                               setShowCurrentMenu(false);
-                              setBtn('add')}}>
+                              setBtn('add');
+                              setShowResponsiveHeader(false)}}>
               <TiDocumentAdd className='w-5 h-5' />
               <h1>Add Projects</h1>
           
@@ -318,7 +325,8 @@ export default function HeaderDash() {
               <Link href='/dashboard/appointment'
                   className={`flex gap-2 items-center cursor-pointer hover:bg-gray-300 hover:text-black
                   pl-3 sm:pl-6 py-2 ${clickedBtn('reserve')}`}
-                        onClick={()=> {setBtn('reserve')}}>
+                        onClick={()=> {setBtn('reserve')
+                        setShowResponsiveHeader(false)}}>
                 <RiReservedLine className='w-5 h-5' />
                 <h1>Reserve Appointment</h1>
               </Link>
@@ -328,7 +336,8 @@ export default function HeaderDash() {
               <a href='https://kyo-conseil.com/portfolio/' target='_blank'
                   className={`flex gap-2 items-center cursor-pointer hover:bg-gray-300 hover:text-black
                   pl-3 sm:pl-6 py-2 ${clickedBtn('portfolio')}`}
-                      onClick={()=> {setBtn('portfolio')}} >
+                      onClick={()=> {setBtn('portfolio');
+                      setShowResponsiveHeader(false)}} >
                 <BiShow className='w-5 h-5' />
                 <h1>Portfolio</h1>
               </a>
@@ -338,7 +347,8 @@ export default function HeaderDash() {
               <Link href='/profile'
                   className={`flex gap-2 items-center cursor-pointer hover:bg-gray-300 hover:text-black
                   pl-3 sm:pl-6 py-2 ${clickedBtn('settings')}`}
-                      onClick={()=> { setBtn('settings')}}>
+                      onClick={()=> { setBtn('settings');
+                      setShowResponsiveHeader(false)}}>
                 <IoMdSettings className='w-5 h-5' />
                 <h1>Settings</h1>
               </Link>

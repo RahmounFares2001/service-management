@@ -37,7 +37,7 @@ export default function Profile() {
   }
 
 
-  // componentToRender
+  // component to render
   let componentToRender;
 
   switch (btn) {

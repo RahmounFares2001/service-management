@@ -6,6 +6,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 
+import { MdOutlineBorderColor } from "react-icons/md";
+import { SiCodereview } from "react-icons/si";
+import { FaPaypal } from "react-icons/fa";
+
 
 export default function HowItWorks() {
 
@@ -14,95 +18,67 @@ export default function HowItWorks() {
     const [showBtn2, setShowBtn2] = useState(false)
     const [showBtn3, setShowBtn3] = useState(false)
 
-  return (
-    <div className='w-full flex items-center justify-center flex-col gap-10 px-3 sm:px-2 md:px-5 lg:px-24 2xl:px-72 pt-10'>
+    // cards data
+    const cards = [
+        {
+            id: 1,
+            title: '01 Place Order',
+            dt: 'Ready to proceed? Head to our secure checkout. Provide project details, share your vision...',
+            icon : MdOutlineBorderColor
+        },
+        {
+            id: 2,
+            title: '02 Wait for approve',
+            dt: 'Request is pending approval. will notify you once the approval process is complete...',
+            icon : SiCodereview
 
-        <div className='flex flex-col items-center gap-3 text-center'>
-            <h1 className='text-4xl font-bold'>How it works</h1>
+        },
+        {
+            id: 3,
+            title: '03 Payement',
+            dt: 'Complete your payment securely to finalize your order. Thank you for choosing our services!',
+            icon : FaPaypal
+
+        }
+    ]
+  return (
+    <div className='w-full flex items-center justify-center flex-col gap-14
+         px-3 sm:px-2 md:px-5 lg:px-5 xl:px-10 2xl:px-72 pt-10 '>
+
+        <div className='flex flex-col items-center gap-3 text-center pt-5 sm:pt-10'>
+            <h1 className='text-3xl sm:text-4xl font-bold'>How it works</h1>
             <hr className='w-20 border-2 border-rose-700' />
         </div>
 
         {/* cards */}
-        <div className='w-full flex flex-col gap-14 lg:px-10 xl:px-20'>
-            {/* 1 */}
-            <div className={`w-full h-full sm:h-72 md:h-96 flex flex-col  sm:flex-row  shadow-xl shadow-rose-70 shadow-black/80
-                 bg-gray-200 relative border-2 border-black `}
-                    onMouseEnter={()=> {setShowBtn(true)}}
-                    onMouseLeave={()=> {setShowBtn(false)}}
-                    onClick={()=> {setShowBtn(true)}} >
-                <Image src='/images/dashboard/appointment/reservation.jpg' width={400} height={400}
-                        className='w-full sm:w-1/2 h-1/2 sm:h-full sm:rounded-tr-full border-t-2 border-r-2 border-black' />
+        <div className='flex flex-col lg:flex-row w-full h-full gap-10 lg:justify-normal justify-center
+                    items-center '>
 
-                <div className='flex flex-col gap-5 h-1/2 sm:h-full w-full items-center justify-center sm:justify-normal sm:w-1/2 pt-3 sm:pt-10 md:pt-20 text-black'>
-                    <h1 className='font-bold text-2xl sm:text-4xl lg:text-5xl'>01 Place Order</h1>
-                    <h1 className='px-5 pb-5 w-full text-sm sm:text-base'>Ready to proceed? Head to our secure checkout. Provide project details, share your vision...</h1>
-                </div>
+            {cards.map((card, index) => (
+                <div className='w-full sm:w-4/5 md:w-3/5 lg:w-1/3 h-full flex items-center gap-3 hover:bg-gray-700 bg-gray-700/50 p-1 rounded-xl cursor-pointer group transition-colors duration-1000'>
+                
+                    <div className='bg-primary p-2 sm:p-3 h-full border rounded-xl flex justify-center items-center
+                             group-hover:bg-gray-200/60 border-rose-700'>
+                        {React.createElement(card.icon, { className: 'text-rose-700 w-10 h-10 sm:w-16 sm:h-16 lg:w-10 lg:h-10 xl:w-16 xl:h-16 transition-colors duration-500' })}
+                    </div>
 
-                {showBtn && 
-                    <div className='absolute w-full h-full bg-black/80 z-10'>
-                    </div> }
-
-                {showBtn &&
-                <div className='z-20 absolute w-full h-full rounded-xl shadow-white flex justify-center items-center' >
-                    <Link href='' className='px-10 py-3 bg-gray-300 text-black rounded-xl'>Place Order</Link>
-
-                </div> }
-            </div>
-
-            {/* 2 */}
-            <div className={`w-full h-full sm:h-72 md:h-96 flex flex-col sm:flex-row-reverse  shadow-xl shadow-rose-70 shadow-black/80
-                 bg-gray-200 relative border-2 border-black `}
-                    onMouseEnter={()=> {setShowBtn2(true)}}
-                    onMouseLeave={()=> {setShowBtn2(false)}}
-                    onClick={()=> {setShowBtn2(true)}} >
-                <Image src='/images/dashboard/appointment/reservation.jpg' width={400} height={400}
-                        className='w-full sm:w-1/2 h-1/2 sm:h-full sm:rounded-tl-full border-t-2 border-l-2 border-black' />
-
-                <div className='flex flex-col gap-5 h-1/2 sm:h-full w-full items-center justify-center sm:justify-normal sm:w-1/2 pt-3 sm:pt-10 md:pt-20 text-black'>
-                    <h1 className='font-bold text-2xl sm:text-4xl xl:text-5xl text-nowrap sm:pl-6 xl:pl-10'>02 Wait for approve</h1>
-                    <h1 className='px-5 pb-5 w-full text-sm sm:text-base'> Request is pending approval. will notify you once the approval process is complete...</h1>
-                </div>
-
-                {showBtn2 && 
-                    <div className='absolute w-full h-full bg-black/80 z-10'>
-                    </div> }
-
-                {showBtn2 &&
-                <div className='z-20 absolute w-full h-full rounded-xl shadow-white flex justify-center items-center' >
-                    <Link href='' className='px-10 py-3 bg-gray-300 text-black rounded-xl'>Place Order</Link>
+                    <div className='flex flex-col w-4/5 gap-1 sm:gap-2 lg:gap-0'>
+                        <h1 className='text-xl sm:text-3xl lg:text-xl xl:text-2xl font-bold'>{card.title}</h1>
+                        <p className='text-xs tsm:text-sm'>{card.dt}</p>
+                    </div>
 
                 </div>
-                 }
-            </div>
-          
+            ))}
+            
+        </div>
 
-            {/* 3 */}
-            <div className={`w-full h-full sm:h-72 md:h-96 flex flex-col  sm:flex-row  shadow-xl shadow-rose-70 shadow-black/80
-                 bg-gray-200 relative border-2 border-black `}
-                    onMouseEnter={()=> {setShowBtn3(true)}}
-                    onMouseLeave={()=> {setShowBtn3(false)}}
-                    onClick={()=> {setShowBtn3(true)}} >
-                <Image src='/images/dashboard/appointment/reservation.jpg' width={400} height={400}
-                        className='w-full sm:w-1/2 h-1/2 sm:h-full sm:rounded-tr-full border-t-2 border-r-2 border-black' />
-
-                <div className='flex flex-col gap-5 h-1/2 sm:h-full w-full items-center justify-center sm:justify-normal sm:w-1/2 pt-3 sm:pt-10 md:pt-20 text-black'>
-                    <h1 className='font-bold text-2xl sm:text-4xl lg:text-5xl'>03 Payement</h1>
-                    <h1 className='px-5 pb-5 w-full text-sm sm:text-base'>Complete your payment securely to finalize your order. Thank you for choosing our services!</h1>
-                </div>
-
-                {showBtn3 && 
-                    <div className='absolute w-full h-full bg-black/80 z-10'>
-                    </div> }
-
-                {showBtn3 &&
-                <div className='z-20 absolute w-full h-full rounded-xl shadow-white flex justify-center items-center' >
-                    <Link href='' className='px-10 py-3 bg-gray-300 text-black rounded-xl'>Place Order</Link>
-
-                </div>   }
+        <div className='flex flex-col justify-center items-center gap-3 lg:gap-5 pt-5 sm:pt-10 pb-8 sm:pb-14'>
+            <h1 className='text-center sm:text-start sm:text-2xl md:text-3xl lg:text-4xl font-bold'>Plan your business strategy with Our Experts</h1>
+            <hr className='w-3/5 border-2 border-rose-700' />
+        </div>
+        
 
            
-            </div>
-        </div>
   </div>
   )
 }

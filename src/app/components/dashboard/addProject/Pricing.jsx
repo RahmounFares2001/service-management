@@ -77,7 +77,7 @@ export default function Pricing() {
             </div>
 
             <div className='w-full sm:w-1/12 h-1/6 sm:h-full bg-forthl bg-zinc-800 border-l border-primary rounded-b-2xl sm:rounded-l-none sm:rounded-r-2xl
-            flex justify-center items-center hover:bg-forthly/50 cursor-pointer'>
+            flex justify-center items-center hover:bg-forthly/50 cursor-pointer transition-colors duration-500'>
               <FaShoppingCart className='w-8 h-8 text-rose-700 my-2 sm:my-0' />
             </div>
           </div>
@@ -87,9 +87,9 @@ export default function Pricing() {
 
       <div className='flex justify-center items-center'>
         <h1 className='px-7 sm:px-20 py-3 sm:py-5 text-xl sm:text-4xl font-bold bg-primary my-20 rounded-md cursor-pointer
-                  hover:bg-rose-700 group'>
+                  hover:bg-rose-700 group transition-colors duration-500'>
               <FaShoppingCart className='inline-block text-rose-700 w-10 h-10 group-hover:text-white
-                    mr-3 sm:mr-5' />Place Order</h1>
+                    mr-3 sm:mr-5 transition-colors duration-500' />Place Order</h1>
 
       </div>
 
