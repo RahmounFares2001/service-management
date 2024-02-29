@@ -210,7 +210,7 @@ export default function HeaderDash() {
           </Link>
 
           {/* reserve appointment  */}
-          <Link href=''
+          <Link href='/dashboard/appointment'
                 className={`flex gap-2 items-center hover:text-rose-700 cursor-pointer ${clickedBtnPc('reserve')}`}
                 onClick={()=> {setBtn('reserve')}}>
               <RiReservedLine className='w-5 h-5 2xl:w-10 2xl:h-10' />

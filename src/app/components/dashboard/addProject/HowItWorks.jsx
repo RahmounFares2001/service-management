@@ -43,7 +43,7 @@ export default function HowItWorks() {
     ]
   return (
     <div className='w-full flex items-center justify-center flex-col gap-14
-         px-3 sm:px-2 md:px-5 lg:px-5 xl:px-10 2xl:px-72 pt-10 '>
+         px-3 sm:px-2 md:px-5 lg:px-5 xl:px-10 2xl:px-72 pt-10'>
 
         <div className='flex flex-col items-center gap-3 text-center pt-5 sm:pt-10'>
             <h1 className='text-3xl sm:text-4xl font-bold'>How it works</h1>
@@ -55,7 +55,8 @@ export default function HowItWorks() {
                     items-center '>
 
             {cards.map((card, index) => (
-                <div className='w-full sm:w-4/5 md:w-3/5 lg:w-1/3 h-full flex items-center gap-3 hover:bg-gray-700 bg-gray-700/50 p-1 rounded-xl cursor-pointer group transition-colors duration-1000'>
+                <div className='w-full sm:w-4/5 md:w-3/5 lg:w-1/3 h-full flex items-center gap-3 hover:bg-gray-700 bg-gray-700/50 p-1 rounded-xl cursor-pointer group transition-colors duration-1000'
+                        key={index}>
                 
                     <div className='bg-primary p-2 sm:p-3 h-full border rounded-xl flex justify-center items-center
                              group-hover:bg-gray-200/60 border-rose-700'>

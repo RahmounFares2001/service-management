@@ -19,6 +19,7 @@ import { IoMenu } from "react-icons/io5";
 // context
 import Link from 'next/link';
 import { profileContext } from '../../profile/page';
+import Image from 'next/image';
 
 
 
@@ -97,7 +98,7 @@ export default function SideBar() {
 
          {/* profile photo */}
          <div className='flex flex-col gap-5 items-center'>
-          <img src="./images/dashboard/header/profile.jpg" alt="photo"
+          <Image width={400} height={400} src="/images/dashboard/header/profile.jpg" alt="photo"
               className='rounded-full w-20 h-20 cursor-pointer border-gray-300 border' />
             <div className='flex flex-col gap-2'>
               <h1 className='font-bold text-2xl pointer-events-none text-black'>Rahmoun Fares</h1>

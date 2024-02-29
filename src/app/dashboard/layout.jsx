@@ -67,11 +67,7 @@ export default function DashboardLayout({children}) {
             </div>
 
              {/* page up */}
-            <div
-                onClick={scrollToTop}
-                className={`scroll-up ${goUp ? "show-scroll" : ""}`}
-                >^</div>
-
+            <div onClick={scrollToTop} className={`scroll-up ${goUp ? "show-scroll" : ""}`}>^</div>
 
 
             <Footer />

@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react'
 
@@ -35,7 +36,7 @@ export default function Header() {
 
       {/* logo */}
       <div className='flex items-center gap-2 cursor-pointer' >
-          <img src="/images/home/logo.jpg" alt="logo"
+          <Image width={400} height={400} src="/images/home/logo.jpg" alt="logo"
             className='md:w-10 md:h-10 w-10 h-10' />
             <h1 className='md:text-base text-sm'>KYO CONSEIL</h1>
       </div>
@@ -69,7 +70,7 @@ export default function Header() {
 
             {/* logo */}
             <div className='flex items-center justify-center gap-3 cursor-pointer pt-10' >
-                <img src="/images/home/logo.jpg" alt="logo"
+                <Image width={400} height={400} src="/images/home/logo.jpg" alt="logo"
                   className='md:w-14 md:h-14 w-10 h-10' />
                   <h1 className='text-black font-bold'>KYO CONSEIL</h1>
             </div>

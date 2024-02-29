@@ -3,6 +3,7 @@ import React from 'react'
 
 // css 
 import styles from "./userAccount.module.css"
+import Image from 'next/image'
 
 
 
@@ -19,7 +20,7 @@ export default function UserAccount() {
         
         {/* mobile profile pic */}
         <div className='flex justify-center gap-5 items-center lg:hidden'>
-          <img src="./images/dashboard/header/profile.jpg" alt="photo"
+          <Image width={400} height={400} src="/images/dashboard/header/profile.jpg" alt="photo"
               className='rounded-full w-16 h-16 sm:w-20 sm:h-20 cursor-pointer border-gray-300 border' />
             <div className='flex flex-col gap-2'>
               <h1 className='font-bold text-xl sm:text-2xl pointer-events-none text-gray-300'>Rahmoun Fares</h1>

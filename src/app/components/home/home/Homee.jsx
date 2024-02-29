@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 export default function Home() {
@@ -28,7 +29,7 @@ export default function Home() {
       </div>
 
       {/* right img */}
-      <img src="./images/home/homeLogo.jpg" alt="logo" 
+      <Image width={600} height={600} src="/images/home/homeLogo.jpg" alt="logo" 
           className='w-96 hidden lg:block'/>
         
     </section>

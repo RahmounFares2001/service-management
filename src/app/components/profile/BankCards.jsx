@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 
 // css
 import styles from "./userAccount.module.css";
+import Image from 'next/image';
 
 
 export default function BankCards() {
@@ -64,7 +65,7 @@ export default function BankCards() {
           <div className='bg-whit bg-slate-900 border border-gray-700 w-5/6 h-56 relative rounded-md
               shadow-black/80 shadow-2xl'>
 
-            <img src="./images/profile/masterCard.jpg" alt="masterCard" 
+            <img src="/images/profile/masterCard.jpg" alt="masterCard" 
                   className='w-16 h-10 absolute top-3 left-3' />
             <h1 className='text-gray-300 text-2xl font-bold absolute top-3 right-5' >Card</h1>
 
@@ -116,7 +117,7 @@ export default function BankCards() {
                 <div className='bg-whit bg-slate-900 border border-gray-700 w-5/6 h-56 relative rounded-md
                     shadow-black/80 shadow-2xl'>
 
-                  <img src="./images/profile/masterCard.jpg" alt="masterCard" 
+                  <Image width={400} height={400} src="/images/profile/masterCard.jpg" alt="masterCard" 
                         className='w-16 h-10 absolute top-3 left-3' />
                   <h1 className='text-gray-300 text-2xl font-bold absolute top-3 right-5' >Card</h1>
 

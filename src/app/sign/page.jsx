@@ -8,6 +8,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 
 // css
 import "./sign.css";
+import Image from 'next/image';
 
 
 export default function Sign() {
@@ -53,7 +54,7 @@ export default function Sign() {
             
             <div className='absolute sm:top-5 top-7 justify-center items-center gap-5 cursor-pointer
                             hidden lg:flex'>
-                <img src="./images/home/logo.jpg" alt="logo" 
+                <Image width={400} height={400} src="/images/home/logo.jpg" alt="logo" 
                     className=' w-10 h-10'/>
                 <h1 className='text-xl text-rose-700 font-bold'>KYO CONSEIL</h1>
             </div>

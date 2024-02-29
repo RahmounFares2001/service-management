@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 export default function About() {
@@ -21,7 +22,7 @@ export default function About() {
                         mt-5 sm:mt-0 hover:bg-gradient-to-br hover:from-gray-800 hover:to-black'
                     style={{backgroundColor: '#0d0d0e'}}>
                 <div className='flex items-center gap-2 cursor-pointer' >
-                    <img src="/images/home/logo.jpg" alt="logo"
+                    <Image width={400} height={400} src="/images/home/logo.jpg" alt="logo"
                         className='md:w-10 md:h-10 w-10 h-10' />
                         <h1 className='md:text-xl text-base'>KYO CONSEIL</h1>
                 </div>
@@ -35,7 +36,7 @@ export default function About() {
 
         {/* right img */}
         <div className='w-full lg:w-1/2  flex items-center justify-center'>
-          <img src="./images/home/about.jpg" alt="img"
+          <Image width={400} height={400} src="/images/home/about.jpg" alt="img"
                 className='w-11/12 h-96 rounded-tl-3xl' />
         </div>
        
