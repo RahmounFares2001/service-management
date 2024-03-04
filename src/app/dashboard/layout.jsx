@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react'
 import HeaderDash from '../components/dashboard/HeaderDash'
 import Footer from '../components/home/footer/Footer';
 
+
 // // context
 export const dashboardContext = React.createContext()
 
@@ -21,6 +22,19 @@ export default function DashboardLayout({children}) {
      // show responsive header
      const [ showResponsiveHeader, setShowResponsiveHeader ] = useState(false);
 
+    // show appoitment form 
+    const [showAppointmentForm, setShowAppointmentForm ] = useState(true);
+    // appointment
+    const [ componentNumber, setComponentNumber ] = useState(1);
+
+    // appointment form values
+    const [ typeAppointment, setTypeAppointment ] = useState('');
+    const [ dateAppointment, setDateAppointment ] = useState('');
+    const [ informationsAppointment,  setInformationsAppointment ] = useState('');
+
+ 
+
+
      const contextElement = {
       showProfileMenu,
       setShowProfileMenu,
@@ -29,7 +43,18 @@ export default function DashboardLayout({children}) {
       showAddMenu,
       setShowAddMenu,
       showResponsiveHeader,
-      setShowResponsiveHeader
+      setShowResponsiveHeader,
+      componentNumber,
+      setComponentNumber,
+
+      showAppointmentForm,
+      setShowAppointmentForm,
+      typeAppointment,
+      setTypeAppointment,
+      dateAppointment,
+      setDateAppointment,
+      informationsAppointment,
+      setInformationsAppointment
      }
 
 
@@ -61,7 +86,7 @@ export default function DashboardLayout({children}) {
 
             <HeaderDash />
 
-            <div className=' bg-primary'
+            <div className='bg-forthly font-mono'
                     onClick={()=> {setShowProfileMenu(false)}}>
                 {children}
             </div>

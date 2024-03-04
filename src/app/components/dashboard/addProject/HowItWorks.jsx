@@ -51,15 +51,17 @@ export default function HowItWorks() {
         </div>
 
         {/* cards */}
-        <div className='flex flex-col lg:flex-row w-full h-full gap-10 lg:justify-normal justify-center
+        <div className='flex flex-col lg:flex-row w-full h-full gap-5 sm:gap-8 lg:gap-5 xl:gap-10 lg:justify-normal justify-center
                     items-center '>
 
             {cards.map((card, index) => (
-                <div className='w-full sm:w-4/5 md:w-3/5 lg:w-1/3 h-full flex items-center gap-3 hover:bg-gray-700 bg-gray-700/50 p-1 rounded-xl cursor-pointer group transition-colors duration-1000'
+                <div className='w-full sm:w-4/5 md:w-3/5 lg:w-1/3 h-full flex items-center gap-3 
+                bg-gray-700 hover:bg-forthly border rounded-xl cursor-pointer group transition-colors duration-500
+                p-3'
                         key={index}>
                 
-                    <div className='bg-primary p-2 sm:p-3 h-full border rounded-xl flex justify-center items-center
-                             group-hover:bg-gray-200/60 border-rose-700'>
+                    <div className='group-hover:bg-forthly p-2 sm:p-3 h-full border rounded-xl flex justify-center items-center
+                             bg-gray-400 border-rose-700'>
                         {React.createElement(card.icon, { className: 'text-rose-700 w-10 h-10 sm:w-16 sm:h-16 lg:w-10 lg:h-10 xl:w-16 xl:h-16 transition-colors duration-500' })}
                     </div>
 

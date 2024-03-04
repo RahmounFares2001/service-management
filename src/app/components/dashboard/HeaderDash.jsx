@@ -72,11 +72,11 @@ export default function HeaderDash() {
 
 
   return (
-    <div className='bg-primary'>
+    <div className='bg-forthly'>
 
         {/* header */}
 
-        <div className='flex justify-between py-4 px-3 sm:px-8 md:px-20 lg:px-24 2xl:px-24'>
+        <div className='flex justify-between py-4 px-3 sm:px-8 md:px-20 lg:px-10  2xl:px-24'>
 
             <div className='flex gap-2 items-center cursor-pointer'>
                 <Image src="/images/home/logo.jpg" alt="logo" 
@@ -106,14 +106,14 @@ export default function HeaderDash() {
                         </li>
 
                         {/* list */}
-                        <li className='flex items-center gap-3 cursor-pointer pl-5 pt-1 
+                        <Link href='/profile' className='flex items-center gap-3 cursor-pointer pl-5 pt-1 
                                   hover:text-rose-700 hover:bg-primary py-2'>
                           <MdOutlinePersonOutline className='w-5 h-5' />
                           <h1>My Profile</h1>                        
-                        </li>
+                        </Link>
 
                         {/* Blog */}
-                        <a  href='https://www.kyo-conseil.com/kyo-blog/'
+                        <a  href='https://www.kyo-conseil.com/kyo-blog/' target='_blank'
                               className='flex items-center gap-3 cursor-pointer pl-5 pt-1 
                                   hover:text-rose-700 hover:bg-primary py-2'>
                           <SiBloglovin className='w-5 h-5' />
@@ -152,8 +152,8 @@ export default function HeaderDash() {
 
         {/* menu */}
 
-        <div className='text-gray-300 px-24 py-4 justify-between text-sm 2xl:text-2xl
-                  hidden lg:flex 2xl:flex-wrap 2xl:px-24 font-bold border-t border-b bg-gray-700/30'> 
+        <div className='text-gray-300 px-10 py-4 justify-between text-s 2xl:text-2xl
+                  hidden lg:flex 2xl:flex-wrap 2xl:px-24 font-bold border-t border-b bg-forthly'> 
           {/* dashboard */}
           <Link href='/dashboard'
                 className={`flex gap-2 items-center hover:text-rose-700 cursor-pointer ${clickedBtnPc('dashboard')}`}
@@ -180,10 +180,11 @@ export default function HeaderDash() {
               {/* Current menu Projects  */}
               {showCurrentMenu &&
               <ul className={`${styles.fadeIn} w-max h-max bg-secondly text-gray-300 text-sm 
-                              absolute flex flex-col gap-2 py-1 2xl:text-2xl transition-opacity duration-1000`}>
+                              absolute  flex flex-col gap- py-1 2xl:text-2xl transition-opacity duration-1000`}>
                   {/* web dev current projects */}
+                  <div className='h-2'></div>
                   <li className='flex items-center gap-3 cursor-pointer pt-1 
-                                    hover:text-rose-700 hover:bg-primary py-2 px-7' >
+                                  hover:text-rose-700 hover:bg-primary py-2 px-7' >
                     <CgWebsite />
                     <h1>Web Dev</h1>
                   </li>
