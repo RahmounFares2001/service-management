@@ -34,7 +34,7 @@ export default function ProjectType() {
           <div className='bg-gray-600/50 p-2 sm:p-4 rounded-full' >
             <FaMobileScreenButton className='w-8 h-8 sm:w-14 sm:h-14' />
           </div>
-          <h1 className='text-center sm:text-xl md:text-2xl font-bold' >Mobile Application</h1>
+          <h1 className='text-center sm:text-xl md:text-2xl font-bold' >Mob Application</h1>
         </div>
       </div>
 

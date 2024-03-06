@@ -23,7 +23,7 @@ export default function DashboardLayout({children}) {
      const [ showResponsiveHeader, setShowResponsiveHeader ] = useState(false);
 
     // show appoitment form 
-    const [showAppointmentForm, setShowAppointmentForm ] = useState(true);
+    const [showAppointmentForm, setShowAppointmentForm ] = useState(false);
 
     // appointment
     const [ appoinementComponentNumber, setAppoinementComponentNumber ] = useState(1);
@@ -36,7 +36,7 @@ export default function DashboardLayout({children}) {
 
 
     // add project
-    const [ showAddProjectForm, setShowAddProjectForm ] = useState(true);
+    const [ showAddProjectForm, setShowAddProjectForm ] = useState(false);
     const [ projectComponentNumber, setProjectComponentNumber ] = useState(1);
 
     // project form values

@@ -41,6 +41,7 @@ export default function FormAppointment() {
         {appoinementComponentNumber == 1 &&  <Type />}
         {appoinementComponentNumber == 2 &&  <Date />}
         {appoinementComponentNumber == 3 &&  <InformationsAppointment /> }
+        {appoinementComponentNumber == 4 &&  <ConfirmationAppointment /> }
 
       
 
@@ -55,7 +56,7 @@ export default function FormAppointment() {
                   ${appoinementComponentNumber == 1 && 'opacity-0'}`} 
                   onClick={()=> { setAppoinementComponentNumber(prev => (prev > 1 ? prev - 1 : prev))}}>Back</button>
 
-            <button className={`px-4 py-2 sm:px-10 sm:py-2 bg-rose-700 hover:bg-rose-800
+            <button className={`px-4 py-2 sm:px-10 sm:py-2
                               ${appoinementComponentNumber == 4 ? 'bg-green-700' : 'bg-rose-700 hover:bg-rose-800'}`} 
                 onClick={()=> { 
                     setAppoinementComponentNumber(prev => 
