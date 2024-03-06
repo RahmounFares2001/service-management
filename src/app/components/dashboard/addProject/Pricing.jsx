@@ -1,48 +1,26 @@
-import React from 'react'
+'use client'
 
+import React, { useContext } from 'react'
 
 // icon 
 import { FaCheck } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 
 
+// cards data
+import cards from "./prices";
+
+// context
+import { dashboardContext } from '@/app/dashboard/layout';
+
 
 export default function Pricing() {
-  const cards = [
-    {
-      id: 1,
-      title: 'Basic Package',
-      list: [
-        {id: 1, l: 'Startups and small projects'},
-        {id: 2, l: 'Responsive Website/Mobile App'},
-        {id: 3, l: 'Limited Features'},
-        {id: 4, l: 'Standard Support'},
-      ],
-      price: '100$'
-    },
-    {
-      id: 2,
-      title: 'Standard Package',
-      list: [
-        {id: 1, l: 'For growing businesses'},
-        {id: 2, l: 'Responsive/Interactive Apps'},
-        {id: 3, l: 'Additional Features'},
-        {id: 4, l: 'Priority Support'},
-      ],
-      price: '300$'
-    },
-    {
-      id: 3,
-      title: 'Premium Package ',
-      list: [
-        {id: 1, l: 'Etablished businesses'},
-        {id: 2, l: 'Responsive/Customizable'},
-        {id: 3, l: 'Advanced Features'},
-        {id: 4, l: 'Dedicated Support'},
-      ],
-      price: '500$'
-    },
-  ]
+  
+
+
+  // context show form
+  const { showAddProjectForm, setShowAddProjectForm } = useContext(dashboardContext)
+
   return (
     <div className='w-full bg-thirdly px-3 sm:px-5 md:px-5 lg:px-0 2xl:px-24 pt-20'>
 
@@ -77,7 +55,8 @@ export default function Pricing() {
             </div>
 
             <div className='w-full sm:w-1/12 h-1/6 sm:h-full bg-forthl bg-zinc-800 border-l border-primary rounded-b-2xl sm:rounded-l-none sm:rounded-r-2xl
-            flex justify-center items-center hover:bg-rose-700/50 cursor-pointer transition-colors duration-500 group'>
+            flex justify-center items-center hover:bg-rose-700/50 cursor-pointer transition-colors duration-500 group'
+                onClick={()=> {setShowAddProjectForm(true)}} >
               <FaShoppingCart className='w-8 h-8 text-rose-700 my-2 sm:my-0 group-hover:text-gray-200' />
             </div>
           </div>
@@ -86,11 +65,11 @@ export default function Pricing() {
 
 
       <div className='flex justify-center items-center'>
-        <h1 className='px-7 sm:px-20 py-3 sm:py-5 text-xl sm:text-4xl font-bold hover:bg-primary my-20 rounded-md cursor-pointer
-                  bg-rose-700 group transition-colors duration-500'>
+        <h1 className='px-7 sm:px-20 py-3 sm:py-5 text-xl sm:text-4xl font-bold hover:bg-rose-950 my-20 rounded-md
+                  bg-rose-700 group transition-colors duration-500  cursor-pointer'
+                  onClick={()=> {setShowAddProjectForm(true)}}>
               <FaShoppingCart className='inline-block text-gray-200 w-10 h-10 group-hover:text-white
                     mr-3 sm:mr-5 transition-colors duration-500' />Place Order</h1>
-
       </div>
 
     </div>
