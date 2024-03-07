@@ -11,6 +11,7 @@ import { RiReservedLine } from 'react-icons/ri'
 
 // context
 import { dashboardContext } from '../layout'
+import HistoryAppointment from '@/app/components/dashboard/appointment/HistoryAppointment'
 
 
 
@@ -22,9 +23,9 @@ export default function Appointment() {
   
   return (
     <div className='w-full h-full flex items-center justify-center flex-col gap-14
-    px-3 sm:px-2 md:px-5 lg:px-5 xl:px-10 2xl:px-72 pt-10 pb-20'>
+     sm:px-2 md:px-5 lg:px-5 xl:px-10 2xl:px-72 pt-10 pb-20 '>
 
-        <div className='flex flex-col gap-3 justify-center items-center'>
+        <div className='flex flex-col gap-3 justify-center items-center pt-10'>
             <h1 className='text-center text-2xl sm:text-4xl font-bold text-gray-100'>Reserve appointment</h1>
             <hr className='w-44 border-2 border-rose-700' />
         </div>
@@ -38,8 +39,8 @@ export default function Appointment() {
         </button>
 
         {showAppointmentForm &&
-        <div className='z-20 w-full lg:w-4/5 sm:h-96 bg-white flex flex-col sm:flex-row rounded-xl border-2
-                        fixed top-28'>
+        <div className='z-20 w-11/12 lg:w-4/5 sm:h-96 bg-white flex flex-col sm:flex-row rounded-xl border-2
+                        fixed top-28 '>
             <SideBarAppointment />
 
             <FormAppointment />
@@ -52,6 +53,9 @@ export default function Appointment() {
             <hr className='w-3/5 border-2 border-rose-700' />
         </div>
 
+
+        {/* history appointment */}
+        <HistoryAppointment />
 
 
         {/* overlay */}

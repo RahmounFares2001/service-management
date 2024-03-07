@@ -26,13 +26,12 @@ export default function DashboardLayout({children}) {
     const [showAppointmentForm, setShowAppointmentForm ] = useState(false);
 
     // appointment
-    const [ appoinementComponentNumber, setAppoinementComponentNumber ] = useState(1);
+    const [ appoinmentComponentNumber, setAppoinmentComponentNumber ] = useState(1);
 
     // appointment form values
     const [ typeAppointment, setTypeAppointment ] = useState('');
     const [ dateAppointment, setDateAppointment ] = useState('');
     const [ informationsAppointment,  setInformationsAppointment ] = useState('');
-
 
 
     // add project
@@ -43,6 +42,9 @@ export default function DashboardLayout({children}) {
     const [ typeProject, setTypeProject ] = useState('');
     const [ projectDescription,  setProjectDescription ] = useState({book: 'b', informations: ''});
     const [ chosenPackege, setChosenPackage ] = useState('');
+
+    // in form informations when it empty and pres next it apear 
+    const [ showMsg, setShowMsg ] = useState(true);
 
  
 
@@ -57,8 +59,11 @@ export default function DashboardLayout({children}) {
       showResponsiveHeader,
       setShowResponsiveHeader,
 
-      appoinementComponentNumber,
-      setAppoinementComponentNumber,
+      showMsg,
+      setShowMsg,
+
+      appoinmentComponentNumber,
+      setAppoinmentComponentNumber,
       showAppointmentForm,
       setShowAppointmentForm,
       typeAppointment,
@@ -78,6 +83,7 @@ export default function DashboardLayout({children}) {
       setProjectDescription,
       chosenPackege,
       setChosenPackage
+      
 
      }
 

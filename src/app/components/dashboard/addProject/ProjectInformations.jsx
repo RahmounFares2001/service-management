@@ -22,10 +22,8 @@ export default function ProjectInformations() {
                 <h1 className='text-center  md:text-xl lg:text-2xl text-gray-800'>book of specifications</h1>
                 <input type='file' placeholder='fares' accept='.pdf'
                         className='text-slate-500 file:px-3 file:py-1 md:file:px-4 md:file:py-2 file:rounded-full file:border-0
-                          file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100 file:cursor-pointer
-                          text-xs
-                            
-                           ' />
+                          file:bg-rose-700 file:text-gray-200 hover:file:bg-rose-800 file:cursor-pointer
+                          text-xs' />
             </div>
           
 
