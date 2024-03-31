@@ -1,14 +1,7 @@
 import mongoose from "mongoose";
-import User from "./userModel";
+import Client from "./clientModel";
 
-const clientSchema = new mongoose.Schema({
-    surname: {
-        type: String,
-        default: 'surname'
-    },
-    phoneNumber: {
-        type: String  
-    },
+const clientAdressSchema = new mongoose.Schema({
     adress: {
         type: String
     },
@@ -27,17 +20,13 @@ const clientSchema = new mongoose.Schema({
     country: {
         type: String
     },
-    status: {
-        type: Boolean,
-        default: false
-    },
-    userId: {
+    clientId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "user" 
+        ref: "client" 
     },
 });
 
-const Client = mongoose.models.clients || mongoose.model("clients", clientSchema);
+const ClientAdress = mongoose.models.clients || mongoose.model("clientAdress", clientAdressSchema);
 
 export default Client;
 

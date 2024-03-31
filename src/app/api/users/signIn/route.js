@@ -9,6 +9,8 @@ import jsw from "jsonwebtoken";
 
 import { NextRequest, NextResponse } from "next/server";
 
+import Client from "@/models/clientModel";
+
 connect();
 
 
@@ -19,9 +21,11 @@ export async function POST(request) {
 
 
         
-        const user = await User.findOne({email}).populate('client');
+        const user = await User.findOne({email});
 
-     
+        const client = await Client.findOne({user : user._id});
+        console.log(client);
+
         //check if user exists
         if(!user){
             return NextResponse.json({error: "User does not exist"}, {status: 400})

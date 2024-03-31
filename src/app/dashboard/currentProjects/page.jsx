@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
@@ -24,7 +26,7 @@ export default function CurrentProjects() {
                     </tr>
                     <tr className='text-sm md:text-base'>
                         {heads.map((head, index) => (
-                            <th className='px-2 py-4 md:px-10 md:py-5' >{head}</th>
+                            <th key={index} className='px-2 py-4 md:px-10 md:py-5' >{head}</th>
                         ))}
                     </tr>
                 </thead>

@@ -50,11 +50,11 @@ export async function POST(request){
         const savedUser = await newUser.save();
         
         // Save the client to the database
-        // const newClient = new Client({
-        //     user: savedUser._id,
-        // });
-        // console.log(newClient);
-        // const savedClient = await newClient.save();
+        const newClient = new Client({
+            user: savedUser._id,
+        });
+        console.log(newClient);
+        const savedClient = await newClient.save();
 
         // verify email
         sendEmail({email, emailType: 'VERIFY', userId: newUser._id})

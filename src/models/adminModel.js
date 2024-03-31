@@ -7,9 +7,15 @@ const adminSchema = new mongoose.Schema({
     name: {
         type: String,
         default: 'admin'
+    },
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user' 
     }
 });
 
-const Admin = User.discriminator('admins', adminSchema);
+const Admin = mongoose.models.admins || mongoose.model("admins", adminSchema);
+
+// const Admin = User.discriminator('admins', adminSchema);
 
 export default Admin;
