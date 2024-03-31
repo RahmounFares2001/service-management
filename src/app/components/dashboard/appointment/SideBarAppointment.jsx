@@ -1,5 +1,7 @@
 import React, { useContext } from 'react'
 
+import {motion} from "framer-motion";
+
 // context
 import { dashboardContext } from '@/app/dashboard/layout';
 
@@ -11,7 +13,10 @@ export default function SideBarAppointment() {
 
   return (
     <div className='bg-thirdly text-gray-200 lg:w-1/5 h-1/5 sm:h-full px-3 sm:px-0 rounded-t-xl sm:rounded-r-none sm:rounded-l-xl'>
-      <ul className='w-full lg:pl-3 xl:pl-5 lg:pr-0 sm:pt-10 pt-3 pb-3 lg:pb-0 sm:pl-5 sm:pr-5  flex sm:flex-col sm:gap-10 font-bold'>
+      <motion.ul className='w-full lg:pl-3 xl:pl-5 lg:pr-0 sm:pt-10 pt-3 pb-3 lg:pb-0 sm:pl-5 sm:pr-5  flex sm:flex-col sm:gap-10 font-bold'
+                  initial={{opacity: 0}}
+                  animate={{opacity: 1}}
+                  transition={{delay: 0.5, duration: 0.4}}>
 
         {/* type */}
         <li className='flex items-center justify-center sm:justify-normal gap-3 w-full cursor-pointer'>
@@ -39,7 +44,7 @@ export default function SideBarAppointment() {
             <span className={`${appoinmentComponentNumber == 4 && 'text-rose-700'} hidden lg:block transition-colors duration-500`}>Confirmation</span>
         </li>
 
-      </ul>
+      </motion.ul>
 
     </div>
   )

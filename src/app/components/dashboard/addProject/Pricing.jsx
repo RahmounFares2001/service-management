@@ -2,6 +2,9 @@
 
 import React, { useContext } from 'react'
 
+import {motion} from "framer-motion";
+
+
 // icon 
 import { FaCheck } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
@@ -14,6 +17,9 @@ import cards from "./prices";
 import { dashboardContext } from '@/app/dashboard/layout';
 
 
+// style
+import styles from "./addProject.module.css";
+
 export default function Pricing() {
   
 
@@ -24,20 +30,28 @@ export default function Pricing() {
   return (
     <div className='w-full bg-thirdly px-3 sm:px-5 md:px-5 lg:px-0 2xl:px-24 pt-20'>
 
-        <div className='flex flex-col items-center gap-3 text-center pb-5'>
+        <motion.div className='flex flex-col items-center gap-3 text-center pb-5'
+                    initial={{opacity: 0}}
+                    whileInView={{opacity: 1}}
+                    transition={{delay: 0.4, duration: 1}}
+                    viewport={{once: true}}>
             <h1 className='text-4xl font-bold'>Pricing Table</h1>
             <hr className='w-20 border-2 border-rose-700' />
-        </div>
+        </motion.div>
 
         {/* card */}
         {cards.map((card, index) => (
         
-          <div className='flex flex-col pt-7 items-center justify-center lg:px-0' key={index}>
+          <motion.div className='flex flex-col pt-7 items-center justify-center lg:px-0' key={index}
+                    initial={{opacity: 0, x: '25vw'}}
+                    whileInView={{opacity: 1, x: '0vw'}}
+                    transition={{delay: 0.4, duration: 1}}
+                    viewport={{once: true}}>
 
-          <div className='w-full md:w-5/6 2xl:w-4/5 h-96 sm:h-64 flex flex-col sm:flex-row rounded-2xl border border-primary'>
+          <div className={`${styles.hoverScale} w-full md:w-5/6 2xl:w-4/5 h-96 sm:h-64 flex flex-col sm:flex-row rounded-2xl border border-primary transition-all duration-500`}>
 
             <div className='h-2/6 sm:h-full w-full sm:w-5/12 lg:w-4/12 bg-gray-400 rounded-t-2xl sm:rounded-r-none sm:rounded-l-2xl flex justify-center items-center relative'>
-              < h1 className='text-white text-2xl sm:text-base md:text-xl pr-6 md:pr-9 lg:pr-14 pb-10 sm:pb-0'>{card.title}</h1>
+              <h1 className='text-white text-2xl sm:text-base md:text-xl pr-6 md:pr-9 lg:pr-14 pb-10 sm:pb-0'>{card.title}</h1>
 
               <div className='absolute w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-full bg-zinc-800 top-20 sm:top-22 md:top-20 lg:top-16 sm:-right-12 lg:-right-16 border-4 border-forthly flex justify-center items-center'>
                 <h1 className='md:text-2xl lg:text-4xl font-bold'>{card.price}</h1>
@@ -61,16 +75,20 @@ export default function Pricing() {
             </div>
           </div>
 
-      </div> ))}
+      </motion.div> ))}
 
 
-      <div className='flex justify-center items-center'>
+      <motion.div className='flex justify-center items-center'
+                  initial={{opacity: 0, y: '5vh'}}
+                  whileInView={{opacity: 1, y: '0vh'}}
+                  transition={{delay: 0.4, duration: 0.3}}
+                  viewport={{once: true}}>
         <h1 className='px-7 sm:px-20 py-3 sm:py-5 text-xl sm:text-4xl font-bold hover:bg-rose-950 my-20 rounded-md
                   bg-rose-700 group transition-colors duration-500  cursor-pointer'
                   onClick={()=> {setShowAddProjectForm(true)}}>
               <FaShoppingCart className='inline-block text-gray-200 w-10 h-10 group-hover:text-white
                     mr-3 sm:mr-5 transition-colors duration-500' />Place Order</h1>
-      </div>
+      </motion.div>
 
     </div>
   )

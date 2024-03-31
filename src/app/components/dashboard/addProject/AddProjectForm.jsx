@@ -2,6 +2,8 @@
 
 import React, { useContext } from 'react'
 
+// framer motion
+import { motion } from "framer-motion";
 
 
 // components
@@ -39,7 +41,11 @@ export default function AddProjectForm() {
     {showAddProjectForm &&
     <div className='fixed top-0 z-20 w-full h-full flex justify-center items-center' >
 
-        <div className='z-30 w-full px-1 sm:w-11/12 lg:w-4/5 2xl:w-3/5 h-96 flex flex-col rounded-xl relative'>
+        <motion.div  
+              className='z-30 w-full px-1 sm:w-11/12 lg:w-4/5 2xl:w-3/5 h-96 flex flex-col rounded-xl relative'
+              initial= {{x: '-100vw'}}
+              animate= {{x: 0}}
+              transition={{ duration: 0.5, delay: 0, stiffness: 50 , type: 'spring' }} >
 
             <ProgressBarForm />
             
@@ -69,7 +75,7 @@ export default function AddProjectForm() {
 
             </div>
 
-        </div> 
+        </motion.div> 
 
 
 

@@ -74,7 +74,7 @@ export default function Profile() {
     </div> 
 
     {/* kyo logo on mobile */}
-    <div className='flex items-center gap-2 sm:gap-3 absolute top-4 sm:top-3 left-3 z-10 lg:hidde'>
+    <div className='flex items-center gap-2 sm:gap-3 absolute top-4 sm:top-3 left-3 z-10 lg:hidden'>
       <Image src="/images/home/logo.jpg" alt="KYO" 
             className='w-10 h-10 sm:w-14 sm:h-14' width={200} height={200} />
       <h1 className='text-gray-300 sm:text-xl'>KYO Conseil</h1>
@@ -82,7 +82,7 @@ export default function Profile() {
 
      
 
-    <div className='flex lg:flex-row lg:justify-center lg:pl-56 lg:gap-24 bg-gray-10 bg-forthly
+    <div className='flex lg:flex-row lg:justify-center lg:pl-72 xl:pl-56 lg:gap-24 bg-gray-10 bg-forthly
           font-mono h-full relative pt-20 lg:pt-0'>
 
     

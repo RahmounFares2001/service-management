@@ -1,0 +1,8 @@
+/* pricing  */
+
+
+@media (min-width: 768px) {
+    .hoverScale:hover {
+        transform: scale(1.1); 
+    }
+}

@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+
+import {motion} from "framer-motion";
 
 
 // css 
@@ -6,17 +8,23 @@ import styles from "./userAccount.module.css"
 import Image from 'next/image'
 
 
+// wilayas data 
+import wilayas from "./wilayas";
+
 
 export default function UserAccount() {
   return (
     <>
    
 
-<form action="" className='text-black flex flex-col  lg:items-stretch gap-10 
+<motion.form action="" className='text-black flex flex-col  lg:items-stretch gap-10 
           w-full sm:px-10 md:px-20 lg:px-10 lg:w-9/12 pt-5 sm:pt-10 lg:pt-5 my-5
           mx-2 sm:mx-4 lg:mx-0 rounded-md
           pb-20 lg:pb-5
-          border border-gray-700'> 
+          border border-gray-700'
+          initial={{opacity: 0}}
+          animate={{opacity: 1}}
+          transition={{duration: 1, delay: 0.4}}> 
         
         {/* mobile profile pic */}
         <div className='flex justify-center gap-5 items-center lg:hidden'>
@@ -39,13 +47,15 @@ export default function UserAccount() {
             {/* UserName */}
             <li className={`${styles.inputBox} relative w-4/5 sm:w-1/2 flex `}>
               <input type="text" placeholder='' required='required'
-                className='py-2 pt-5 px-3 bg-forthly border border-gray-600 rounded-md w-full'/>
+                className='py-2 pt-5 px-3 bg-forthly border border-gray-600 rounded-md w-full'
+                maxLength={20}/>
             <span className='absolute top-1 left-2 pointer-events-none duration-500'>UserName</span>
             </li>
             {/* surName */}
             <li className={`${styles.inputBox} relative w-4/5 sm:w-1/2 `}>
               <input type="text" placeholder='' required='required'
-                  className='py-2 pt-5 px-3 bg-forthly border border-gray-600 rounded-md w-full'/>
+                  className='py-2 pt-5 px-3 bg-forthly border border-gray-600 rounded-md w-full'
+                  maxLength={20}/>
               <span className='absolute top-1 left-2 pointer-events-none duration-500'>Surname</span>
             </li>
           </ul>
@@ -55,7 +65,8 @@ export default function UserAccount() {
               {/* email */}
               <li className={`${styles.inputBox} relative w-4/5 sm:w-1/2`}>
                   <input type="email" placeholder='' required='required'
-                      className='py-2 pt-5 px-3 bg-forthly border border-gray-600 rounded-md w-full'/>
+                      className='py-2 pt-5 px-3 bg-forthly border border-gray-600 rounded-md w-full'
+                      maxLength={30}/>
                   <span className='absolute top-1 left-2 pointer-events-none duration-500'>Email Adress</span>
               </li>
 
@@ -75,14 +86,16 @@ export default function UserAccount() {
               {/* adress */}
               <li className={`${styles.inputBox} relative w-4/5 sm:w-4/5`}>
                   <input type="text" placeholder='' required='required'
-                      className='py-2 pt-5 px-3 bg-forthly border border-gray-600 rounded-md w-full'/>
+                      className='py-2 pt-5 px-3 bg-forthly border border-gray-600 rounded-md w-full'
+                      maxLength={30}/>
                   <span className='absolute top-1 left-2 pointer-events-none duration-500'>Adress</span>
               </li>
 
               {/* Appartment */}
               <li className={`${styles.inputBox} relative w-4/5 sm:w-2/6`}>
                   <input type="text" placeholder='' required='required'
-                      className='py-2 pt-5 px-3 bg-forthly border border-gray-600 rounded-md w-full'/>
+                      className='py-2 pt-5 px-3 bg-forthly border border-gray-600 rounded-md w-full'
+                      maxLength={20}/>
                   <span className='absolute top-1 left-2 pointer-events-none duration-500'>Appartment</span>
               </li>
             </ul>
@@ -92,15 +105,17 @@ export default function UserAccount() {
               <ul className='flex flex-col sm:flex-row items-center gap-10 text-gray-300'>
                 <li className={`${styles.inputBox} relative w-4/5 sm:w-1/2`}>
                   <input type="text" placeholder='' required='required'
-                      className='py-2 pt-5 px-3 bg-forthly border border-gray-600 rounded-md w-full'/>
+                      className='py-2 pt-5 px-3 bg-forthly border border-gray-600 rounded-md w-full'
+                      maxLength={25}/>
                   <span className='absolute top-1 left-2 pointer-events-none duration-500'>City</span>
                 </li>
 
                 {/* State */}
                 <li className={`${styles.inputBox} relative w-4/5 sm:w-1/2`}>
                     <select name="" id="" className='py-2 pt-5 px-3 bg-forthly border border-gray-600 rounded-md w-full'>
-                      <option value="">Alger</option>
-                      <option value="">Oran</option>
+                      {wilayas.map((wilaya, index) => (
+                          <option key={index} value={wilaya.name}>{wilaya.name}</option>
+                      ))}
                     </select>
                     <span className='absolute top-1 left-2 pointer-events-none duration-500'>State</span>
                 </li>
@@ -112,7 +127,13 @@ export default function UserAccount() {
                 <li className={`${styles.inputBox} relative w-4/5 sm:w-2/6`}>
                     <input type="number" placeholder='' required='required'
                         className='py-2 pt-5 px-3 bg-forthly border border-gray-600 
-                          rounded-md w-full'/>
+                          rounded-md w-full'
+                          onInput={(event) => {
+                            const input = event.target.value;
+                            if (input.length > 5) {
+                                event.target.value = input.slice(0, 5); 
+                            }
+                        }} />
                     <span className='absolute top-1 left-2 pointer-events-none duration-500'>Zip code</span>
                 </li>
 
@@ -120,8 +141,7 @@ export default function UserAccount() {
                 <li className={`${styles.inputBox} relative w-4/5 sm:w-4/6`}>
                     <select name="" id="" className='py-2 pt-5 px-3 bg-forthly border border-gray-600
                          rounded-md w-full'>
-                      <option value="">Alger</option>
-                      <option value="">Oran</option>
+                        <option value="Algeria">Algeria</option>
                     </select>
                     <span className='absolute top-1 left-2 pointer-events-none duration-500'>Country</span>
                 </li>
@@ -137,7 +157,7 @@ export default function UserAccount() {
             </ul>
 
 
-        </form>
+        </motion.form>
 
 
     </>

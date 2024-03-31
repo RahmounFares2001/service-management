@@ -2,6 +2,7 @@
 
 import React, { useContext, useState } from 'react'
 
+
 // components
 import Type from './Type'
 import Date from './Date'
@@ -67,7 +68,7 @@ export default function FormAppointment() {
 
                     setShowMsg((appoinmentComponentNumber == 3 &&informationsAppointment.length < 1) ? true : false)}}
 
-                disabled={false}>Next Step</button>
+                disabled={false}>{appoinmentComponentNumber == 4 ? 'Confirm' : 'Next Step'}</button>
 
         </div>
 

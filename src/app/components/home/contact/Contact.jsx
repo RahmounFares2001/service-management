@@ -1,5 +1,6 @@
 import React from 'react'
 
+import {motion} from "framer-motion";
 
 // icons
 import { FaLocationDot } from "react-icons/fa6";
@@ -12,7 +13,11 @@ import { FaStopwatch } from "react-icons/fa";
 
 export default function Contact() {
   return (
-    <section className='text-gray-300 flex flex-col justify-center items-center gap-10 mb-24 contact'>
+    <motion.section className='text-gray-300 flex flex-col justify-center items-center gap-10 mb-24 contact'
+                  initial={{opacity: 0}}
+                  whileInView={{opacity: 1}} 
+                  transition={{delay: 0.2, duration: 1}}
+                  viewport={{once: true}}>
        <h1 className='text-center text-4xl sm:text-5xl font-bold'>CONTACT INFO</h1>
 
       <div className='flex flex-col gap-7'>
@@ -45,5 +50,5 @@ export default function Contact() {
               
         </div>
        </div>
-    </section>
+    </motion.section>
   )}

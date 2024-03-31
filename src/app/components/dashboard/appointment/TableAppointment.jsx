@@ -295,7 +295,7 @@ export default function AppointmentTable() {
   return (
     <Box sx={{ width: '100%', display: 'flex',  flexDirection: 'column', justifyContent: 'center',
                 alignItems: 'center'}}>
-      <Paper sx={{ width: '100%', '@media (max-width: 639px)': { width: '80%' }, mb: 2,
+      <Paper sx={{ width: '100%', '@media (max-width: 639px)': { width: '95%' }, mb: 2,
                   backgroundColor: '#0d0d0f', borderWidth: '1px', borderColor: 'white', color: 'white'  }}>
         <EnhancedTableToolbar numSelected={selected.length} />
         <TableContainer>

@@ -1,12 +1,13 @@
 'use client'
 
-
 import React, { useContext } from 'react'
 
 // components
 import AddProjectForm from '@/app/components/dashboard/addProject/AddProjectForm'
 import HowItWorks from '@/app/components/dashboard/addProject/HowItWorks'
 import Pricing from '@/app/components/dashboard/addProject/Pricing'
+
+
 
 
 // context

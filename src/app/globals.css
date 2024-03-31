@@ -5,6 +5,7 @@
 
 body{
   background-color: #191a1c;
+  overflow-x: hidden;
 }
 
 
@@ -31,6 +32,10 @@ body{
 
 
 html{
+  scrollbar-width: thin;
+  scrollbar-color: #9e1d1d #fcfcfc;
+}
+.scrollbar{
   scrollbar-width: thin;
   scrollbar-color: #9e1d1d #fcfcfc;
 }

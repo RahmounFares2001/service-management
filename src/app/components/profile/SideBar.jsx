@@ -1,6 +1,8 @@
 'use client'
 
-import React, { useContext} from 'react'
+import React, { useContext} from 'react';
+
+import {motion} from "framer-motion";
 
 
 // icons 
@@ -33,9 +35,12 @@ export default function SideBar() {
   return (
     <>
     {showMenu ? <></> : 
-    <div className='w-10/12 sm:w-3/5 md:w-2/5 lg:w-3/1 lg:w-80 pt-5 flex-col gap-10 bg-forthly bg-rose-95 bg-whit
+    <motion.div className='w-10/12 sm:w-3/5 md:w-2/5 lg:w-3/1 lg:w-80 pt-5 flex-col gap-10 bg-forthly bg-rose-95 bg-whit
                 absolute lg:fixed top-0 left-0 z-10 hidden lg:flex shadow-2xl shadow-black
-                d rounded-r-sm h-screen'>
+                d rounded-r-sm h-screen'
+                initial={{x: '-80vw', opacity: 0.8}}
+                animate={{x: 0, opacity: 1}}
+                transition={{duration: 0.5}}>
         
 
          {/* profile photo */}
@@ -50,28 +55,28 @@ export default function SideBar() {
         <ul className='flex flex-col text-gray-30 text-gray-300 font-bold'>
 
             {/* user account */}
-            <li className={`flex gap-3 items-center pl-3 sm:pl-10 ${activeBtn('userAccount')} hover:bg-gray-100 hover:text-black py-3`}
+            <li className={`flex gap-3 items-center pl-3 sm:pl-10 ${activeBtn('userAccount')} hover:bg-gray-100 hover:text-black py-3 cursor-pointer`}
                         onClick={()=> {setBtn("userAccount")}}>
                 <FaRegUser />
                 <h1>User Account</h1>
             </li>
 
             {/* bank cards */}
-            <li className={`flex gap-3 items-center pl-3 sm:pl-10 ${activeBtn('bankCards')} hover:bg-gray-100 hover:text-black py-3`}
+            <li className={`flex gap-3 items-center pl-3 sm:pl-10 ${activeBtn('bankCards')} hover:bg-gray-100 hover:text-black py-3 cursor-pointer`}
                         onClick={()=> {setBtn("bankCards")}}>
                 <CiCreditCard1 />
                 <h1>Bank Cards</h1>
             </li>
 
             {/* security */}
-            <li className={`flex gap-3 items-center pl-3 sm:pl-10 ${activeBtn('security')} hover:bg-gray-100 hover:text-black py-3`}
+            <li className={`flex gap-3 items-center pl-3 sm:pl-10 ${activeBtn('security')} hover:bg-gray-100 hover:text-black py-3 cursor-pointer`}
                         onClick={()=> {setBtn("security")}}>
                 <GrSecure />
                 <h1>Security Settings</h1>
             </li>
 
             {/* logout */}
-            <li className='flex gap-3 items-center pl-3 sm:pl-10 hover:bg-gray-100 hover:text-black py-3'>
+            <li className='flex gap-3 items-center pl-3 sm:pl-10 hover:bg-gray-100 hover:text-black py-3 cursor-pointer'>
                 <FiLogOut />
                 <h1>Logout</h1>
             </li>
@@ -85,15 +90,18 @@ export default function SideBar() {
         </Link>
         </div>
     
-    </div> }
+    </motion.div> }
 
     
     {/* mobile */}
 
     {showMenu &&
-    <div className='w-10/12 sm:w-3/5 md:w-2/5 lg:w-3/12 pt-5 flex-col gap-10 bg-forthl bg-white
+    <motion.div className='w-10/12 sm:w-3/5 md:w-2/5 lg:w-3/12 pt-5 flex-col gap-10 bg-forthl bg-white
     fixed top-0 left-0 z-30 lg:hidden flex shadow-2xl shadow-black
-    rounded-r-lg h-screen'>
+    rounded-r-lg h-screen'
+                initial={{x: '-80vw', opacity: 0.8}}
+                animate={{x: 0, opacity: 1}}
+                transition={{duration: 0.5}}>
         
 
          {/* profile photo */}
@@ -152,7 +160,7 @@ export default function SideBar() {
         </Link>
         </div>
     
-    </div> }
+    </motion.div> }
 
     </>
   )
