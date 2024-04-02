@@ -3,7 +3,7 @@ import React from 'react'
 
 import {motion} from "framer-motion";
 
-export default function Home() {
+export default function Homee() {
   return (
     <section className='text-gray-300 flex gap-20 xl:gap-32 pt-20 lg:pt-14 justify-center items-center lg:pb-32 md:pb-36 sm:pb-48 pb-52' >
 

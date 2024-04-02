@@ -84,7 +84,7 @@ export default function Header() {
         {/* responsive menu show */}
         {menuPressed && 
           <motion.div className='bg-white left-0 top-0 h-full md:w-2/5 sm:w-3/6 w-10/12
-                    flex flex-col gap-5 fixed'
+                    flex flex-col gap-5 fixed z-50'
                     initial={{x: '-80vw', opacity: 0.8}}
                     animate={{x: 0, opacity: 1}}
                     transition={{duration: 0.5}}>
