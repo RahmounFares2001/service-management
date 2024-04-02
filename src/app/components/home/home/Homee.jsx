@@ -44,11 +44,12 @@ export default function Homee() {
 
       {/* right img */}
       <motion.div
+            className='hidden lg:block'
             initial={{opacity: 0, x: '50vw'}}
             animate={{opacity: 1, x: '0vw'}}
             transition={{delay: 0.6, duration: 0.3}}>
         <Image width={600} height={600} src="/images/home/homeLogo.jpg" alt="logo" 
-          className='w-96 hidden lg:block'/>
+          className='w-96'/>
       </motion.div>
       
         

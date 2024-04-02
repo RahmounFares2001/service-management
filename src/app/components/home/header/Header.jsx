@@ -73,10 +73,11 @@ export default function Header() {
 
         {/* get started login signUp */}
         <motion.div
+              className='hidden lg:block'
               initial={{opacity: 0, y: '-5vh'}}
               animate={{opacity: 1, y: '0vh'}}
               transition={{delay: 0.2, duration: 0.2}}>
-          <Link href="/sign" className='hidden lg:block'><div className='border-2 border-gray-300 px-7 py-1 hover:border-rose-500 hover:text-rose-500
+          <Link href="/sign" ><div className='border-2 border-gray-300 px-7 py-1 hover:border-rose-500 hover:text-rose-500
                 '>Get Started</div></Link>
         </motion.div>
         

@@ -35,7 +35,7 @@ import { RiArrowDropUpLine } from "react-icons/ri";
 
 
 // css
-import styles from "./headerDash.module.css"
+import styles from "./headerDash.module.css";
 
 
 
@@ -65,7 +65,7 @@ export default function HeaderDash() {
   const [btn, setBtn] = useState('dashboard');
   const clickedBtn = (id) => {
     return id == btn ? 'bg-gray-300 text-black' : ''
-  }
+  };
 
   const clickedBtnPc = (id) => {
     return id == btn ? 'text-rose-700' : ''
