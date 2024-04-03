@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Client from "./clientModel";
+
 
 const clientAdressSchema = new mongoose.Schema({
     adress: {
@@ -22,17 +22,14 @@ const clientAdressSchema = new mongoose.Schema({
     },
     clientId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "client" 
+        ref: "clients",
+        required: true
     },
 });
 
-const ClientAdress = mongoose.models.clients || mongoose.model("clientAdress", clientAdressSchema);
-
-export default Client;
+const ClientAdress = mongoose.models.ClientAdress || mongoose.model("ClientAdress", clientAdressSchema);
 
 
-// const Client = User.discriminator('client', clientSchema);
+export default ClientAdress;
 
-
-// Access the username field of the associated user document
-// const username = client.user.username;
+// type: mongoose.Schema.Types.ObjectId,

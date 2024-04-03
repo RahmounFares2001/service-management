@@ -11,6 +11,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 import Client from "@/models/clientModel";
 
+
 connect();
 
 
@@ -19,11 +20,10 @@ export async function POST(request) {
         const reqBody = await request.json();
         const {email, password} = reqBody;
 
-
         
         const user = await User.findOne({email});
 
-        const client = await Client.findOne({user : user._id});
+        const client = await Client.findOne({userId : user._id});
         console.log(client);
 
         //check if user exists
@@ -58,9 +58,10 @@ export async function POST(request) {
         response.cookies.set('token', token, {
             httpOnly: true,
         });
+
+
         return response;
 
-        
     } catch (error) {
         return NextResponse.json({error : error.message}, {status: 500});
     }

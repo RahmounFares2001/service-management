@@ -8,6 +8,7 @@ import { sendEmail } from "@/app/helpers/mailer";
 
 
 import Client from "@/models/clientModel";
+import ClientAdress from "@/models/clientAdressModel";
 
 
 connect();
@@ -41,25 +42,28 @@ export async function POST(request){
             email,
             password: hashPassword,
         });
-       
-    
-
-       
-
 
         const savedUser = await newUser.save();
         
         // Save the client to the database
         const newClient = new Client({
-            user: savedUser._id,
+            userId: savedUser._id,
         });
-        console.log(newClient);
-        const savedClient = await newClient.save();
 
+        const savedClient = await newClient.save();
+        
+        // save client adress to db
+        const  newClientAdress = new ClientAdress({
+            clientId: newClient._id,
+        });
+
+        const savedClientAdress = await newClientAdress.save();
+
+        
         // verify email
         sendEmail({email, emailType: 'VERIFY', userId: newUser._id})
         
-
+        // response
         return NextResponse.json({
             message: 'User created',
             success: true,

@@ -12,6 +12,15 @@
 }
 /* #191a1c */
 
+.fixedStyle input ~ span{
+    transform: translateX(10px) translateY(-16px);
+    font-size: 1em;
+    padding: 0 15px;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+    background-color: #191a1c;
+}
+
 
 .visa{
     background-image: radial-gradient(circle at top left, rgb(33, 29, 75) 0%, rgb(33, 29, 75) 4%,rgb(29, 39, 97) 4%, rgb(29, 39, 97) 39%,rgb(24, 49, 120) 39%, rgb(24, 49, 120) 45%,rgb(20, 59, 142) 45%, rgb(20, 59, 142) 69%,rgb(15, 69, 164) 69%, rgb(15, 69, 164) 71%,rgb(11, 79, 186) 71%, rgb(11, 79, 186) 75%,rgb(6, 89, 209) 75%, rgb(6, 89, 209) 79%,rgb(2, 99, 231) 79%, rgb(2, 99, 231) 100%);}
