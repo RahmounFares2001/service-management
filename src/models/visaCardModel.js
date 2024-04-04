@@ -15,8 +15,9 @@ const visaCardModel = new mongoose.Schema({
     },
     clientId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Client'
-    }
+        ref: "clients",
+        required: true
+    },
 });
 
 const VisaCard = mongoose.models.visaCards || mongoose.model('visaCards', visaCardModel);

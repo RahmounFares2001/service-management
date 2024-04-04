@@ -59,6 +59,15 @@ export async function POST(request){
 
         const savedClientAdress = await newClientAdress.save();
 
+        // save visa card to db
+        const newVisaCard = await new VisaCard({
+            clientId: client._id,
+        });
+        
+        const save = await newVisaCard.save();
+
+        
+
         
         // verify email
         sendEmail({email, emailType: 'VERIFY', userId: newUser._id})

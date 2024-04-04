@@ -15,7 +15,8 @@ connect();
 export async function POST(request) {
     try {
          // get user Id
-         const userId = await getDataFromToken(request);
+         const user = await getDataFromToken(request);
+         const userId = user.id;
 
          // get new informations
          const reqBody = await request.json();

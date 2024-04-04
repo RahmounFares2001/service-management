@@ -1,9 +1,11 @@
 'use client'
 
-import React, { useState } from 'react'
-
+import React, { useEffect, useState } from 'react'
 
 import {motion} from "framer-motion"
+
+import axios from 'axios';
+
 
 // css
 import styles from "./userAccount.module.css";
@@ -16,24 +18,46 @@ import { BiShow } from "react-icons/bi";
 
 export default function BankCards() {
 
+  // get old visa
+  const getOldInformations = async () => {
+    try {
+      const response = await axios.get('/api/users/getVisaCard');
 
- /* 
- Reminder : Regilar expression:
-    1/ 
-    / : start or end of the regular expression.
-    \ : espace any following 
-    D : characters
-    /g : indicata that applied globali not just for the first
-    'replace it by empty'
+      const oldVisa = response.data.oldVisaCard;
+      setHolderName(oldVisa.holderName);
+      setExperationDate(oldVisa.expirationDate);
 
-    2/
-    \d : number
-    {4} : 4 nubmers
-    (?=\d) : the following should be degital
+      if(holderName == '') {
+        setVisaExist(true);
+      } else {setVisaExist(false)};
 
-     $1 refers to the content of the first capturing group
-     add after it space
-    */
+    } catch (error) {
+      console.log(error)
+    }
+  };
+
+  useEffect(() =>{
+    getOldInformations();
+  }, [])
+
+
+//  /* 
+//  Reminder : Regilar expression:
+//     1/ 
+//     / : start or end of the regular expression.
+//     \ : espace any following 
+//     D : characters
+//     /g : indicata that applied globali not just for the first
+//     'replace it by empty'
+
+//     2/
+//     \d : number
+//     {4} : 4 nubmers
+//     (?=\d) : the following should be degital
+
+//      $1 refers to the content of the first capturing group
+//      add after it space
+//     */
 
   // make it visa numbers form XXXX XXXX ...
   const [inputValue, setInputValue] = useState('');
@@ -43,6 +67,7 @@ export default function BankCards() {
     newValue = newValue.replace(/(\d{4})(?=\d)/g, '$1 ');
 
     setInputValue(newValue);
+    setCardNumber(newValue);
   };
 
 
@@ -55,7 +80,6 @@ export default function BankCards() {
   };
 
   
-
   // hide card state
   const [ hideCard, setHideCard ] = useState(false);
 
@@ -67,16 +91,81 @@ export default function BankCards() {
   // visa informations
   const [holderName, setHolderName] = useState('');
   const [ccv, setCcv] = useState();
-  const [experationDate, setExperationDate] = useState();
+  const [expirationDate, setExperationDate] = useState('');
+  const [cardNumber, setCardNumber] = useState()
 
 
   // rotate card 
   const [rotateCard, setRotateCard] = useState(false);
 
 
+  // save new visa card
+  const newVisaCard = {
+    holderName: holderName,
+    cardNumber: cardNumber,
+    expirationDate: expirationDate,
+    ccv: ccv
+  };
+
+  const onSave = async () => {
+    try {
+      const response = await axios.post('/api/users/updateVisaCard', newVisaCard)
+      setVisaExist(true);
+    
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+    const [visaExist, setVisaExist] = useState(false);
+
+
+  // delete visa card
+  const onDelete = async () => {
+    try {
+      const response = await axios.delete('/api/users/deleteVisaCard');
+      console.log('Visa deleted');
+      setVisaExist(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+    
   
  
   return (
+    <>
+    {visaExist? 
+
+    <div className='text-black flex flex-col justify-center items-center gap-10 
+                  w-full sm:px-10 md:px-20 lg:px-0 lg:w-8/12 2xl:w-3/5 pt-5 sm:pt-10 lg:pt-20 my-5
+                  mx-2 sm:mx-4 lg:mx-0 rounded-md
+                  pb-20 lg:pb-20 mt-20
+                  border border-gray-700' >
+      <h1 className='text-gray-300 text-3xl sm:text-4xl font-bold text-center p-2' >Update or Delete your visa card</h1>
+      <div className={`${styles.visa} w-11/12 sm:w-4/5 md:w-4/6 lg:w-4/5 2xl:w-3/5  h-max py-5
+            flex flex-col sm:flex-row gap-5 sm:gap-0 justify-between items-center px-5 rounded-md shadow-md shadow-black`} >
+        <div className='flex sm:flex-col gap-1 sm:gap-0 text-gray-200' >
+          <h1>{holderName}</h1>
+          <h1>{expirationDate.slice(0, 10)}</h1>
+        </div>
+        
+        {/* delete and upadte */}
+        <div className='flex gap-2 2xl:gap-3' >
+          <button className='px-3 2xl:px-5 py-1 text-xl text-gray-200 bg-red-700 hover:bg-red-800 rounded-md
+                        w-max h-max' 
+                  onClick={onDelete}>Delete</button>
+          <button className='px-3 2xl:px-5 py-1 text-xl text-gray-200 bg-yellow-700 hover:bg-yellow-800 rounded-md
+                        w-max h-max' 
+                  onClick={() => {setVisaExist(false) }}>Update</button>
+
+        </div>
+        
+      </div>
+    </div>   :
+
+
+
     <motion.div className='text-black flex flex-col  lg:items-stretch gap-10 
     w-full sm:px-10 md:px-20 lg:px-0 lg:w-8/12 2xl:w-3/5 pt-5 sm:pt-10 lg:pt-20 my-5
     mx-2 sm:mx-4 lg:mx-0 rounded-md
@@ -86,8 +175,7 @@ export default function BankCards() {
               animate={{opacity: 1}}
               transition={{duration: 1, delay: 0.4}}>
       
-      <form action=""
-          className='flex flex-col  gap-2 justify-center items-center'>
+      <div className='flex flex-col  gap-2 justify-center items-center'>
       
         {/* visa card */}
         <motion.div className='w-11/12 sm:w-4/5 md:w-3/5 lg:w-4/5 lg:flex flex-col gap-5 justify-center items-center absolute -top-28 left-4 sm:left-28 md:left-52 lg:left-auto'
@@ -128,7 +216,7 @@ export default function BankCards() {
 
               <ul className='flex flex-col gap-1 absolute bottom-2 right-4 text-gray-400 text-xs sm:text-sm'>
                 <li>Expiration date</li>
-                <li>{experationDate}</li>
+                <li>{expirationDate}</li>
               </ul>
               </>  
                }
@@ -189,11 +277,14 @@ export default function BankCards() {
 
               {/* sumbit btn */}
               <li className='flex justify-center sm:justify-normal text-black' >
-                  <button className='hover:bg-white px-14 sm:px-20 py-2 text-base sm:text-xl bg-gray-300 rounded-md' >Save</button>
+                  <button className='hover:bg-white px-14 sm:px-20 py-2 text-base sm:text-xl bg-gray-300 rounded-md' 
+                          onClick={onSave}>Save</button>
               </li>
             </ul>
-      </form>
+      </div>
       
-    </motion.div>
+    </motion.div>  }
+
+    </>
   )
 }
