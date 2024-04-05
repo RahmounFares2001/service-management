@@ -4,6 +4,8 @@ import React, { createContext, useState } from 'react'
 import SideBar from '../components/profile/SideBar'
 
 
+// toaster
+import { Toaster } from 'react-hot-toast';
 
 
 // icons
@@ -92,7 +94,7 @@ export default function Profile() {
       {componentToRender}
 
       
-      
+      <Toaster />
 
     </div>
     </profileContext.Provider>

@@ -68,4 +68,35 @@ html{
 }
 
 
+.button{
+  position: relative;
+}
+.button-loading .button-text{
+  visibility: hidden;
+  opacity: 0;
+}
 
+.button-loading::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  margin: auto;
+  border: 3px solid transparent;
+  border-top-color: black;
+  border-radius: 50%;
+  animation: button-loading-spinner 1s ease infinite;
+}
+
+@keyframes button-loading-spinner {
+  form{
+    transform: rotate(0turn)
+  } to{
+    transform: rotate(1turn);
+  }
+  
+}

@@ -124,7 +124,6 @@ export default function DashboardLayout({children}) {
              {/* page up */}
             <div onClick={scrollToTop} className={`scroll-up ${goUp ? "show-scroll" : ""}`}>^</div>
 
-
             <Footer />
 
         </dashboardContext.Provider>

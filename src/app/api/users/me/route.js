@@ -7,18 +7,20 @@ import { connect } from "@/dbConfig/dbConfig";
 
 connect();
 
-export async function get(request) {
+export async function GET(request) {
     try {
       // get user id
-      const userId = await getDataFromToken(request);
+      const userr = await getDataFromToken(request);
+      const userId = userr.id
       
       // find user , dont select password or '-password, -isAdmin'
-      const user = await User.findOne({_id: userId}).select('-password');
+      const user = await User.findOne({_id: userId});
 
       
-      return NextResponse({
+      return NextResponse.json({
         message: 'User found',
-        data: user,
+        user,
+        success: true
       });
       
       

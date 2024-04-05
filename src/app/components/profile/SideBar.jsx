@@ -45,8 +45,9 @@ export default function SideBar() {
 
          {/* profile photo */}
          <div className='flex flex-col gap-5 items-center'>
-          <img src="./images/dashboard/header/profile.jpg" alt="photo"
-              className='rounded-full w-20 h-20 cursor-pointer border-gray-300 border' />
+          <Image src="./images/dashboard/header/profile.jpg" alt="photo"
+              className='rounded-full w-20 h-20 cursor-pointer border-gray-300 border'
+              width={100} height={100} />
             <div className='flex flex-col gap-2'>
               <h1 className='font-bold text-2xl pointer-events-none text-gray-300'>Rahmoun Fares</h1>
             </div>
