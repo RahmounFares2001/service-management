@@ -17,6 +17,8 @@ import { FaLock } from "react-icons/fa";
 // wilayas data 
 import wilayas from "./wilayas";
 
+import {toast} from 'react-hot-toast';
+
 
 export default function UserAccount() {
 
@@ -65,13 +67,20 @@ export default function UserAccount() {
   // save new data btn
   const onSave = async () => {
     try {
+      setSpin(true);
       const response = await axios.post('/api/users/updateProfile', userInformations);
-      console.log("updated");
+      toast.success('Informations updated succesfly!');
+      setSpin(false);
       
     } catch (error) {
+      setSpin(false);
+      toast.error('Some thing wrong!');
       console.log(error);
     }
   };
+
+  // submit btn spin
+  const [spin, setSpin] = useState(false);
   
   
   return (
@@ -233,8 +242,8 @@ export default function UserAccount() {
 
                 {/* sumbit btn */}
                 <ul className='flex justify-center sm:justify-normal' >
-                  <button className='hover:bg-white px-20 py-2 text-xl bg-gray-300 rounded-md' 
-                          onClick={onSave}>Save</button>
+                  <button className={`${spin && 'button button-loading'} hover:bg-white px-20 py-2 text-xl bg-gray-300 rounded-md`}
+                          onClick={onSave}><span className='button-text'>Save</span></button>
                 </ul>
                 
 

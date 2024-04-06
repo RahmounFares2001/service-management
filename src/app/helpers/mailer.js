@@ -8,7 +8,8 @@ export const sendEmail = async ({email, emailType, userId}) => {
     try {
         // create hashed token
 
-        const hashedToken = await bcryptjs.hash(userId.valueOf(), 10);
+        const hashedToke = await bcryptjs.hash(userId.valueOf(), 10);
+        const hashedToken = hashedToke.replace(/[./]/g, '')
 
         
         // verify and reset passsword
@@ -50,7 +51,8 @@ export const sendEmail = async ({email, emailType, userId}) => {
             html: `<p>Click <a href={${process.env.DOMAIN}/verifyEmail?token=${hashedToken}}>here</a>
                         to${emailType == 'VERIFY'? ' verify your email' : 'reset your password'}
                    </p>
-                   <p>${process.env.DOMAIN}/verifyEmail?token=${hashedToken}</p>`
+                   ${emailType === 'VERIFY' ? `<p>${process.env.DOMAIN}/verifyEmail?token=${hashedToken}</p>` : 
+                                            `<p>${process.env.DOMAIN}/resetPassword?token=${hashedToken}</p>` }`
         };
 
         const mailResponse = transport.sendMail(mailOptions);

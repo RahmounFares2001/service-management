@@ -16,6 +16,7 @@ import SignUp from '../components/sign/SignUp';
 
 // toaster
 import { Toaster } from 'react-hot-toast';
+import SendMail from '../components/sign/SendMail';
 
 
 // context
@@ -51,6 +52,10 @@ export default function Sign() {
     // change shadow color signIn / signUp
     const [isClickedChangeShadow, setIt] = useState(false);
 
+    // show send mail
+    const [showSendMail, setShowSendMail] = useState(false);
+    const [showResponsiveSendMail, setShowResponsiveSendMail] = useState(true);
+
     const contextElements = {
         signIn,
         setSignIn,
@@ -63,8 +68,15 @@ export default function Sign() {
         signInButton,
         signUpButton,
         isClickedChangeShadow,
-        setIt
-    }
+        setIt,
+        showSendMail,
+        setShowSendMail,
+        showResponsiveSendMail,
+        setShowResponsiveSendMail
+    };
+
+
+    
 
 
 
@@ -87,15 +99,19 @@ export default function Sign() {
             </div> */}
             
             {/* sign in form */}
-           <SignIn />
+            {showResponsiveSendMail &&  <SignIn /> }
 
-            <div className= {`${signIn} w-1/2 signUpForm opacity-0`}>
-                <div className="flex flex-col justify-center items-center px-10 py-6 gap-7 text-center" >
-                    <h1 className='text-4xl font-bold'>Hello, Client!</h1>
-                    <h1>Enter your personal details and start journey with us</h1>
-                    <button onClick={()=> {signInButton(); setIt(true)}} className='border-solid border-2 hover:border-gray-300 rounded-3xl py-2 px-12 text-sm border-rose-700'>SIGN UP</button>
-                </div>
-            </div>
+            {/* show send email or go sign up btn */}
+            {showSendMail ? 
+                <SendMail /> : 
+
+                <div className= {`${signIn} w-1/2 signUpForm opacity-0`}>
+                    <div className="flex flex-col justify-center items-center px-10 py-6 gap-7 text-center" >
+                        <h1 className='text-4xl font-bold'>Hello, Client!</h1>
+                        <h1>Enter your personal details and start journey with us</h1>
+                        <button onClick={()=> {signInButton(); setIt(true)}} className='border-solid border-2 hover:border-gray-300 rounded-3xl py-2 px-12 text-sm border-rose-700'>SIGN UP</button>
+                    </div>
+                </div> }
 
             
             {/* sign up */}

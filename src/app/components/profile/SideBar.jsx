@@ -23,14 +23,35 @@ import Link from 'next/link';
 import { profileContext } from '../../profile/page';
 import Image from 'next/image';
 
+import {toast} from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
+import axios from 'axios';
+
 
 
 export default function SideBar() {
 
+  // show menu btn
   const { showMenu, setShowMenu ,btn, setBtn } = useContext(profileContext);
   const activeBtn = (id) => {
     return btn == id ? 'bg-gray-100 text-black' : ''
   };
+
+   // router
+   const router = useRouter();
+
+   // logout btn
+   const onLogout = async () => {
+     try {
+       await axios.get('/api/users/logout');
+       toast.success('Logout succes!');
+       router.push('/sign');
+       
+     } catch (error) {
+       toast.error('Some thing wrong!');
+       console.log(error);
+     }
+   };
 
   return (
     <>
@@ -45,7 +66,7 @@ export default function SideBar() {
 
          {/* profile photo */}
          <div className='flex flex-col gap-5 items-center'>
-          <Image src="./images/dashboard/header/profile.jpg" alt="photo"
+          <Image src="/images/dashboard/header/profile.jpg" alt="photo"
               className='rounded-full w-20 h-20 cursor-pointer border-gray-300 border'
               width={100} height={100} />
             <div className='flex flex-col gap-2'>
@@ -77,7 +98,9 @@ export default function SideBar() {
             </li>
 
             {/* logout */}
-            <li className='flex gap-3 items-center pl-3 sm:pl-10 hover:bg-gray-100 hover:text-black py-3 cursor-pointer'>
+            <li className='flex gap-3 items-center pl-3 sm:pl-10 hover:bg-gray-100
+                       hover:text-black py-3 cursor-pointer'
+                onClick={onLogout}>
                 <FiLogOut />
                 <h1>Logout</h1>
             </li>
@@ -145,7 +168,8 @@ export default function SideBar() {
             <hr className='w-full bg-rose-700/20' />
 
             {/* logout */}
-            <li className='flex gap-3 items-center pl-3 sm:pl-10 hover:bg-gray-100 hover:text-black py-3'>
+            <li className='flex gap-3 items-center pl-3 sm:pl-10 hover:bg-gray-100 hover:text-black py-3'
+                onClick={onLogout}>
                 <FiLogOut />
                 <h1>Logout</h1>
             </li>

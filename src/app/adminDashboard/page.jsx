@@ -11,6 +11,10 @@ import { RiLogoutBoxRLine } from "react-icons/ri";
 // components
 import Users from '../components/adminDashboard/Users';
 
+import {toast} from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
+
+
 export default function AdminDashboard() {
   // router
   const router = useRouter();
@@ -19,12 +23,13 @@ export default function AdminDashboard() {
   const onLogout = async () => {
     try {
       await axios.get('/api/users/logout');
+      toast.success('Logout succes!');
       router.push('/sign');
       
     } catch (error) {
+      toast.error('Some thing wrong!');
       console.log(error);
     }
-
   };
 
   return (
@@ -36,6 +41,8 @@ export default function AdminDashboard() {
         </div>
 
         <Users />
+
+        <Toaster />
 
 
     </>

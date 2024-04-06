@@ -31,8 +31,12 @@ export default function SignIn() {
     const {
         signInForm,
         signInButton,
-        setIt
-    } = useContext(signContext)
+        setIt,
+        showSendMail,
+        setShowSendMail,
+        showResponsiveSendMail,
+        setShowResponsiveSendMail
+    } = useContext(signContext);
 
     // user
     const [user, setUser] = useState({
@@ -44,28 +48,33 @@ export default function SignIn() {
     const onSignIn = async () => {
         try {
             setSpin(true);
-            // send email and pass to verify
-            const response1 = await axios.post('/api/users/signIn', user);
-            setSpin(false);
 
-            // if login succes get user details to compare
-            const response2 = await axios.get('/api/users/me');
-            const userFromDb = response2.data.user;
+            // check if email valud
+            const userEmail = user.email;
+            function isValidEmail(userEmail) {
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailPattern.test(userEmail);
+            };
 
-            const isPasswordMatch = await bcryptjs.compare(user.password, userFromDb.password);
+            if(user.email.length == 0 || user.password.length == 0 ) {
+                toast.error('Please provide informations!');
+                setSpin(false);
+            } else if(isValidEmail(userEmail)) {
+                // send email and pass to verify
+                const response1 = await axios.post('/api/users/signIn', user);
+                setSpin(false);
 
-            if(isPasswordMatch && user.email == userFromDb.email) {
                 toast.success('Login success!');
                 setSpin(false);
                 setTimeout(() =>{
                     router.push('/adminDashboard');
-                }, 3000);
+                }, 2000);
             } else {
-                toast.error('Email or password wrong!');
                 setSpin(false);
+                toast.error('Please provide a valid email!');
             }
 
-
+            
         } catch (error) {
             toast.error('Email or password wrong!');
             setSpin(false);
@@ -75,10 +84,12 @@ export default function SignIn() {
     };
 
     // show password
-    const [showPassword, setShowPassword] = useState(true);
+    const [showPassword, setShowPassword] = useState(false);
 
     // submit btn spin
     const [spin, setSpin] = useState(false);
+
+    
 
 
   return (
@@ -127,7 +138,13 @@ export default function SignIn() {
             </ul>
 
             {/* forgot password */}
-            <h1 className='text-gray-400 w-80 text-center cursor-pointer hover:text-rose-700'>Forgot your password?</h1>
+            <h1 className='hidden lg:block text-gray-400 w-80 text-center cursor-pointer hover:text-rose-700'
+                onClick={() => {setShowSendMail(true)}}>Forgot your password?</h1>
+            
+            {/* forgot password */}
+            <h1 className='lg:hidden block text-gray-400 w-80 text-center cursor-pointer hover:text-rose-700'
+                onClick={() => {setShowSendMail(true);
+                                    setShowResponsiveSendMail(false)}}>Forgot your password?</h1>
 
             {/* sign In button  */}
             <button className={`${spin && 'button button-loading'} font-bold text-sm  hover:bg-gray-300 hover:text-black bg-rose-700

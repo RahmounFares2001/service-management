@@ -15,6 +15,8 @@ import Image from 'next/image';
 // icons
 import { BiShow } from "react-icons/bi";
 
+import {toast} from 'react-hot-toast';
+
 
 export default function BankCards() {
 
@@ -109,10 +111,19 @@ export default function BankCards() {
 
   const onSave = async () => {
     try {
-      const response = await axios.post('/api/users/updateVisaCard', newVisaCard)
-      setVisaExist(true);
+      if(holderName.length == 0 || ccv.length == 0 || expirationDate.length == 0 || cardNumber.length == 0) {
+        toast.error('Please provide informations!');
+        setSpin(false);
+      } else {
+        setSpin(true);
+        const response = await axios.post('/api/users/updateVisaCard', newVisaCard)
+        toast.success('Visa added succesfly!')
+        setSpin(false);
+        setVisaExist(true);
+      }
     
     } catch (error) {
+      toast.error('Some thing wrong!')
       console.log(error);
     }
   };
@@ -123,14 +134,20 @@ export default function BankCards() {
   // delete visa card
   const onDelete = async () => {
     try {
+      setSpin(true);
       const response = await axios.delete('/api/users/deleteVisaCard');
-      console.log('Visa deleted');
+      setSpin(false);
+      toast.success('Visa deleted succesfly!');
       setVisaExist(false);
     } catch (error) {
+      toast.error('Some thing wrong!');
       console.log(error);
     }
   };
     
+
+  // submit btn spin
+  const [spin, setSpin] = useState(false);
   
  
   return (
@@ -152,9 +169,9 @@ export default function BankCards() {
         
         {/* delete and upadte */}
         <div className='flex gap-2 2xl:gap-3' >
-          <button className='px-3 2xl:px-5 py-1 text-xl text-gray-200 bg-red-700 hover:bg-red-800 rounded-md
-                        w-max h-max' 
-                  onClick={onDelete}>Delete</button>
+          <button className={`${spin && 'button button-loading'} px-3 2xl:px-5 py-1 text-xl text-gray-200 bg-red-700 hover:bg-red-800 rounded-md
+                        w-max h-max`}
+                  onClick={onDelete}><span className='button-text' >Delete</span></button>
           <button className='px-3 2xl:px-5 py-1 text-xl text-gray-200 bg-yellow-700 hover:bg-yellow-800 rounded-md
                         w-max h-max' 
                   onClick={() => {setVisaExist(false) }}>Update</button>
@@ -277,8 +294,9 @@ export default function BankCards() {
 
               {/* sumbit btn */}
               <li className='flex justify-center sm:justify-normal text-black' >
-                  <button className='hover:bg-white px-14 sm:px-20 py-2 text-base sm:text-xl bg-gray-300 rounded-md' 
-                          onClick={onSave}>Save</button>
+                  <button className={`${spin && 'button button-loading'} 
+                            hover:bg-white px-14 sm:px-20 py-2 text-base sm:text-xl bg-gray-300 rounded-md`}
+                          onClick={onSave}><span className='button-text' >Save</span></button>
               </li>
             </ul>
       </div>

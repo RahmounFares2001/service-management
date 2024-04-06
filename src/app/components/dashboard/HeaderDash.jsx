@@ -38,12 +38,17 @@ import { RiArrowDropUpLine } from "react-icons/ri";
 import styles from "./headerDash.module.css";
 
 
-
 import Link from 'next/link';
 import Image from 'next/image';
 
+import {toast} from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
+import axios from 'axios';
+
 // context
 import { dashboardContext } from '/src/app/dashboard/layout.jsx';
+import { FiLogOut } from 'react-icons/fi';
+
 
 
 
@@ -71,6 +76,22 @@ export default function HeaderDash() {
     return id == btn ? 'text-rose-700' : ''
   }
 
+  // router
+  const router = useRouter();
+
+  // logout btn
+  const onLogout = async () => {
+    try {
+      await axios.get('/api/users/logout');
+      toast.success('Logout succes!');
+      router.push('/sign');
+      
+    } catch (error) {
+      toast.error('Some thing wrong!');
+      console.log(error);
+    }
+  };
+
 
   return (
     <div className='bg-forthly'>
@@ -89,7 +110,7 @@ export default function HeaderDash() {
             </div>
 
             {/* profile */}
-            <div className='flex gap-8 items-center'>
+            <div className='flex gap-8 items-center z-50'>
                 <IoIosNotificationsOutline className='w-7 h-7 2xl:w-10 2xl:h-10 text-gray-300 hover:text-rose-700 cursor-pointer
                               hidden lg:block' />
 
@@ -149,7 +170,8 @@ export default function HeaderDash() {
                                   hover:text-rose-700 hover:bg-primary py-2'
                                   initial={{opacity: 0}}
                                   animate={{opacity: 1}}
-                                  transition={{delay: 0.3, duration: 0.2 }}>
+                                  transition={{delay: 0.3, duration: 0.2 }}
+                                  onClick={onLogout} >
                           <VscSignOut className='w-5 h-5' />
                           <h1>Logout</h1>                        
                         </motion.li>
@@ -348,6 +370,15 @@ export default function HeaderDash() {
                 <IoMdSettings className='w-5 h-5' />
                 <h1>Settings</h1>
               </Link>
+              <hr className='w-full bg-rose-700/20' />
+
+               {/* Logout */}
+               <div className={`flex gap-2 items-center cursor-pointer hover:bg-gray-300 hover:text-black
+                  pl-3 sm:pl-6 py-2`}
+                    onClick={onLogout} >
+                <FiLogOut className='w-5 h-5' />
+                <h1>Logout</h1>
+              </div>
               <hr className='w-full bg-rose-700/20' />
 
         </ul>

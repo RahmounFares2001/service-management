@@ -9,6 +9,7 @@ import { sendEmail } from "@/app/helpers/mailer";
 
 import Client from "@/models/clientModel";
 import ClientAdress from "@/models/clientAdressModel";
+import VisaCard from "@/models/visaCardModel";
 
 
 connect();
@@ -20,6 +21,7 @@ export async function POST(request){
         const reqBody = await request.json();
         const {username, email, password} = reqBody;
         console.log('start to send data to mongo');
+        
 
         // console.log(reqBody);
 
@@ -42,16 +44,17 @@ export async function POST(request){
             email,
             password: hashPassword,
         });
+        
 
         const savedUser = await newUser.save();
-        
+
         // Save the client to the database
         const newClient = new Client({
             userId: savedUser._id,
         });
 
         const savedClient = await newClient.save();
-        
+
         // save client adress to db
         const  newClientAdress = new ClientAdress({
             clientId: newClient._id,
@@ -59,19 +62,19 @@ export async function POST(request){
 
         const savedClientAdress = await newClientAdress.save();
 
+        
         // save visa card to db
         const newVisaCard = await new VisaCard({
-            clientId: client._id,
+            clientId: newClient._id,
         });
         
         const save = await newVisaCard.save();
-
+        console.log(email);
         
 
-        
         // verify email
-        sendEmail({email, emailType: 'VERIFY', userId: newUser._id})
-        
+        await sendEmail({email, emailType: "VERIFY", userId: savedUser._id})
+
         // response
         return NextResponse.json({
             message: 'User created',
