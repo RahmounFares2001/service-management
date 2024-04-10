@@ -24,6 +24,8 @@ import { CiFilter } from "react-icons/ci";
 
 import { visuallyHidden } from '@mui/utils';
 
+import axios from 'axios';
+
 function createData(id, number, type, date, status) {
   return {
     id,
@@ -34,21 +36,26 @@ function createData(id, number, type, date, status) {
   };
 }
 
-const rows = [
-  createData(1,  305, 3.7, 67, 4.3),
-  createData(2,  452, 25.0, 51, 4.9),
-  createData(3,  262, 16.0, 24, 6.0),
-  createData(4, 159, 6.0, 24, 4.0),
-  createData(5,  356, 16.0, 49, 3.9),
-  createData(6,  408, 3.2, 87, 6.5),
-  createData(7,  237, 9.0, 37, 4.3),
-  createData(8,  375, 0.0, 94, 0.0),
-  createData(9,  518, 26.0, 65, 7.0),
-  createData(10,  392, 0.2, 98, 0.0),
-  createData(11,  318, 0, 81, 2.0),
-  createData(12,  360, 19.0, 9, 37.0),
-  createData(13, 437, 18.0, 63, 4.0),
-];
+ 
+
+
+var rows = [];
+
+// const rows = [
+//   createData(1,  305, 3.7, 67, 4.3),
+//   createData(2,  452, 25.0, 51, 4.9),
+//   createData(3,  262, 16.0, 24, 6.0),
+//   createData(4, 159, 6.0, 24, 4.0),
+//   createData(5,  356, 16.0, 49, 3.9),
+//   createData(6,  408, 3.2, 87, 6.5),
+//   createData(7,  237, 9.0, 37, 4.3),
+//   createData(8,  375, 0.0, 94, 0.0),
+//   createData(9,  518, 26.0, 65, 7.0),
+//   createData(10,  392, 0.2, 98, 0.0),
+//   createData(11,  318, 0, 81, 2.0),
+//   createData(12,  360, 19.0, 9, 37.0),
+//   createData(13, 437, 18.0, 63, 4.0),
+// ];
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -114,6 +121,8 @@ function EnhancedTableHead(props) {
     onRequestSort(event, property);
   };
 
+
+
   return (
     <TableHead>
       <TableRow>
@@ -168,6 +177,7 @@ EnhancedTableHead.propTypes = {
 
 function EnhancedTableToolbar(props) {
   const { numSelected } = props;
+  
 
   return (
     <Toolbar
@@ -222,6 +232,40 @@ EnhancedTableToolbar.propTypes = {
 };
 
 export default function AppointmentTable() {
+
+  // fetch appoinements
+  const [appointmentss, setAppointmentss] = React.useState([]);
+  const fetchAppointment = async () => {
+    try {
+      const response = await axios.get('/api/users/fetchAppointments');
+      const appointments = response.data.appointments;
+
+      // set date format
+      appointments.forEach(appointment => {
+        const formattedDate = new Date(appointment.date).formattedDate.format('YYYY-MM-DD');
+        appointment.date = formattedDate;
+      });
+      
+      setAppointmentss(appointments);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  React.useEffect(() => {
+    fetchAppointment();
+  }, []);
+
+  // create data
+  rows =  appointmentss.map((appointment, index) => 
+    createData(
+      appointment._id,
+      index + 1,
+      appointment.type,
+      appointment.date,
+      appointment.status,
+    )
+  );
+
 
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('number');

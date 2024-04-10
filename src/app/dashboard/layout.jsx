@@ -8,7 +8,9 @@ import Footer from '../components/home/footer/Footer';
 
 
 // // context
-export const dashboardContext = React.createContext()
+export const dashboardContext = React.createContext();
+
+import {Toaster} from 'react-hot-toast';
 
 
 
@@ -125,6 +127,8 @@ export default function DashboardLayout({children}) {
             <div onClick={scrollToTop} className={`scroll-up ${goUp ? "show-scroll" : ""}`}>^</div>
 
             <Footer />
+
+            <Toaster />
 
         </dashboardContext.Provider>
         </>

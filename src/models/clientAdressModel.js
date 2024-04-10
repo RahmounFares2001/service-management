@@ -29,7 +29,6 @@ const clientAdressSchema = new mongoose.Schema({
 
 const ClientAdress = mongoose.models.ClientAdress || mongoose.model("ClientAdress", clientAdressSchema);
 
-
 export default ClientAdress;
 
 // type: mongoose.Schema.Types.ObjectId,

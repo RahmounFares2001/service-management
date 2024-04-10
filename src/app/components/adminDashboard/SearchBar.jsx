@@ -7,11 +7,26 @@ import { MdMessage } from "react-icons/md";
 import { IoIosNotifications } from "react-icons/io";
 import { TiWorld } from "react-icons/ti";
 import { RiLogoutBoxRLine } from 'react-icons/ri';
-
-
+import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 
 
 export default function SearchBar() {
+
+  const searchParams = useSearchParams();
+  const {replace} = useRouter();
+  const pathname = usePathname();
+
+  const handleSearch = (e) => {
+    const params = new URLSearchParams(searchParams);
+    if(e.target.value){
+      params.set('q', e.target.value);
+    } else {
+      params.delete('q');
+    }
+    replace(`${pathname}?${params}`);
+  }
+
+  
   return (
     <div className='w-11/12 lg:w-4/5 h-max py-3 px-2 sm:px-5 bg-primary text-gray-300 flex items-center justify-between'>
         
@@ -19,7 +34,8 @@ export default function SearchBar() {
             <MdSearch className='w-6 h-6' />
             <input type="text" className='bg-gray-700/50 p-1 border-none outline-none rounded-r-md
                                 text-sm md:text-base'
-                    placeholder='Search for a user' />
+                    placeholder='Search for a user'
+                    onChange={handleSearch} />
         </div>
 
         <div className='flex gap-3'>

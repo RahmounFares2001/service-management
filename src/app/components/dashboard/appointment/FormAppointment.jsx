@@ -13,6 +13,8 @@ import ConfirmationAppointment from './ConfirmationAppointment'
 // context
 import { dashboardContext } from '@/app/dashboard/layout'
 
+import axios from 'axios';
+import {toast} from 'react-hot-toast';
 
 
 
@@ -29,8 +31,33 @@ export default function FormAppointment() {
         informationsAppointment,
         setInformationsAppointment,
         showMsg,
-        setShowMsg
+        setShowMsg,
+        setShowAppointmentForm
        } = useContext(dashboardContext);
+
+    const appointmentData = {
+      typeAppointment: typeAppointment,
+      dateAppointment: dateAppointment,
+      informationsAppointment: informationsAppointment
+    };
+
+    // on confirm
+    const onConfirm =  async () => {
+      try {
+        setSpin(true);
+        const response = await axios.post('/api/users/reserveAppointment', appointmentData);
+        toast.success('Appointment reserved!');
+        setSpin(false);
+        setShowAppointmentForm(false);
+      } catch (error) {
+        setSpin(false);
+        toast.error('Some thing wrong!');
+        console.log(error);
+      }
+    };
+
+    // submit btn spin
+    const [spin, setSpin] = useState(false);
 
 
 
@@ -43,9 +70,6 @@ export default function FormAppointment() {
         {appoinmentComponentNumber == 3 &&  <InformationsAppointment /> }
         {appoinmentComponentNumber == 4 &&  <ConfirmationAppointment /> }
 
-      
-
-
 
 
 
@@ -56,19 +80,25 @@ export default function FormAppointment() {
                   ${appoinmentComponentNumber == 1 && 'opacity-0'}`} 
                   onClick={()=> { setAppoinmentComponentNumber(prev => (prev > 1 ? prev - 1 : prev))}}>Back</button>
 
-            <button className={`px-4 py-2 sm:px-10 sm:py-2
-                              ${appoinmentComponentNumber == 4 ? 'bg-green-700' : 'bg-rose-700 hover:bg-rose-800'}
-                              ${typeAppointment == '' && 'opacity-0'}`} 
 
-                onClick={()=> { 
-                    setAppoinmentComponentNumber(prev => 
-                                          (prev == 1 && typeAppointment != '' ) ? prev + 1 : 
-                                            (prev == 2 ) ? prev + 1 :
-                                               (prev == 3 && informationsAppointment.length > 1 ) ? prev + 1 : prev);
+            {appoinmentComponentNumber == 4 ?
+              <button className={`${spin && 'button button-loading'} px-4 py-2 sm:px-10 sm:py-2 bg-green-700`}
+                      onClick={()=> { onConfirm() }} ><span className='button-text'>Confirm</span></button> :
 
-                    setShowMsg((appoinmentComponentNumber == 3 &&informationsAppointment.length < 1) ? true : false)}}
+              <button className={`px-4 py-2 sm:px-10 sm:py-2
+                                ${appoinmentComponentNumber == 4 ? 'bg-green-700' : 'bg-rose-700 hover:bg-rose-800'}
+                                ${typeAppointment == '' && 'opacity-0'}`} 
 
-                disabled={false}>{appoinmentComponentNumber == 4 ? 'Confirm' : 'Next Step'}</button>
+                  onClick={()=> { 
+                      setAppoinmentComponentNumber(prev => 
+                                            (prev == 1 && typeAppointment != '' ) ? prev + 1 : 
+                                              (prev == 2 ) ? prev + 1 :
+                                                (prev == 3 && informationsAppointment.length > 1 ) ? prev + 1 : prev);
+
+                      setShowMsg((appoinmentComponentNumber == 3 && informationsAppointment.length < 1) ? true : false)}}
+
+                  disabled={false}>Next Step</button> }
+
 
         </div>
 

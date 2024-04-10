@@ -19,8 +19,6 @@ import { dashboardContext } from '@/app/dashboard/layout';
 export default function Type() {
  
 
-
-
   // context 
   const { typeAppointment, setTypeAppointment} = useContext(dashboardContext)
 

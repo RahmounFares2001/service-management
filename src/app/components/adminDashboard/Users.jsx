@@ -1,14 +1,56 @@
+'use client';
+
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SearchBar from './SearchBar';
 import Pagination from './Pagination';
+import axios  from 'axios';
+
 
 
 export default function Users() {
 
-  const heads = ['Name','Email','Status','Role','Action'];
+    // seach query
+    const [q, setQ] = useState('');
+    const hasEqualsSign = window.location.href.includes('=');
+    const startIndex = window.location.href.indexOf('=') + 1;
+
+    let startFrom;
+    useEffect(() => {
+        startFrom = window.location.href.slice(startIndex);
+        if(hasEqualsSign) {
+            setQ(startFrom);   
+        } else {setQ('')}
+    }, [window.location.href]);
+    
+
+    const query = {q: q}
+ 
+    // table head
+    const heads = ['Name','Email','Status','Role','Action'];
+
+    //
+    const [users, setUsers] = useState([]);
+
+ 
+
+    const fetch = async () => {
+        try {
+            const response1 = await axios.post('/api/admin/fetchUsers', query);
+            const response2 = await axios.get('/api/admin/fetchUsers');
+            const users = response2.data.users;
+            setUsers(users);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+        
   
+    useEffect(()=> {
+        fetch();
+    }, [query]);
+    
   return (
     <div className='w-full h-full flex flex-col gap-3 items-center pt-7' >
 
@@ -28,25 +70,26 @@ export default function Users() {
             </thead>
 
             <tbody className='text-xs sm:text-sm lg:text-base'>
-                <tr>
+                {users.map((user, index) => (
+                <tr key={index} >
                     <td className='px-2 py-4 md:px-10 md:py-5 '>
                         <div className='flex gap-3 items-center' >
                             <Image width={100} height={100}
                                 src='/images/dashboard/header/profile.jpg' 
                                 className='w-8 h-8 lg:w-10 lg:h-10 rounded-full'/>
-                            <h1 className='text-xs sm:text-sm lg:text-base text-nowrap pr-10 sm:pr-0'>Rahmoun Fares</h1>
+                            <h1 className='text-xs sm:text-sm lg:text-base text-nowrap pr-10 sm:pr-0'>{user.username}</h1>
                         </div>
                     </td>
-                    <td className='px-2 py-4 md:px-10 md:py-5'>Rahmoun@gmail.com</td>
+                    <td className='px-2 py-4 md:px-10 md:py-5'>{user.email}</td>
                     <td className='px-2 py-4 md:px-10 md:py-5 text-green-700'>Active</td>
-                    <td className='px-2 py-4 md:px-10 md:py-5'>Client</td>
+                    <td className='px-2 py-4 md:px-10 md:py-5'>{user.isAdmin ? 'Admin' : 'Client'}</td>
                     
                     <td className='px-2 py-4 md:px-10 md:py-5'>
                         <div className='bg-green-800 hover:bg-green-900 px-5 py-1 rounded-md cursor-pointer'>
                             <Link href='' className='w-full h-full'>View</Link>
                         </div>
                     </td>
-                </tr>
+                </tr> ))}
 
             </tbody>
         </table>

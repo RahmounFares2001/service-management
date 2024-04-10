@@ -18,7 +18,6 @@ export default function InformationsAppointment() {
   const { 
       informationsAppointment,
       setInformationsAppointment,
-
       showMsg,
       setShowMsg } = useContext(dashboardContext);
 
@@ -46,18 +45,10 @@ export default function InformationsAppointment() {
       </div>
 
       {showMsg &&
-        <div className='fixed w-full h-full right-0 top-0 z-40  flex justify-center items-center' >
-          <h1 className='text-center sm:text-2xl font-bold bg-gradient-to-tr from-rose-700 to-rose-950 text-gray-200 
-                  rounded-xl hover:bg-gradient-to-bl
-                  px-7 sm:px-10 py-3 sm:py-5 flex gap-3 sm:gap-5 justify-center items-center' >
-                      <RiAlertLine className='w-10 h-10 sm:w-14 sm:h-14' />
-                      <span>Please provide informations</span></h1>
-        </div> }
+        <h1 className='absolute bottom-20 text-gray-900' >Please provide informations</h1>
+      }
 
-      {showMsg && 
-        <div className='fixed top-0 right-0 w-full h-full bg-gray-950/95 z-30'>
 
-        </div> }
       
     </motion.div>
   )

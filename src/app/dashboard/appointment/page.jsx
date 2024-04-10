@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import {motion} from "framer-motion";
 
@@ -14,13 +14,31 @@ import { RiReservedLine } from 'react-icons/ri'
 import { dashboardContext } from '../layout'
 import HistoryAppointment from '@/app/components/dashboard/appointment/HistoryAppointment'
 
+import axios from 'axios';
 
 
 
 
 export default function Appointment() {
 
+  // context
   const {showAppointmentForm, setShowAppointmentForm} = useContext(dashboardContext);
+
+  const [appointmentExist, setAppointmentExist] = useState('');
+
+  const checkAppoitnemntExist = async () => {
+    try {
+      const response = await axios.get('/api/users/reserveAppointment');
+      const appointmentExist = response.data.appointmentExist;
+      setAppointmentExist(appointmentExist);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+  useEffect(()=> {
+    checkAppoitnemntExist();
+  }, []);
   
   return (
     <div className='w-full h-full flex items-center justify-center flex-col gap-14
@@ -34,16 +52,27 @@ export default function Appointment() {
             <hr className='w-44 border-2 border-rose-700' />
         </motion.div>
 
-        <motion.button className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-100 
-            bg-gradient-to-tr from-rose-700 to-rose-950 hover:bg-gradient-to-bl px-10 py-3 sm:px-20 sm:py-5 rounded-xl border transition-colors duration-500
+        {appointmentExist ? 
+            <motion.button className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-100 
+            bg-gradient-to-tr from-green-700 to-green-950 hover:bg-gradient-to-bl px-10 py-3 sm:px-20 sm:py-5 rounded-xl border transition-colors duration-500
             flex gap-3 sm:gap-5 justify-center items-center' 
-                onClick={()=> {setShowAppointmentForm(true)}}
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
                 transition={{duration: 0.2, delay: 0.1}} >
                     <RiReservedLine className='w-6 h-6 sm:w-9 md:w-10 sm:h-9 md:h-10' />
-                    <span>Reserve Now</span>
-        </motion.button>
+                    <span>Modify appointment</span>
+          </motion.button>  :
+
+          <motion.button className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-100 
+              bg-gradient-to-tr from-rose-700 to-rose-950 hover:bg-gradient-to-bl px-10 py-3 sm:px-20 sm:py-5 rounded-xl border transition-colors duration-500
+              flex gap-3 sm:gap-5 justify-center items-center' 
+                  onClick={()=> {setShowAppointmentForm(true)}}
+                  initial={{opacity: 0}}
+                  animate={{opacity: 1}}
+                  transition={{duration: 0.2, delay: 0.1}} >
+                      <RiReservedLine className='w-6 h-6 sm:w-9 md:w-10 sm:h-9 md:h-10' />
+                      <span>Reserve Now</span>
+          </motion.button> }
 
         {showAppointmentForm &&
         <motion.div className='z-20 w-11/12 lg:w-4/5 sm:h-96 bg-white flex flex-col sm:flex-row rounded-xl border-2
