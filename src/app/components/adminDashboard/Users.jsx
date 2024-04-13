@@ -30,10 +30,8 @@ export default function Users() {
     // table head
     const heads = ['Name','Email','Status','Role','Action'];
 
-    //
+    // fetch users
     const [users, setUsers] = useState([]);
-
- 
 
     const fetch = async () => {
         try {
@@ -46,11 +44,21 @@ export default function Users() {
         }
     };
         
-  
     useEffect(()=> {
         fetch();
     }, [query]);
     
+    // get user
+    const [user, setUser] = useState('');
+    const userr = {user: 'fares'}
+    const onView = async () => {
+        try {
+            const response = await axios.post('/api/admin/getUser', userr);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
   return (
     <div className='w-full h-full flex flex-col gap-3 items-center pt-7' >
 
@@ -86,7 +94,10 @@ export default function Users() {
                     
                     <td className='px-2 py-4 md:px-10 md:py-5'>
                         <div className='bg-green-800 hover:bg-green-900 px-5 py-1 rounded-md cursor-pointer'>
-                            <Link href='' className='w-full h-full'>View</Link>
+                            <div className='w-full h-full'
+                                    onClick={()=> {
+                                            setUser(user.username);
+                                            onView()}}>View</div>
                         </div>
                     </td>
                 </tr> ))}

@@ -42,8 +42,9 @@ export default function DashboardLayout({children}) {
 
     // project form values
     const [ typeProject, setTypeProject ] = useState('');
-    const [ projectDescription,  setProjectDescription ] = useState({book: 'b', informations: ''});
+    const [ projectDescription,  setProjectDescription ] = useState({name: '', file: ''});
     const [ chosenPackege, setChosenPackage ] = useState('');
+
 
     // in form informations when it empty and pres next it apear 
     const [ showMsg, setShowMsg ] = useState(true);
@@ -84,8 +85,7 @@ export default function DashboardLayout({children}) {
       projectDescription,
       setProjectDescription,
       chosenPackege,
-      setChosenPackage
-      
+      setChosenPackage,
 
      }
 

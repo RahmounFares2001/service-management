@@ -16,7 +16,7 @@ export async function GET(request) {
       // get user id
       const user = await getDataFromToken(request);
       const userId = user.id;
-
+      
       // find user by id
       const client = await Client.findOne({userId: userId});
       const clientAdress = await ClientAdress.findOne({clientId: client._id});

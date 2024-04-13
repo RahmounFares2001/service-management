@@ -7,6 +7,7 @@ import AddProjectForm from '@/app/components/dashboard/addProject/AddProjectForm
 import HowItWorks from '@/app/components/dashboard/addProject/HowItWorks'
 import Pricing from '@/app/components/dashboard/addProject/Pricing'
 
+import {Toaster} from "react-hot-toast";
 
 
 
@@ -26,6 +27,7 @@ export default function AddProject() {
       
       <HowItWorks />
       <Pricing />
+      <Toaster />
     </div>
   )
 }

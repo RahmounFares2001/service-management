@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { alpha } from '@mui/material/styles';
@@ -25,6 +27,7 @@ import { CiFilter } from "react-icons/ci";
 import { visuallyHidden } from '@mui/utils';
 
 import axios from 'axios';
+import moment from 'moment';
 
 function createData(id, number, type, date, status) {
   return {
@@ -234,37 +237,43 @@ EnhancedTableToolbar.propTypes = {
 export default function AppointmentTable() {
 
   // fetch appoinements
-  const [appointmentss, setAppointmentss] = React.useState([]);
+  const [appointments, setAppointments] = React.useState([]);
+
+
   const fetchAppointment = async () => {
     try {
       const response = await axios.get('/api/users/fetchAppointments');
-      const appointments = response.data.appointments;
+      const appointmentss = response.data.appointments;
 
       // set date format
-      appointments.forEach(appointment => {
-        const formattedDate = new Date(appointment.date).formattedDate.format('YYYY-MM-DD');
-        appointment.date = formattedDate;
+      appointmentss.forEach(appointment => {
+        const formattedDate = moment(appointment.date).format('YYYY-MM-DD');
+        appointment.date = formattedDate
       });
       
-      setAppointmentss(appointments);
+      setAppointments(appointmentss);
+
+
     } catch (error) {
       console.log(error);
     }
   };
   React.useEffect(() => {
     fetchAppointment();
-  }, []);
+  }, [appointments]);
 
   // create data
-  rows =  appointmentss.map((appointment, index) => 
-    createData(
-      appointment._id,
-      index + 1,
-      appointment.type,
-      appointment.date,
-      appointment.status,
-    )
+  rows =  appointments.map((appointment, index) => 
+        createData(
+          appointment._id,
+          index + 1,
+          appointment.type,
+          appointment.date,
+          appointment.status
+        )
   );
+  console.log(appointments);
+  
 
 
   const [order, setOrder] = React.useState('asc');

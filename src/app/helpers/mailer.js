@@ -41,7 +41,7 @@ export const sendEmail = async ({email, emailType, userId}) => {
                 pass: process.env.MAILER_PASSWORD,
             }
             }
-          );
+        );
         
         // mail options
         const mailOptions = {   

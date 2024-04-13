@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 
 // framer motion
 import { motion } from "framer-motion";
@@ -16,6 +16,9 @@ import PackegeProject from './PackegeProject';
 import { dashboardContext } from '@/app/dashboard/layout';
 import ProjectInformations from './ProjectInformations';
 import ConfirmationProject from './ConfirmationProject';
+
+import axios from 'axios';
+import {toast} from "react-hot-toast";
 
 
 export default function AddProjectForm() {
@@ -33,9 +36,33 @@ export default function AddProjectForm() {
       chosenPackege,
       setChosenPackage } = useContext(dashboardContext);
 
-      const {book, informations} = projectDescription;
-      console.log(book);
-  
+
+  const {name, file} = projectDescription;
+
+  const projectDetails = {
+    projectDescription: projectDescription,
+    typeProject: typeProject,
+    chosenPackege: chosenPackege
+  };
+  // submit btn spin
+  const [spin, setSpin] = useState(false);
+
+
+  // on confirm
+  const onConfirm =  async () => {
+    try {
+      setSpin(true);
+      const response = await axios.post('/api/users/addProject', projectDetails);
+      toast.success('Project added!');
+      setSpin(false);
+      setShowAddProjectForm(false);
+    } catch (error) {
+      setSpin(false);
+      toast.error('Some thing wrong!');
+      console.log(error);
+    }
+  };
+
   return (
     <>
     {showAddProjectForm &&
@@ -63,20 +90,21 @@ export default function AddProjectForm() {
                     onClick={()=> {setProjectComponentNumber(prev => (prev > 1 ? prev - 1 : prev))}}
               >Back</button>
 
-              {/* next  */}
-              <button className={`px-4 py-2 sm:px-10 sm:py-2 
-                          ${projectComponentNumber == 4 ? 'bg-green-700' : 'bg-rose-700 hover:bg-rose-800'} 
-                           `} 
+              {/* next & confirm  */}
+              {projectComponentNumber == 4 ?
+              <button className={`${spin && 'button button-loading'} px-4 py-2 sm:px-10 sm:py-2 bg-green-700`}
+                      onClick={()=> { onConfirm() }} ><span className='button-text'>Confirm</span></button> :
+
+              <button className='px-4 py-2 sm:px-10 sm:py-2 bg-rose-700 hover:bg-rose-800'
                         disabled={false}
                         onClick={()=> {setProjectComponentNumber(prev => 
-                                          (prev == 1 && typeProject != '' ) ? prev +1 :
-                                          ( prev == 2 && (book != '' && informations != '' ) )  ? prev + 1 :
-                                          (prev == 3 && chosenPackege != '' ) ? prev +1 :  prev   ) }}>Next Step</button>
+                                          (prev == 1 && typeProject.length > 0 ) ? prev +1 :
+                                          ( prev == 2 && (name != '' && file != '' ) )  ? prev + 1 :
+                                          (prev == 3 && chosenPackege != '' ) ? prev +1 :  prev   ) }}>Next Step</button> }
 
             </div>
 
         </motion.div> 
-
 
 
         {/* overlay */}

@@ -2,8 +2,7 @@ import mongoose from "mongoose";
 
 const clientSchema = new mongoose.Schema({
     surname: {
-        type: String,
-        default: 'surname'
+        type: String
     },
     phoneNumber: {
         type: String  

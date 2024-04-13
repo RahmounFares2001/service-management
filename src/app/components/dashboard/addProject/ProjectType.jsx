@@ -27,8 +27,8 @@ export default function ProjectType() {
 
         {/* web */}
         <motion.div className={`w-1/3 h-40 sm:h-44 flex flex-col justify-center items-center gap-3 rounded-xl cursor-pointer hover:bg-gradient-to-bl
-                        ${typeProject == 'web' ? 'bg-gray-900 border-2' : 'bg-gradient-to-tr from-rose-950 to-rose-800'}  `} 
-                        onClick={()=> {setTypeProject('web')}}
+                        ${typeProject == 'Web application' ? 'bg-gray-900 border-2' : 'bg-gradient-to-tr from-rose-950 to-rose-800'}  `} 
+                        onClick={()=> {setTypeProject('Web application')}}
                         initial={{opacity: 0}}
                         animate={{opacity: 1}}
                         transition={{delay: 0.3, duration: 0.4}}
@@ -41,8 +41,8 @@ export default function ProjectType() {
 
         {/* mobile */}
         <motion.div className={`w-1/3 h-40 sm:h-44 flex flex-col justify-center items-center gap-3 rounded-xl cursor-pointer hover:bg-gradient-to-bl
-                        ${typeProject == 'mobile' ? 'bg-gray-900 border-2' : 'bg-gradient-to-tr from-rose-950 to-rose-800'}  `} 
-                        onClick={()=> {setTypeProject('mobile')}}
+                        ${typeProject == 'Mobile application' ? 'bg-gray-900 border-2' : 'bg-gradient-to-tr from-rose-950 to-rose-800'}  `} 
+                        onClick={()=> {setTypeProject('Mobile application')}}
                         initial={{x: -300, opacity: 0}}
                         animate={{x: 0, opacity: 1}}
                         transition={{delay: 0.3, duration: 0.4}} >
@@ -55,8 +55,8 @@ export default function ProjectType() {
         
       {/* both */}
       <motion.div className={`w-1/3 h-40 sm:h-44 flex flex-col justify-center items-center gap-3 rounded-xl cursor-pointer hover:bg-gradient-to-bl
-                        ${typeProject == 'both' ? 'bg-gray-900 border-2' : 'bg-gradient-to-tr from-rose-950 to-rose-800'}  `} 
-                        onClick={()=> {setTypeProject('both')}}
+                        ${typeProject == 'Web/Mob application' ? 'bg-gray-900 border-2' : 'bg-gradient-to-tr from-rose-950 to-rose-800'}  `} 
+                        onClick={()=> {setTypeProject('Web/Mob application')}}
                         initial={{x: -300, opacity: 0}}
                         animate={{x: 0, opacity: 1}}
                         transition={{delay: 0.5, duration: 0.4}}>

@@ -52,7 +52,7 @@ export async function GET(request) {
 
         const appointment = await Appointment.findOne({
             clientId: client._id,
-            status: { $in: ['cancelled', 'ended'] } });
+            status: { $in: ['cancelled', 'completed'] } });
 
         var appointmentExist;
         if(appointment){

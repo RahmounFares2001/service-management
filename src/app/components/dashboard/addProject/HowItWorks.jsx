@@ -72,7 +72,7 @@ export default function HowItWorks() {
                             transition={{duration: 0.2, delay: 0.1}} >
                 
                     <div className='bg-forthly p-2 sm:p-3 h-full border rounded-xl flex justify-center items-center
-                             group-hover:bg-gray-400 border-rose-700'>
+                             border-rose-700'>
                         {React.createElement(card.icon, { className: 'text-rose-700 w-10 h-10 sm:w-16 sm:h-16 lg:w-10 lg:h-10 xl:w-16 xl:h-16 transition-colors duration-500' })}
                     </div>
 

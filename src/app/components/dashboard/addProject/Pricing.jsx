@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import {motion} from "framer-motion";
 
@@ -26,6 +26,24 @@ export default function Pricing() {
 
   // context show form
   const { showAddProjectForm, setShowAddProjectForm } = useContext(dashboardContext)
+
+
+  // check if client has projects 
+  const [projectExist, setProjectExist] = useState(true);
+
+  const checkProjectExist = async () => {
+    try {
+      const response = await axios.get('/api/users/addProject');
+      const projectExist = response.data.projectExist;
+      setProjectExist(projectExist);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+  useEffect(()=> {
+    checkProjectExist();
+  }, []);
 
   return (
     <div className='w-full bg-thirdly px-3 sm:px-5 md:px-5 lg:px-0 2xl:px-24 pt-20'>
@@ -78,17 +96,29 @@ export default function Pricing() {
       </motion.div> ))}
 
 
-      <motion.div className='flex justify-center items-center'
-                  initial={{opacity: 0, y: '5vh'}}
-                  whileInView={{opacity: 1, y: '0vh'}}
-                  transition={{delay: 0.4, duration: 0.3}}
-                  viewport={{once: true}}>
+      {projectExist? 
+        <motion.div className='flex justify-center items-center'
+                    initial={{opacity: 0, y: '5vh'}}
+                    whileInView={{opacity: 1, y: '0vh'}}
+                    transition={{delay: 0.4, duration: 0.3}}
+                    viewport={{once: true}}>
+          <h1 className='px-7 sm:px-20 py-3 sm:py-5 text-xl sm:text-4xl font-bold hover:bg-rose-950 my-20 rounded-md
+                    bg-rose-700 group transition-colors duration-500  cursor-pointer'
+                    onClick={()=> {setShowAddProjectForm(true)}}>
+                <FaShoppingCart className='inline-block text-gray-200 w-10 h-10 group-hover:text-white
+                      mr-3 sm:mr-5 transition-colors duration-500' />Place Order</h1>
+        </motion.div> :
+
+        <motion.div className='flex justify-center items-center'
+              initial={{opacity: 0, y: '5vh'}}
+              whileInView={{opacity: 1, y: '0vh'}}
+              transition={{delay: 0.4, duration: 0.3}}
+              viewport={{once: true}}>
         <h1 className='px-7 sm:px-20 py-3 sm:py-5 text-xl sm:text-4xl font-bold hover:bg-rose-950 my-20 rounded-md
-                  bg-rose-700 group transition-colors duration-500  cursor-pointer'
-                  onClick={()=> {setShowAddProjectForm(true)}}>
-              <FaShoppingCart className='inline-block text-gray-200 w-10 h-10 group-hover:text-white
-                    mr-3 sm:mr-5 transition-colors duration-500' />Place Order</h1>
-      </motion.div>
+              bg-rose-700 group transition-colors duration-500  cursor-pointer' >
+          <FaShoppingCart className='inline-block text-gray-200 w-10 h-10 group-hover:text-white
+                mr-3 sm:mr-5 transition-colors duration-500' />Already ordered</h1>
+      </motion.div> }
 
     </div>
   )

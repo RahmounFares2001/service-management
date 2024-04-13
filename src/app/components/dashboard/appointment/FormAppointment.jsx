@@ -85,8 +85,7 @@ export default function FormAppointment() {
               <button className={`${spin && 'button button-loading'} px-4 py-2 sm:px-10 sm:py-2 bg-green-700`}
                       onClick={()=> { onConfirm() }} ><span className='button-text'>Confirm</span></button> :
 
-              <button className={`px-4 py-2 sm:px-10 sm:py-2
-                                ${appoinmentComponentNumber == 4 ? 'bg-green-700' : 'bg-rose-700 hover:bg-rose-800'}
+              <button className={`px-4 py-2 sm:px-10 sm:py-2 bg-rose-700 hover:bg-rose-800
                                 ${typeAppointment == '' && 'opacity-0'}`} 
 
                   onClick={()=> { 

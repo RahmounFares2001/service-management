@@ -29,11 +29,11 @@ export async function getProfileInformations(request) {
       };
 
       return NextResponse.json(oldInformations);
-      // return NextResponse.json({
-      //   message: 'Old informations sent',
-      //   oldInformations,
-      //   succes: true
-      // });
+      return NextResponse.json({
+        message: 'Old informations sent',
+        oldInformations,
+        succes: true
+      });
 
     } catch (error) {
         console.log(error)
