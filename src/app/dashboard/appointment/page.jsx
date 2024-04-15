@@ -52,8 +52,7 @@ export default function Appointment() {
             <hr className='w-44 border-2 border-rose-700' />
         </motion.div>
 
-        {appointmentExist ? 
-            <motion.button className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-100 
+            {/* <motion.button className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-100 
             bg-gradient-to-tr from-green-700 to-green-950 hover:bg-gradient-to-bl px-10 py-3 sm:px-20 sm:py-5 rounded-xl border transition-colors duration-500
             flex gap-3 sm:gap-5 justify-center items-center' 
                 initial={{opacity: 0}}
@@ -61,7 +60,7 @@ export default function Appointment() {
                 transition={{duration: 0.2, delay: 0.1}} >
                     <RiReservedLine className='w-6 h-6 sm:w-9 md:w-10 sm:h-9 md:h-10' />
                     <span>Modify appointment</span>
-          </motion.button>  :
+          </motion.button>   */}
 
           <motion.button className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-100 
               bg-gradient-to-tr from-rose-700 to-rose-950 hover:bg-gradient-to-bl px-10 py-3 sm:px-20 sm:py-5 rounded-xl border transition-colors duration-500
@@ -72,7 +71,7 @@ export default function Appointment() {
                   transition={{duration: 0.2, delay: 0.1}} >
                       <RiReservedLine className='w-6 h-6 sm:w-9 md:w-10 sm:h-9 md:h-10' />
                       <span>Reserve Now</span>
-          </motion.button> }
+          </motion.button> 
 
         {showAppointmentForm &&
         <motion.div className='z-20 w-11/12 lg:w-4/5 sm:h-96 bg-white flex flex-col sm:flex-row rounded-xl border-2
