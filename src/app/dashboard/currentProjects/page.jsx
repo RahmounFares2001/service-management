@@ -7,6 +7,7 @@ import { MdSearch } from 'react-icons/md';
 
 import axios from 'axios';
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
+import SearchBar from '@/app/components/dashboard/currentProject/SearchBar';
 
 
 export default function CurrentProjects() {
@@ -35,13 +36,30 @@ export default function CurrentProjects() {
    const hasEqualsSign = window.location.href.includes('=');
    const startIndex = window.location.href.indexOf('=') + 1;
 
-   let startFrom;
-   useEffect(() => {
-       startFrom = window.location.href.slice(startIndex);
-       if(hasEqualsSign) {
-           setQ(startFrom);   
-       } else {setQ('')}
-   }, [window.location.href]);
+//    let startFrom;
+//    useEffect(() => {
+//        startFrom = window.location.href.slice(startIndex);
+//        if(hasEqualsSign) {
+//            setQ(startFrom);   
+//        } else {setQ('')}
+//    }, [window.location.href]);
+
+    if (typeof window !== 'undefined') {
+        // Code that references window can go here
+        const hasEqualsSign = window.location.href.includes('=');
+        const startIndex = window.location.href.indexOf('=') + 1;
+
+        let startFrom;
+        useEffect(() => {
+            startFrom = window.location.href.slice(startIndex);
+            if(hasEqualsSign) {
+                setQ(startFrom);   
+            } else {
+                setQ('');
+            }
+        }, [window.location.href]);
+    }
+
    
    const query = {q: q}
 
@@ -69,13 +87,14 @@ export default function CurrentProjects() {
   return (
     <div className='w-full h-full flex flex-col items-center pt-10 pb-56' >
 
-        <div className='bg-gray-700/50 w-11/12 lg:w-4/5 flex justify-start items-center rounded-md py-2 pl-3'>
+        {/* <div className='bg-gray-700/50 w-11/12 lg:w-4/5 flex justify-start items-center rounded-md py-2 pl-3'>
                         <MdSearch className='w-6 h-8 bg-gray-700/50' />
                         <input type="text" className='bg-gray-700/50 p-1 border-none outline-none rounded-r-md
                                             text-sm md:text-base text-gray-300'
                                 placeholder='Search for a user'
                                 onChange={handleSearch} />
-        </div>
+        </div> */}
+        <SearchBar />
 
         <div className='overflow-x-scroll sm:overflow-auto w-11/12 lg:w-4/5 scrollbar'>
             <table className='text-center bg-primary text-gray-300 w-full'>

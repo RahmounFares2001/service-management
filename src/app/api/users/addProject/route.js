@@ -36,8 +36,8 @@ export async function POST(request) {
     //   // fs.unlinkSync(path);
     // }
     
-
-        
+    
+    
     // Save project
 
     // get user id
@@ -87,16 +87,6 @@ export async function POST(request) {
 };
 
 
-
-// Handle file upload
-// upload.single('pdf')(request, async (err) => {
-//   if (err) {
-//     console.error('Error uploading file:', err);
-//     return NextResponse.json({
-//       message: 'Fetch success',
-//       success: true
-//     });
-// }
 
 
 

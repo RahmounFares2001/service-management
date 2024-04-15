@@ -17,13 +17,21 @@ export default function Users() {
     const hasEqualsSign = window.location.href.includes('=');
     const startIndex = window.location.href.indexOf('=') + 1;
 
-    let startFrom;
-    useEffect(() => {
-        startFrom = window.location.href.slice(startIndex);
-        if(hasEqualsSign) {
-            setQ(startFrom);   
-        } else {setQ('')}
-    }, [window.location.href]);
+    if (typeof window !== 'undefined') {
+
+        const hasEqualsSign = window.location.href.includes('=');
+        const startIndex = window.location.href.indexOf('=') + 1;
+
+        let startFrom;
+        useEffect(() => {
+            startFrom = window.location.href.slice(startIndex);
+            if(hasEqualsSign) {
+                setQ(startFrom);   
+            } else {
+                setQ('');
+            }
+        }, [window.location.href]);
+    }
     
 
     const query = {q: q}
