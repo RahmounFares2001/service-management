@@ -2,18 +2,32 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { MdSearch } from 'react-icons/md';
 import axios from 'axios';
+import { adminDashboardContext } from '@/app/adminDashboard/[username]/page';
 
 export default function ClientProjects() {
 
-  const heads = ['Project name','Type','Deadline','Status','Action'];
+  // table head
+  const heads = ['Project name','Type','Status','Progression','Action'];
 
+  // context
+  const {clientUsername} = useContext(adminDashboardContext);
+
+  const clientusername = {clientUsername: clientUsername};
+
+
+  // projects
+  const [projects, setProjects] = useState([]);
 
   const fetchProjects = async () => {
     try {
-      const response = await axios.get('');
+      const response1 = await axios.post('/api/admin/fetchProjects', clientusername);
+
+      const response2 = await axios.get('/api/admin/fetchProjects');
+      const projects = response2.data.projects;
+      setProjects(projects);
     } catch (error) {
       console.log(error);
     }
@@ -41,25 +55,37 @@ export default function ClientProjects() {
                   </tr>
                 </thead>
                 <tbody className='text-xs sm:text-sm lg:text-base'>
-                    <tr>
-                        <td className='px-2 py-4 md:px-10 md:py-5 '>E-commerce</td>
-                        <td className='px-2 py-4 md:px-10 md:py-5'>Website app</td>
-                        <td className='px-2 py-4 md:px-10 md:py-5 text-green-700'>Accepted</td>
-                        <td className='px-2 py-4 md:px-10 md:py-5'>In progress</td>
+                    {projects.map((project, index) => (
+                    <tr key={index} >
+                        <td className='px-2 py-4 md:px-10 md:py-5 '>{project.name}</td>
+                        <td className='px-2 py-4 md:px-10 md:py-5'>{project.type}</td>
+                        <td className={`${project.statuss == 'pending' ? 'text-yellow-700' :
+                                            project.statuss == 'confirmed' ? 'text-green-700' :
+                                            'text-gray-300' } px-2 py-4 md:px-10 md:py-5`}>{project.statuss}</td>
+                        <td className={`${project.progression == 'pending' ? 'text-yellow-700' :
+                                            project.progression == 'confirmed' ? 'text-green-700' :
+                                            'text-gray-300' } px-2 py-4 md:px-10 md:py-5`}>{project.progression}</td>
                         
-                        <td className='px-2 py-4 md:px-10 md:py-5 flex gap-2'>
-                            <div className='bg-green-800 hover:bg-green-900 px-5 py-1 rounded-md cursor-pointer'>
+                        <td className='px-2 py-4 md:px-10 md:py-5 flex flex-col gap-2'>
+                            {/* <div className='bg-green-800 hover:bg-green-900 px-5 py-1 rounded-md cursor-pointer'>
                                 <Link href='' className='w-full h-full'>View</Link>
+                            </div> */}
+                            <div className='bg-green-800 hover:bg-green-900 px-3 py-1 rounded-md cursor-pointer text-sm'>
+                                <div className='w-full h-full'>Accept</div>
                             </div>
+                            <div className='bg-red-800 hover:bg-red-900 px-3 py-1 rounded-md cursor-pointer text-sm'>
+                                <div className='w-full h-full'>Decline</div>
+                            </div>
+                        </td>
+                        
+                    </tr> ))}
+                        
                             {/* <div className='bg-green-800 hover:bg-green-900 px-3 py-1 rounded-md cursor-pointer text-sm'>
                                 <div className='w-full h-full'>Accept</div>
                             </div>
                             <div className='bg-red-800 hover:bg-red-900 px-3 py-1 rounded-md cursor-pointer text-sm'>
                                 <div className='w-full h-full'>Decline</div>
                             </div> */}
-                        </td>
-                    </tr>
-
                 </tbody>
             </table>
             </div>

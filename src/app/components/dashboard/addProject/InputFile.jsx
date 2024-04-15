@@ -30,7 +30,7 @@ export default function InputFile() {
     const formData = new FormData();
     formData.append('pdf', fileList);
 
-    setProjectDescription({...projectDescription, file: formData});
+    setProjectDescription({...projectDescription, file: 'formData'});
   };
 
   return (

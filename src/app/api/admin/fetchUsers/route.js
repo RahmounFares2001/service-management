@@ -16,7 +16,7 @@ export async function GET(request) {
         const regex = new RegExp(q, 'i');
 
         // get users
-        const users = await User.find({username: {$regex: regex}});
+        const users = await User.find({username: {$regex: regex}, isAdmin: false});
        
 
         return NextResponse.json({

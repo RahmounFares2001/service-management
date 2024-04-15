@@ -24,7 +24,7 @@ export default function Appointment() {
   // context
   const {showAppointmentForm, setShowAppointmentForm} = useContext(dashboardContext);
 
-  const [appointmentExist, setAppointmentExist] = useState(true);
+  const [appointmentExist, setAppointmentExist] = useState(false);
 
   const checkAppoitnemntExist = async () => {
     try {

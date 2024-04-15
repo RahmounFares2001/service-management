@@ -10,13 +10,11 @@ const projectSchema = new mongoose.Schema({
     package: {
         type: String  
     },
-    status: {
-        type: String,
-        default: 'pending'
-    },
     progression: {
         type: String,
-        default: 'pending'
+    },
+    statuss: {
+        type: String,
     },
     clientId: {
         type: mongoose.Schema.Types.ObjectId,

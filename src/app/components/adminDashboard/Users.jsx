@@ -6,11 +6,12 @@ import React, { useEffect, useState } from 'react'
 import SearchBar from './SearchBar';
 import Pagination from './Pagination';
 import axios  from 'axios';
+import { useRouter } from 'next/navigation';
 
 
 
 export default function Users() {
-
+    const router = useRouter();
     // seach query
     const [q, setQ] = useState('');
     const hasEqualsSign = window.location.href.includes('=');
@@ -50,14 +51,13 @@ export default function Users() {
     
     // get user
     const [user, setUser] = useState('');
-    const userr = {user: 'fares'}
+    
     const onView = async () => {
-        try {
-            const response = await axios.post('/api/admin/getUser', userr);
-        } catch (error) {
-            console.log(error);
-        }
+            // const response = await axios.post('/api/admin/getUser', userr);
+            console.log(user);
+            router.push(`/adminDashboard/${user}`);
     };
+
 
   return (
     <div className='w-full h-full flex flex-col gap-3 items-center pt-7' >

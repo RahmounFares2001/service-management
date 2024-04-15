@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import {motion} from "framer-motion";
 
@@ -18,15 +18,24 @@ import { FaLock } from "react-icons/fa";
 import wilayas from "./wilayas";
 
 import {toast} from 'react-hot-toast';
+import { adminDashboardContext } from '@/app/adminDashboard/[username]/page';
 
 
 export default function ClientAccount() {
 
+  const {clientUsername} = useContext(adminDashboardContext);
+
+  const clientusername = {clientUsername: clientUsername};
+
+  
   // get profile informations
   const getOldInformations = async () => {
     try {
-      const response = await axios.get('/api/users/getProfileInformations');
-      const oldData = response.data.oldInformations;
+      const response1 = await axios.post('/api/admin/profileInformations', clientusername);
+
+
+      const response2 = await axios.get('/api/admin/profileInformations');
+      const oldData = response2.data.oldInformations;
 
       await setUser({...userInformations,
         username: oldData.username,

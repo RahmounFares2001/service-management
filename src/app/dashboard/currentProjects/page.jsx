@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image';
+
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import { MdSearch } from 'react-icons/md';
@@ -92,10 +92,12 @@ export default function CurrentProjects() {
                     <tr key={index} >
                         <td className='px-2 py-4 md:px-10 md:py-5 '>{project.name}</td>
                         <td className='px-2 py-4 md:px-10 md:py-5'>{project.type}</td>
-                        <td className={`${project.status == 'pending' ? 'text-yellow-700' :
-                                                 project.status == 'confirmed' ? 'text-green-700' : 'text-gray-300' } 
-                                                 px-2 py-4 md:px-10 md:py-5`}>{project.status}</td>
-                        <td className='px-2 py-4 md:px-10 md:py-5'>{project.progression}</td>
+                        <td className={`${project.statuss == 'pending' ? 'text-yellow-700' :
+                                            project.statuss == 'confirmed' ? 'text-green-700' :
+                                            'text-gray-300' } px-2 py-4 md:px-10 md:py-5`}>{project.statuss}</td>
+                        <td className={`${project.progression == 'pending' ? 'text-yellow-700' :
+                                            project.progression == 'confirmed' ? 'text-green-700' :
+                                            'text-gray-300' } px-2 py-4 md:px-10 md:py-5`}>{project.progression}</td>
                         
                         <td className='px-2 py-4 md:px-10 md:py-5'>
                             <div className='bg-green-800 hover:bg-green-900 px-5 py-1 rounded-md cursor-pointer'>

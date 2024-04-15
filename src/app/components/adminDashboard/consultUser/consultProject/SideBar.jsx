@@ -2,7 +2,7 @@
 
 import React, { useContext, useState } from 'react';
 import Link from 'next/link';
-import { consultProjectContext } from '@/app/adminDashboard/consultUser/consultProject/page';
+import { consultProjectContext } from '@/app/adminDashboard/[username]/project/[project]/page';
 
 
 export default function SideBar() {

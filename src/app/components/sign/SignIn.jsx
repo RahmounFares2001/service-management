@@ -49,7 +49,7 @@ export default function SignIn() {
         try {
             setSpin(true);
 
-            // check if email valud
+            // check if email valid @..com
             const userEmail = user.email;
             function isValidEmail(userEmail) {
                 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -62,13 +62,37 @@ export default function SignIn() {
             } else if(isValidEmail(userEmail)) {
                 // send email and pass to verify
                 const response1 = await axios.post('/api/users/signIn', user);
-                setSpin(false);
 
-                toast.success('Login success!');
-                setSpin(false);
-                setTimeout(() =>{
-                    router.push('/adminDashboard');
-                }, 2000);
+                // get user from db
+                const response2 = await axios.get('/api/users/me');
+                const userr = response2.data.user;
+                console.log(userr);
+
+                // check is admin && is verified
+                if(userr.isVerfied){
+                    if(userr.isAdmin){
+                        setSpin(false);
+                        toast.success('Login success!');
+
+                        setTimeout(() =>{
+                            router.push('/adminDashboard');
+                        }, 2000);
+                    } else {
+                        setSpin(false);
+                        toast.success('Login success!');
+
+                        setTimeout(() =>{
+                            router.push('/dashboard');
+                        }, 2000);
+                    }
+                }
+                else{
+                    setSpin(false);
+                    toast.error('Please verify your account');
+                }
+
+                
+                
             } else {
                 setSpin(false);
                 toast.error('Please provide a valid email!');

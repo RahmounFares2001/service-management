@@ -2,20 +2,36 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { MdSearch } from 'react-icons/md';
 import axios from 'axios';
+import { adminDashboardContext } from '@/app/adminDashboard/[username]/page';
 
 export default function ClientAppointments() {
 
 
+  // contect
   const heads = ['Num','Type','Date','Status','Action'];
+
+  // context
+  const {clientUsername} = useContext(adminDashboardContext);
+
+  const clientusername = {clientUsername: clientUsername};
+
+
+  // app
+  const [appointments, setAppointments] = useState([]);
 
 
 
   const fetchApppointments = async () => {
     try {
-      const response = await axios.get('');
+      const response1 = await axios.post('/api/admin/fetchAppointments', clientusername);
+
+      const response2 = await axios.get('/api/admin/fetchAppointments');
+      const appointments = response2.data.appointments;
+      setAppointments(appointments);    
+      console.log(appointments)
     } catch (error) {
       console.log(error);
     }
@@ -43,24 +59,25 @@ export default function ClientAppointments() {
                   </tr>
                 </thead>
                 <tbody className='text-xs sm:text-sm lg:text-base'>
-                    <tr>
-                        <td className='px-2 py-4 md:px-10 md:py-5 '>E-commerce</td>
-                        <td className='px-2 py-4 md:px-10 md:py-5'>Website app</td>
-                        <td className='px-2 py-4 md:px-10 md:py-5 text-green-700'>Accepted</td>
-                        <td className='px-2 py-4 md:px-10 md:py-5'>In progress</td>
+                  {appointments.map((appointment, index) => (
+                    <tr key={index}>
+                        <td className='px-2 py-4 md:px-10 md:py-5 '>1</td>
+                        <td className='px-2 py-4 md:px-10 md:py-5'>{appointment.type}</td>
+                        <td className='px-2 py-4 md:px-10 md:py-5 text-yellow-700'>{appointment.status}</td>
+                        <td className='px-2 py-4 md:px-10 md:py-5'>{appointment.date}</td>
                         
                         <td className='px-2 py-4 md:px-10 md:py-5 flex gap-2'>
-                            <div className='bg-green-800 hover:bg-green-900 px-5 py-1 rounded-md cursor-pointer'>
+                            {/* <div className='bg-green-800 hover:bg-green-900 px-5 py-1 rounded-md cursor-pointer'>
                                 <Link href='' className='w-full h-full'>View</Link>
-                            </div>
-                            {/* <div className='bg-green-800 hover:bg-green-900 px-3 py-1 rounded-md cursor-pointer text-sm'>
+                            </div> */}
+                            <div className='bg-green-800 hover:bg-green-900 px-3 py-1 rounded-md cursor-pointer text-sm'>
                                 <div className='w-full h-full'>Accept</div>
                             </div>
                             <div className='bg-red-800 hover:bg-red-900 px-3 py-1 rounded-md cursor-pointer text-sm'>
                                 <div className='w-full h-full'>Decline</div>
-                            </div> */}
+                            </div>
                         </td>
-                    </tr>
+                    </tr> ))}
 
                 </tbody>
             </table>

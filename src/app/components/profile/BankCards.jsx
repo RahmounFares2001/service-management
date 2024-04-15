@@ -164,7 +164,7 @@ export default function BankCards() {
             flex flex-col sm:flex-row gap-5 sm:gap-0 justify-between items-center px-5 rounded-md shadow-md shadow-black`} >
         <div className='flex sm:flex-col gap-1 sm:gap-0 text-gray-200' >
           <h1>{holderName}</h1>
-          <h1>{expirationDate.slice(0, 10)}</h1>
+          <h1>{expirationDate}</h1>
         </div>
         
         {/* delete and upadte */}

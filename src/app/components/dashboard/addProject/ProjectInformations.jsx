@@ -30,14 +30,14 @@ export default function ProjectInformations() {
                       transition={{delay: 0.3, duration: 0.4}} >
 
             {/* Project name */}
-            <li className={`${styles.fixedStyle} relative w-4/5 sm:w-1/2 flex `}>
+            <li className={`${styles.inputBox} relative w-4/5 sm:w-1/2 flex `}>
                 <input type="text" placeholder='' required='required'
                   className='py-2 pt-5 px-3 bg-gray-300 border border-gray-600 rounded-md w-full
                               text-gray-900'
                   maxLength={20}
                   onChange={(event) => setProjectDescription(prevState => ({ ...prevState, name: event.target.value }))}
                   value={projectDescription.name} />
-              <span className='absolute top-1 left-2 pointer-events-none duration-500'>Project name</span>
+              <span className='text-gray-900 absolute top-1 left-2 pointer-events-none duration-500'>Project name</span>
             </li>
 
             {/* book of specifications */}

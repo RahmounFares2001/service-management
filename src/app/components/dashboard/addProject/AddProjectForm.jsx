@@ -52,6 +52,7 @@ export default function AddProjectForm() {
   const onConfirm =  async () => {
     try {
       setSpin(true);
+      console.log(projectDetails);
       const response = await axios.post('/api/users/addProject', projectDetails);
       toast.success('Project added!');
       setSpin(false);

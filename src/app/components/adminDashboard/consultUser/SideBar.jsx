@@ -30,7 +30,7 @@ import Image from 'next/image';
 import {toast} from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
-import { adminDashboardContext } from '@/app/adminDashboard/consultUser/page';
+import { adminDashboardContext } from '@/app/adminDashboard/[username]/page';
 
 
 
@@ -48,10 +48,10 @@ export default function SideBar() {
    // logout btn
    const onLogout = async () => {
      try {
-      //  await axios.get('/api/users/logout');
+       await axios.get('/api/users/logout');
        toast.success('Logout succes!');
-      //  router.push('/sign');
-      await axios.get('/api/admin/userData');
+       router.push('/sign');
+      // await axios.get('/api/admin/userData');
        
      } catch (error) {
        toast.error('Some thing wrong!');

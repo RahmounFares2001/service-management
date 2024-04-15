@@ -1,7 +1,7 @@
 import {connect} from '@/dbConfig/dbConfig';
 
 import { NextResponse } from 'next/server';
-import BookOfSpecification from '@/models/bookOfSpecificationModel';
+
 import Project from '@/models/projectModel';
 import { getDataFromToken } from '@/app/helpers/getDataFromToken';
 import Client from '@/models/clientModel';
@@ -37,23 +37,34 @@ export async function POST(request) {
     // }
     
 
-      
-    // add project 
+        
+    // Save project
+
+    // get user id
     const user = await getDataFromToken(request);
     const userId = user.id;
 
+    // // get client
     const client = await Client.findOne({userId: userId});
 
+
+    const name = projectDetails.projectDescription.name;
+    const type = projectDetails.typeProject;
+    const packege = projectDetails.chosenPackege;
+
+    
     const newProject = new Project({
-      name: projectDetails.projectDescription.name,
-      type: projectDetails.typeProject,
-      package: projectDetails.chosenPackege,
+      name: name,
+      type: type,
+      package: packege,
+      progression: 'pending',
+      statuss: 'pending',
       clientId: client._id
     });
 
     const savedProject = await newProject.save();
 
-    // save file metadata to db
+    console.log(savedProject);
 
     // const file = new BookOfSpecification({
     //   filename: originalname,
@@ -64,7 +75,6 @@ export async function POST(request) {
     // });
 
     // await file.save();
-
 
       return NextResponse.json({
         message: 'Project created successfly',

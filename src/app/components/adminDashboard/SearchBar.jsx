@@ -9,8 +9,12 @@ import { TiWorld } from "react-icons/ti";
 import { RiLogoutBoxRLine } from 'react-icons/ri';
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 
+import axios from 'axios';
+import {toast} from 'react-hot-toast'
 
 export default function SearchBar() {
+
+  const router = useRouter();
 
   const searchParams = useSearchParams();
   const {replace} = useRouter();
@@ -24,7 +28,21 @@ export default function SearchBar() {
       params.delete('q');
     }
     replace(`${pathname}?${params}`);
-  }
+  };
+
+
+  // logout btn
+  const onLogout = async () => {
+    try {
+      await axios.get('/api/users/logout');
+      toast.success('Logout succes!');
+      router.push('/sign');
+      
+    } catch (error) {
+      toast.error('Some thing wrong!');
+      console.log(error);
+    }
+  };
 
   
   return (
@@ -39,11 +57,10 @@ export default function SearchBar() {
         </div>
 
         <div className='flex gap-3'>
-            <MdMessage className='w-6 h-6 hover:text-white cursor-pointer hidden sm:block' />
-            <IoIosNotifications className='w-6 h-6 hover:text-white cursor-pointer hidden sm:block' />
-            <TiWorld className='w-6 h-6 hover:text-white cursor-pointer hidden sm:block' />
 
-            <RiLogoutBoxRLine className='text-white w-6 h-6 group-hover:text-secondly cursor-pointer lg:hidden' />
+            <div onClick={onLogout}>
+              <RiLogoutBoxRLine className='text-white w-8 h-8 group-hover:text-secondly cursor-pointer lg:hidden' />
+            </div>
         </div>
     </div>
   )

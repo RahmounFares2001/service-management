@@ -10,20 +10,23 @@ export const adminDashboardContext = React.createContext();
 
 import {Toaster} from 'react-hot-toast';
 
-export default function page() {
+export default function Username({params}) {
 
   // menu state
   const [ showMenu, setShowMenu ] = useState(false);
 
   //
   const [btn, setBtn] = useState("clientAccount");
+
+  const clientUsername = params.username;
   
 
   const contextElement = {
     showMenu,
     setShowMenu,
     btn,
-    setBtn
+    setBtn,
+    clientUsername
   };
 
   // component to render

@@ -12,7 +12,6 @@ connect();
 export async function GET(request) {
     try {
         // get users
-        console.log('bda');
         const user = await getDataFromToken(request);
         const userId = user.id;
 
@@ -25,7 +24,6 @@ export async function GET(request) {
         const appointmentsCount = appointments.length;
        
         const counts = {projects: projectsCount, appointments : appointmentsCount};
-        console.log(counts);
 
         return NextResponse.json({
             message: 'Fetch success',

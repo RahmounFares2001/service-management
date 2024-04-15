@@ -25,17 +25,17 @@ export default function Pricing() {
 
 
   // context show form
-  const { showAddProjectForm, setShowAddProjectForm } = useContext(dashboardContext)
-
+  const { showAddProjectForm, setShowAddProjectForm } = useContext(dashboardContext);
 
   // check if client has projects 
-  const [projectExist, setProjectExist] = useState(true);
+  const [projectExist, setProjectExist] = useState(false);
 
   const checkProjectExist = async () => {
     try {
       const response = await axios.get('/api/users/addProject');
       const projectExist = response.data.projectExist;
       setProjectExist(projectExist);
+      console.log(projectExist)
     } catch (error) {
       console.log(error);
     }
