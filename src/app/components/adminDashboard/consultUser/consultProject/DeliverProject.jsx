@@ -1,5 +1,5 @@
 import React from 'react'
-import InputFile from './inputFile'
+import InputFile from './InputFile'
 
 
 export default function DeliverProject() {
