@@ -1,4 +1,5 @@
 'use client';
+
 import ClientAccount from '@/app/components/adminDashboard/consultUser/ClientAccount';
 import ClientAppointments from '@/app/components/adminDashboard/consultUser/ClientAppointments';
 import ClientProjects from '@/app/components/adminDashboard/consultUser/ClientProjects';
@@ -18,15 +19,31 @@ export default function Username({params}) {
   //
   const [btn, setBtn] = useState("clientAccount");
 
+  // get username form path
   const clientUsername = params.username;
-  
 
+  // 
+  const [showUsers, setShowUsers] = useState(true);
+
+  // show appointment informations 
+  const [showInformations, setShowInformations] = useState(false);
+  
+  //
+  const [selectedAppointment, setSelectedAppointment] = useState('');
+
+  // context elements
   const contextElement = {
     showMenu,
     setShowMenu,
     btn,
     setBtn,
-    clientUsername
+    clientUsername,
+    showUsers,
+    setShowUsers,
+    showInformations,
+    setShowInformations,
+    selectedAppointment,
+    setSelectedAppointment,
   };
 
   // component to render

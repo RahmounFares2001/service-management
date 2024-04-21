@@ -20,9 +20,14 @@ import ConfirmationProject from './ConfirmationProject';
 import axios from 'axios';
 import {toast} from "react-hot-toast";
 
+import { useRouter } from 'next/navigation';
+
 
 export default function AddProjectForm() {
-  
+  // router
+  const router = useRouter();
+
+  // context
   const { 
       showAddProjectForm,
       setShowAddProjectForm,
@@ -34,7 +39,8 @@ export default function AddProjectForm() {
       projectDescription,
       setProjectDescription,
       chosenPackege,
-      setChosenPackage } = useContext(dashboardContext);
+      setChosenPackage,
+         } = useContext(dashboardContext);
 
 
   const {name, file} = projectDescription;
@@ -57,6 +63,7 @@ export default function AddProjectForm() {
       toast.success('Project added!');
       setSpin(false);
       setShowAddProjectForm(false);
+      router.push('/dashboard/currentProjects');
     } catch (error) {
       setSpin(false);
       toast.error('Some thing wrong!');

@@ -272,7 +272,6 @@ export default function AppointmentTable() {
           appointment.status
         )
   );
-  console.log(appointments);
   
 
 

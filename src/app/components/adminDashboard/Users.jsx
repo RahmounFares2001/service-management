@@ -2,39 +2,41 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import SearchBar from './SearchBar';
 import Pagination from './Pagination';
 import axios  from 'axios';
 import { useRouter } from 'next/navigation';
 
 
-
 export default function Users() {
+    // router
     const router = useRouter();
+
+
     // seach query
-    const [q, setQ] = useState('');
-    const hasEqualsSign = window.location.href.includes('=');
-    const startIndex = window.location.href.indexOf('=') + 1;
+    // const [q, setQ] = useState('');
+    // const hasEqualsSign = window.location.href.includes('=');
+    // const startIndex = window.location.href.indexOf('=') + 1;
 
-    if (typeof window !== 'undefined') {
+    // if (typeof window !== 'undefined') {
 
-        const hasEqualsSign = window.location.href.includes('=');
-        const startIndex = window.location.href.indexOf('=') + 1;
+    //     const hasEqualsSign = window.location.href.includes('=');
+    //     const startIndex = window.location.href.indexOf('=') + 1;
 
-        let startFrom;
-        useEffect(() => {
-            startFrom = window.location.href.slice(startIndex);
-            if(hasEqualsSign) {
-                setQ(startFrom);   
-            } else {
-                setQ('');
-            }
-        }, [window.location.href]);
-    }
+    //     let startFrom;
+    //     useEffect(() => {
+    //         startFrom = window.location.href.slice(startIndex);
+    //         if(hasEqualsSign) {
+    //             setQ(startFrom);   
+    //         } else {
+    //             setQ('');
+    //         }
+    //     }, [window.location.href]);
+    // }
     
 
-    const query = {q: q}
+    const query = {q: ''};
  
     // table head
     const heads = ['Name','Email','Status','Role','Action'];
@@ -45,7 +47,10 @@ export default function Users() {
     const fetch = async () => {
         try {
             const response1 = await axios.post('/api/admin/fetchUsers', query);
+
             const response2 = await axios.get('/api/admin/fetchUsers');
+
+
             const users = response2.data.users;
             setUsers(users);
         } catch (error) {
@@ -61,7 +66,6 @@ export default function Users() {
     const [user, setUser] = useState('');
     
     const onView = async () => {
-            // const response = await axios.post('/api/admin/getUser', userr);
             console.log(user);
             router.push(`/adminDashboard/${user}`);
     };
@@ -98,7 +102,7 @@ export default function Users() {
                     </td>
                     <td className='px-2 py-4 md:px-10 md:py-5'>{user.email}</td>
                     <td className='px-2 py-4 md:px-10 md:py-5 text-green-700'>Active</td>
-                    <td className='px-2 py-4 md:px-10 md:py-5'>{user.isAdmin ? 'Admin' : 'Client'}</td>
+                    <td className='px-2 py-4 md:px-10 md:py-5'>{user.accountType}</td>
                     
                     <td className='px-2 py-4 md:px-10 md:py-5'>
                         <div className='bg-green-800 hover:bg-green-900 px-5 py-1 rounded-md cursor-pointer'>

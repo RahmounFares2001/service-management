@@ -2,6 +2,7 @@ const cards = [
     {
       id: 1,
       title: 'Basic Package',
+      name: 'basic',
       list: [
         {id: 1, l: 'Startups and small projects'},
         {id: 2, l: 'Responsive Website/Mobile App'},
@@ -13,6 +14,7 @@ const cards = [
     {
       id: 2,
       title: 'Standard Package',
+      name: 'standard',
       list: [
         {id: 1, l: 'For growing businesses'},
         {id: 2, l: 'Responsive/Interactive Apps'},
@@ -24,6 +26,7 @@ const cards = [
     {
       id: 3,
       title: 'Premium Package',
+      name: 'premuim',
       list: [
         {id: 1, l: 'Etablished businesses'},
         {id: 2, l: 'Responsive/Customizable'},

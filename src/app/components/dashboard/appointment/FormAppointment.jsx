@@ -60,7 +60,6 @@ export default function FormAppointment() {
     const [spin, setSpin] = useState(false);
 
 
-
   return (
     <div className='w-full lg:w-4/5 h-96 sm:h-full relative text-gray-200 rounded-tr-xl'>
 

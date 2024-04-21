@@ -6,17 +6,11 @@ import Project from '@/models/projectModel';
 import { getDataFromToken } from '@/app/helpers/getDataFromToken';
 import Client from '@/models/clientModel';
 
-
-
 // import { uploads } from '@/app/helpers/cloudinary';
 
 // file system
 // import fs from 'fs';
-
-
-
 connect();
-
 
 
 export async function POST(request) {
@@ -52,19 +46,19 @@ export async function POST(request) {
     const type = projectDetails.typeProject;
     const packege = projectDetails.chosenPackege;
 
+
     
     const newProject = new Project({
       name: name,
       type: type,
       package: packege,
-      progression: 'pending',
-      statuss: 'pending',
+      taken: false,
       clientId: client._id
     });
 
     const savedProject = await newProject.save();
 
-    console.log(savedProject);
+
 
     // const file = new BookOfSpecification({
     //   filename: originalname,
@@ -100,13 +94,13 @@ export async function GET(request) {
 
       const project = await Project.findOne({
           clientId: client._id,
-          status: { $in: ['cancelled', 'completed'] } });
+          statuss: { $in: ['pending', 'cancelled'] } });
 
       var projectExist;
       if(project){
-          projectExist = false;
-      } else {
           projectExist = true;
+      } else {
+          projectExist = false;
       };
 
 

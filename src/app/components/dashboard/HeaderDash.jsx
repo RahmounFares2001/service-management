@@ -63,18 +63,18 @@ export default function HeaderDash() {
     showAddMenu,
     setShowAddMenu,
     showResponsiveHeader,
-    setShowResponsiveHeader } = useContext(dashboardContext);
+    setShowResponsiveHeader
+     } = useContext(dashboardContext);
+ 
+    // active btn
+    const [btn, setBtn] = useState('dashboard');
+    const clickedBtn = (id) => {
+      return id == btn ? 'bg-gray-300 text-black' : ''
+    };
 
-
-  // active btn
-  const [btn, setBtn] = useState('dashboard');
-  const clickedBtn = (id) => {
-    return id == btn ? 'bg-gray-300 text-black' : ''
-  };
-
-  const clickedBtnPc = (id) => {
-    return id == btn ? 'text-rose-700' : ''
-  }
+    const clickedBtnPc = (id) => {
+      return id == btn ? 'text-rose-700' : ''
+    };
 
   // router
   const router = useRouter();

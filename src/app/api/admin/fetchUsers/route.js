@@ -15,10 +15,17 @@ export async function GET(request) {
         const q = query.q;
         const regex = new RegExp(q, 'i');
 
-        // get users
-        const users = await User.find({username: {$regex: regex}, isAdmin: false});
-       
 
+        // get users
+        const users = await User.find({username: {$regex: regex},
+                                        isAdmin: false,
+                                        accountType: 'client'});
+
+            // users = await User.find({
+            //         accountType: 'developer',
+            //         username: {$regex: regex},
+            //         isAdmin: false});
+       
         return NextResponse.json({
             message: 'Fetch success',
             users,

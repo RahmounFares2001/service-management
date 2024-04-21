@@ -22,6 +22,10 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    accountType: {
+        type: String,
+        default: 'client',
+    },
     isAdmin: {
         type: Boolean,
         default: false,

@@ -18,7 +18,6 @@ export async function GET(request) {
         // get apoointments
         const client = await Client.findOne({userId: userId});
         const appointments = await Appointment.find({clientId: client._id});
-        console.log(appointments)
 
         return NextResponse.json({
             message: 'Fetch success',

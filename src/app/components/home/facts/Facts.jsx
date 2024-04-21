@@ -13,7 +13,7 @@ export default function Facts() {
 
 
   return (
-    <section className='text-gray-300 font-bold pt-24 flex flex-col gap-10 mb-24 md:mb-32 fun'>
+    <section className='text-gray-300 font-bold pt-24 flex flex-col gap-10 mb-24 md:mb-32 fun bg-forthly'>
         <motion.div className='text-center flex flex-col gap-3'
                     initial={{opacity: 0}}
                     whileInView={{opacity: 1}}

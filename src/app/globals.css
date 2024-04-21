@@ -100,3 +100,29 @@ html{
   }
   
 }
+
+
+
+
+/* input styles */
+.inpt input:valid ~ span,
+.inpt input:focus ~ span,
+.inpt select:valid ~ span,
+.inpt select:focus ~ span
+ {
+    transform: translateX(10px) translateY(-16px);
+    padding: 0 10px;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+    background-color: #0d0d0f;
+    color:white;
+}
+
+.inptFix input ~ span{
+  transform: translateX(10px) translateY(-16px);
+  font-size: 1em;
+  padding: 0 15px;
+  border-right: 2px solid white;
+  border-left: 2px solid white;
+  background-color: #0d0d0f;
+}

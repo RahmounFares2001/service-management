@@ -87,7 +87,7 @@ export default function DashboardLayout({children}) {
       chosenPackege,
       setChosenPackage,
 
-     }
+     };
 
 
     // up page button

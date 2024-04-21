@@ -25,6 +25,7 @@ export const config = {
     },
     matcher: [
         '/adminDashboard/:path*',
+        '/developerDashboard/:path*',
         '/profile',
         '/dashboard/:path*'
     ]

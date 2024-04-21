@@ -2,7 +2,7 @@
 
 import React, { useContext, useState } from 'react';
 import Link from 'next/link';
-import { consultProjectContext } from '@/app/adminDashboard/[username]/project/[project]/page';
+import { consultProjectContext } from '@/app/developerDashboard/MyProjects/[projectId]/page';
 
 
 export default function SideBar() {
@@ -34,7 +34,7 @@ export default function SideBar() {
         {/* Back to dashboard */}
         <button className='lg:text-xl hover:bg-gray-300 hover:text-gray-900 text-sm sm:text-base
                     w-full py-2 lg:py-3'>
-            <Link href='/adminDashboard/consultUser' ><span className='hidden sm:inline' >Back to </span>dashboard</Link>
+            <Link href='/developerDashboard/MyProjects' ><span className='hidden sm:inline' >Back to </span>dashboard</Link>
         </button>
 
     </div>

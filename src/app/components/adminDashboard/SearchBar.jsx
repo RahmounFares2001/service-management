@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Link from 'next/link';
+
 // icons
 import { MdSearch } from "react-icons/md";
 
@@ -48,18 +50,41 @@ export default function SearchBar() {
   return (
     <div className='w-11/12 lg:w-4/5 h-max py-3 px-2 sm:px-5 bg-primary text-gray-300 flex items-center justify-between'>
         
-        <div className='bg-gray-700/50 w-max h-max flex justify-center items-center rounded-md'>
-            <MdSearch className='w-6 h-6' />
+        <div className='flex flex-col gap-2 sm:block' >
+          {/* search bar */}
+          <div className='bg-gray-700/50 w-max h-max flex justify-center items-center rounded-md'>
             <input type="text" className='bg-gray-700/50 p-1 border-none outline-none rounded-r-md
-                                text-sm md:text-base'
-                    placeholder='Search for a user'
-                    onChange={handleSearch} />
+                                  text-sm md:text-base'
+                      placeholder='Search for a user'
+                      onChange={handleSearch} />
+            <MdSearch className='w-6 h-6' />
+          </div>
+
+          <div className='flex flex-col gap-2'>
+            <button className='bg-gray-300 hover:bg-gray-400 text-gray-900 py-1 px-4 rounded-md
+                        hover:bg-gradient-to-br sm:hidden block' >Consult Developers</button>
+
+            <Link href='/adminDashboard/developers' > 
+              <button className='bg-gradient-to-tr from-green-700 to-green-900 py-1 px-4 rounded-md
+                          hover:bg-gradient-to-br sm:hidden block' >Consult Developers</button>
+            </Link>
+          </div>
+        </div>
+
+        <div className='flex gap-3'>
+            <button className='bg-gray-300 hover:bg-gray-400 text-gray-900 py-1 px-4 rounded-md
+                        hover:bg-gradient-to-br hidden sm:block' >Consult Users</button>
+
+            <Link href='/adminDashboard/developers' >
+              <button className='bg-gradient-to-tr from-green-700 to-green-900 py-1 px-4 rounded-md
+                          hover:bg-gradient-to-br hidden sm:block' >Consult Developers</button>
+            </Link>
         </div>
 
         <div className='flex gap-3'>
 
             <div onClick={onLogout}>
-              <RiLogoutBoxRLine className='text-white w-8 h-8 group-hover:text-secondly cursor-pointer lg:hidden' />
+              <RiLogoutBoxRLine className='text-white w-11 h-11 sm:w-8 sm:h-8 group-hover:text-secondly cursor-pointer lg:hidden' />
             </div>
         </div>
     </div>

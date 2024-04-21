@@ -37,7 +37,7 @@ export default function Home() {
 
 
   return (
-    <div> 
+    <div className="bg-forthly" > 
       <Header />
       <Homee />
 

@@ -15,7 +15,6 @@ import {user} from '../getUser/route.js';
 export async function GET(request) {
     try {
       // get user id
-      console.log(user);
 
     //   // find user by id
     //   const client = await Client.findOne({userId: userId});

@@ -56,9 +56,9 @@ export async function GET(request) {
 
         var appointmentExist;
         if(appointment){
-            appointmentExist = false;
-        } else {
             appointmentExist = true;
+        } else {
+            appointmentExist = false;
         };
 
 

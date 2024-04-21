@@ -77,12 +77,19 @@ export default function SignIn() {
                         setTimeout(() =>{
                             router.push('/adminDashboard');
                         }, 2000);
-                    } else {
+                    } else if(userr.accountType == 'client') {
                         setSpin(false);
                         toast.success('Login success!');
 
                         setTimeout(() =>{
                             router.push('/dashboard');
+                        }, 2000);
+                    } else if(userr.accountType == 'developer') {
+                        setSpin(false);
+                        toast.success('Login success!');
+
+                        setTimeout(() =>{
+                            router.push('/developerDashboard');
                         }, 2000);
                     }
                 }
@@ -142,7 +149,7 @@ export default function SignIn() {
                     <input type={`${showPassword ? 'text' : 'password'}`} placeholder='' required='required'
                         className='py-2 pt-5 px-3 bg-thirdly border border-gray-600 rounded-md w-full'
                         onChange={(e) => setUser({...user, password: e.target.value})} />
-                    <span className='absolute top-1 left-2 pointer-events-none duration-500 text-sm'>Old Password</span>
+                    <span className='absolute top-1 left-2 pointer-events-none duration-500 text-sm'>Password</span>
                     {showPassword ?
                     <BiShow className='absolute right-5 top-4 w-5 h-5 cursor-pointer'
                                 onClick={()=> {setShowPassword(!showPassword)}}    /> :
@@ -150,15 +157,7 @@ export default function SignIn() {
                                 onClick={()=> {setShowPassword(!showPassword)}} /> }
                 </li>
 
-                {/* email */}
-                {/* <input type="email" placeholder='Email'
-                        className='bg-gray-300/30 px-3 py-2 lg:w-72 md:w-3/6 sm:w-4/6 w-full text-sm'
-                        onChange={(e) => setUser({...user, email: e.target.value})} /> */}
-
-                {/* password */}
-                {/* <input type="password" placeholder='Password' 
-                        className='bg-gray-300/30 px-3 py-2 lg:w-72 md:w-3/6 sm:w-4/6 w-full text-sm'
-                        onChange={(e) => setUser({...user, password: e.target.value})} /> */}
+                
             </ul>
 
             {/* forgot password */}
