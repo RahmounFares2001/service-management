@@ -37,7 +37,7 @@ export default function DeveloperDashboard() {
 
   return (
     <>
-    <div className="bg-forthly flex justify-center items-center" > 
+    <div className="bg-forthly 2xl:flex 2xl:justify-center 2xl:items-center" > 
     <div className="2xl:w-2000" >
         <div className='hidden lg:block w-max h-max p-3 bg-secondly rounded-full absolute top-3 right-3 cursor-pointer
          group hover:bg-white' 

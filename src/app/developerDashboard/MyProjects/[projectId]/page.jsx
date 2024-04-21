@@ -71,7 +71,7 @@ export default function ProjectId({params}) {
 
   return (
     <consultProjectContext.Provider value={contextElements} >
-    <div className="bg-forthly flex justify-center items-center" > 
+    <div className="bg-forthly 2xl:flex 2xl:justify-center 2xl:items-center" > 
     <div className="2xl:w-2000" >
         <div className='w-full h-screen flex justify-center items-center' >
 

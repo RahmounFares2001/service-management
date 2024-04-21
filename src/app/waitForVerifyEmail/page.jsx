@@ -14,6 +14,8 @@ import { FaInstagram } from "react-icons/fa";
 
 export default function WaitForVerifyEmail() {
   return (
+    <div className="bg-forthly 2xl:flex 2xl:justify-center 2xl:items-center" > 
+    <div className="2xl:w-2000" >
     <div className='flex justify-center items-center w-screen h-screen' >
       <motion.div className='w-11/12 sm:w-96 h-max bg-primary text-gray-200 pb-10 border border-red-800 shadow-md shadow-red-800'
                   initial={{y: '30vh', opacity: 0}}
@@ -61,6 +63,8 @@ export default function WaitForVerifyEmail() {
 
 
       </motion.div>
+    </div>
+    </div>
     </div>
   )
 }

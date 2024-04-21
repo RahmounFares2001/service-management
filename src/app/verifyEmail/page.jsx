@@ -56,6 +56,8 @@ export default function verifyEmail() {
   }, 7000);
 
   return (
+    <div className="bg-forthly 2xl:flex 2xl:justify-center 2xl:items-center" > 
+    <div className="2xl:w-2000" >
     <div className='flex justify-center items-center w-screen h-screen' >
       <motion.div className={`w-11/12 sm:w-96 h-max bg-primary text-gray-200 pb-10 border shadow-md 
                         ${verified? 'border-green-800 shadow-green-800' : 'border-red-800 shadow-red-800'}`}
@@ -110,6 +112,8 @@ export default function verifyEmail() {
 
 
       </motion.div>
+    </div>
+    </div>
     </div>
   )
 }
