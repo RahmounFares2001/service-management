@@ -8,9 +8,9 @@ import axios from 'axios';
 import { adminDashboardContext } from '@/app/adminDashboard/[username]/page';
 
 import {motion} from "framer-motion";
-import ShowAppInformations from './showAppInformations';
 
 import {toast} from 'react-hot-toast';
+import ShowAppInformations from './ShowAppInformations';
 
 
 export default function ClientAppointments() {
