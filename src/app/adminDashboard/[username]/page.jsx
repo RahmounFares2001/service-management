@@ -69,6 +69,8 @@ export default function Username({params}) {
 
   return (
     <adminDashboardContext.Provider value={contextElement}>
+    <div className="bg-forthly flex justify-center items-center" > 
+    <div className="2xl:w-2000" >
 
     <div className='flex lg:flex-row lg:justify-center lg:pl-72 xl:pl-56 lg:gap-24 bg-gray-10 bg-forthly
               font-mono h-full relative pt-20 lg:pt-0'>
@@ -80,6 +82,8 @@ export default function Username({params}) {
         <Toaster />
       </div>
 
+      </div>
+      </div>
     </adminDashboardContext.Provider>
   )
 }

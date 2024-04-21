@@ -71,6 +71,8 @@ export default function ProjectId({params}) {
 
   return (
     <consultProjectContext.Provider value={contextElements} >
+    <div className="bg-forthly flex justify-center items-center" > 
+    <div className="2xl:w-2000" >
         <div className='w-full h-screen flex justify-center items-center' >
 
             <div className='w-full mx-1 lg:w-10/12 xl:w-4/6 h-72 sm:h-96
@@ -86,6 +88,8 @@ export default function ProjectId({params}) {
             </div>
 
         </div>
+    </div>
+    </div>
     </consultProjectContext.Provider>
   )
 };

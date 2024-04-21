@@ -13,8 +13,8 @@ export default function RootLayout({children}) {
   
   return (
     <html lang="en">
-      <body className={`${inter.className} font-mono flex items-center justify-center bg-thirdly`}>
-        <div className="2xl:w-2000" >
+      <body className={`${inter.className} font-mono  bg-thirdly`}>
+        <div>
             {children}
           </div>
       </body>

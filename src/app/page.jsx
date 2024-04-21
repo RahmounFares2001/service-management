@@ -37,7 +37,8 @@ export default function Home() {
 
 
   return (
-    <div className="bg-forthly" > 
+    <div className="bg-forthly flex justify-center items-center" > 
+    <div className="2xl:w-2000" >
       <Header />
       <Homee />
 
@@ -56,6 +57,7 @@ export default function Home() {
           className={`scroll-up ${goUp ? "show-scroll" : ""}`} >^</div>
 
       <Footer />
+      </div>
     </div>
   );
 };

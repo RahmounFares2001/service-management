@@ -61,6 +61,8 @@ export default function Profile() {
 
   return (
     <profileContext.Provider value={contextElement}>
+    <div className="bg-forthly flex justify-center items-center" > 
+    <div className="2xl:w-2000" >
 
 
     {/* overlay when mobile menu is showed */}
@@ -96,6 +98,8 @@ export default function Profile() {
       
       <Toaster />
 
+    </div>
+    </div>
     </div>
     </profileContext.Provider>
   )

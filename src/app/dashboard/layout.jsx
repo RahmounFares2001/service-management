@@ -115,7 +115,8 @@ export default function DashboardLayout({children}) {
     return(
         <>
         <dashboardContext.Provider value={contextElement}>
-
+          <div className="bg-forthly flex justify-center items-center" > 
+          <div className="2xl:w-2000" >
             <HeaderDash />
 
             <div className='bg-forthly font-mono'
@@ -129,7 +130,8 @@ export default function DashboardLayout({children}) {
             <Footer />
 
             <Toaster />
-
+          </div>
+          </div>
         </dashboardContext.Provider>
         </>
     

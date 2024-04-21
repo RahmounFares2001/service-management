@@ -51,6 +51,8 @@ export default function Developer() {
 
   return (
     <developersContext.Provider value={contextElements} >
+      <div className="bg-forthly flex justify-center items-center" > 
+      <div className="2xl:w-2000" >
         <div className='hidden lg:block w-max h-max p-3 bg-secondly rounded-full absolute top-3 right-3 cursor-pointer
          group hover:bg-white' 
              onClick={onLogout}  >
@@ -75,8 +77,8 @@ export default function Developer() {
             <AddDeveloper />
         </motion.div> }
 
-        
-
+      </div>
+      </div>    
     </developersContext.Provider>
   )
 }
