@@ -18,19 +18,19 @@ export default function Search2() {
 
   const router = useRouter();
 
-  const searchParams = useSearchParams();
-  const {replace} = useRouter();
-  const pathname = usePathname();
+  // const searchParams = useSearchParams();
+  // const {replace} = useRouter();
+  // const pathname = usePathname();
 
-  const handleSearch = (e) => {
-    const params = new URLSearchParams(searchParams);
-    if(e.target.value){
-      params.set('q', e.target.value);
-    } else {
-      params.delete('q');
-    }
-    replace(`${pathname}?${params}`);
-  };
+  // const handleSearch = (e) => {
+  //   const params = new URLSearchParams(searchParams);
+  //   if(e.target.value){
+  //     params.set('q', e.target.value);
+  //   } else {
+  //     params.delete('q');
+  //   }
+  //   replace(`${pathname}?${params}`);
+  // };
 
 
   // logout btn
@@ -56,7 +56,7 @@ export default function Search2() {
             <input type="text" className='bg-gray-700/50 p-1 border-none outline-none rounded-r-md
                                   text-sm md:text-base'
                       placeholder='Search for a developer'
-                      onChange={handleSearch} />
+                       />
             <MdSearch className='w-6 h-6' />
           </div>
 
