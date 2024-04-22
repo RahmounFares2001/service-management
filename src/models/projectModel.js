@@ -15,7 +15,7 @@ const projectSchema = new mongoose.Schema({
         default: 'Waiting for approve'
     },
     deadline: {
-        type: Date,
+        type: String,
         default: '3 Month'
     },
     developerProgression: {
@@ -41,7 +41,7 @@ const projectSchema = new mongoose.Schema({
     },
     developerId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "projects",
+        ref: "developers",
     }
 });
 

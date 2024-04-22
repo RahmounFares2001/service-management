@@ -117,7 +117,8 @@ export default function CurrentProjects() {
         setViewProject,
         projectToShow,
         viewDeveloper,
-        setViewDeveloper
+        setViewDeveloper,
+        developerToShow
     };
 
   return (
@@ -149,7 +150,7 @@ export default function CurrentProjects() {
                         <td className={`${project.statuss == 'pending' ? 'text-yellow-700' :
                                             project.statuss == 'confirmed' ? 'text-green-700' :
                                             'text-gray-300' } px-2 py-4 md:px-10 md:py-5`}>{project.statuss}</td>
-                        <td className={`${project.progression == 'pending' || project.progression == 'in progress' ? 'text-yellow-700' :
+                        <td className={`${project.progression == 'pending' || project.progression == 'In progress' || project.progression == 'Waiting for approve' ? 'text-yellow-700' :
                                             (project.progression == 'delivered' ) ? 'text-green-700' :
                                             'text-gray-300' } px-2 py-4 md:px-10 md:py-5`}>{project.progression}</td>
                         

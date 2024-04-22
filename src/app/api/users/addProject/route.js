@@ -41,24 +41,19 @@ export async function POST(request) {
     // // get client
     const client = await Client.findOne({userId: userId});
 
-
     const name = projectDetails.projectDescription.name;
     const type = projectDetails.typeProject;
     const packege = projectDetails.chosenPackege;
-
 
     
     const newProject = new Project({
       name: name,
       type: type,
       package: packege,
-      taken: false,
       clientId: client._id
     });
 
     const savedProject = await newProject.save();
-
-
 
     // const file = new BookOfSpecification({
     //   filename: originalname,
@@ -74,7 +69,6 @@ export async function POST(request) {
         message: 'Project created successfly',
         success: true
         });
-    x 
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
 }

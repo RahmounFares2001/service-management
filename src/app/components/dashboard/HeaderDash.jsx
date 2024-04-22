@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import { motion } from "framer-motion";
 
@@ -92,6 +92,21 @@ export default function HeaderDash() {
     }
   };
 
+  const [user, setUser] = useState('');
+  // get user
+  const getUser = async () => {
+    try {
+      const response = await axios.get('/api/users/me');
+      const user = response.data.user;
+      setUser(user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(()=> {
+    getUser();
+  }, [])
+
 
   return (
     <div className='bg-forthly'>
@@ -114,22 +129,22 @@ export default function HeaderDash() {
                 <IoIosNotificationsOutline className='w-7 h-7 2xl:w-10 2xl:h-10 text-gray-300 hover:text-rose-700 cursor-pointer
                               hidden lg:block' />
 
-                <div className='relative hidden lg:block'>
+                <div className='relative hidden lg:block '>
                   <Image src="/images/dashboard/header/profile.jpg" alt="profile" 
                         className='rounded-full w-10 h-10 2xl:w-20 2xl:h-20 cursor-pointer' 
                         width={100} height={100}
                         onClick={()=>{setShowProfileMenu(!showProfileMenu)}}/>
 
                     {/* menu drop down */}
-                    {showProfileMenu && 
-                    <motion.ul className={` w-44 2xl:w-72 h-max bg-secondly text-gray-300 text-sm 
+                    {showProfileMenu &&
+                    <motion.ul className={` w-44 2xl:w-72 h-max bg-secondl bg-gray-300 text-gray-900 text-sm 
                               absolute right-0 flex flex-col gap-2 py-3 2xl:text-2xl z-50 border`}
                                initial={{height: 0}}
                                animate={{height: 'max-content'}} >
                         <li className='flex flex-col items-center gap-1'>
                           <Image src="/images/dashboard/header/profile.jpg" alt="profile" 
                                 className='rounded-full w-10 h-10 cursor-pointer' width={100} height={100} />
-                          <h1>Rahmoun Fares</h1>
+                          <h1>{user.username}</h1>
                         </li>
 
                         {/* list */}
@@ -137,7 +152,7 @@ export default function HeaderDash() {
                                     animate={{opacity: 1}}
                                     transition={{ duration: 0.2 }}>
                           <Link href='/profile' className='flex items-center gap-3 cursor-pointer pl-5 pt-1 
-                                    hover:text-rose-700 hover:bg-primary py-2'>
+                                    hover:text-gray-300 hover:bg-primary py-2'>
                             <MdOutlinePersonOutline className='w-5 h-5' />
                             <h1>My Profile</h1>                        
                           </Link>
@@ -146,7 +161,7 @@ export default function HeaderDash() {
                         {/* Blog */}
                         <motion.a  href='https://www.kyo-conseil.com/kyo-blog/' target='_blank'
                               className='flex items-center gap-3 cursor-pointer pl-5 pt-1 
-                                  hover:text-rose-700 hover:bg-primary py-2'
+                                  hover:text-gray-300 hover:bg-primary py-2'
                                   initial={{opacity: 0}}
                                   animate={{opacity: 1}}
                                   transition={{delay: 0.1, duration: 0.2 }}>
@@ -159,7 +174,7 @@ export default function HeaderDash() {
                                     animate={{opacity: 1}}
                                     transition={{delay: 0.2, duration: 0.2 }}>
                           <Link href='/profile' className='flex items-center gap-3 cursor-pointer pl-5 pt-1 
-                                    hover:text-rose-700 hover:bg-primary py-2'>
+                                    hover:text-gray-300 hover:bg-primary py-2'>
                             <IoMdSettings className='w-5 h-5' />
                             <h1>Settings</h1>                        
                           </Link>
@@ -167,7 +182,7 @@ export default function HeaderDash() {
 
                         {/* Logout */}
                         <motion.li className='flex items-center gap-3 cursor-pointer pl-5 pt-1 
-                                  hover:text-rose-700 hover:bg-primary py-2'
+                                  hover:text-gray-300 hover:bg-primary py-2'
                                   initial={{opacity: 0}}
                                   animate={{opacity: 1}}
                                   transition={{delay: 0.3, duration: 0.2 }}
@@ -264,14 +279,15 @@ export default function HeaderDash() {
           {/* settings  */}
           <motion.div initial={{x: '-15vw', opacity: 0}}
                       animate={{x: 0, opacity: 1}}
-                      transition={{delay: 0.55, duration: 0.15, stiffness: '40', type: 'spring'}}
-                      className='z-0'>
+                      transition={{delay: 0.55, duration: 0.15, stiffness: '40', type: 'spring'}} >
+            <div className={`${showProfileMenu && 'opacity-0'}`}>
             <Link href='/profile'
                   className={`flex gap-2 items-center hover:text-rose-700 cursor-pointer ${clickedBtnPc('settings')}`}
                   onClick={()=> {setBtn('settings')}}>
                 <IoMdSettings className='w-5 h-5 2xl:w-10 2xl:h-10' />
                 <h1>Settings</h1>
             </Link>
+            </div>
           </motion.div>
 
         </motion.div>

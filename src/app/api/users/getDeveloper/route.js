@@ -2,11 +2,7 @@ import {connect} from '@/dbConfig/dbConfig';
 
 import { NextResponse } from 'next/server';
 
-import Project from '@/models/projectModel';
-import { getDataFromToken } from '@/app/helpers/getDataFromToken';
-import Client from '@/models/clientModel';
 import Developer from '@/models/developerModel';
-import Review from '@/models/review';
 import User from '@/models/userModel';
 
 
@@ -38,22 +34,32 @@ export async function GET(request) {
   try {
       const projectId = project._id;
       const dev = await Developer.findOne({projectId: projectId});
-      const userId = dev.userId;
 
-      const user = await User.findOne({_id: userId})
-    
-      const developer = {
-        name: dev.name,
-        email: user.email
+
+      let user;
+      let developer = {
+        name: 'Not avaible yet',
+        email: 'Not avaible yet'
       };
+      if(dev){      
+        const userId = dev.userId;
+        user = await User.findOne({_id: userId})
+        developer = {
+          name: dev.name,
+          email: dev.email
+      }; }
+
+
+    
+      console.log(developer);
 
       return NextResponse.json({
           message: 'login sucess',
           developer,
           succes: true
       });
-
-  } catch (error) {
+  }
+   catch (error) {
       return NextResponse.json({error : error.message}, {status: 500});
   }
 }

@@ -115,7 +115,7 @@ export default function DashboardLayout({children}) {
     return(
         <>
         <dashboardContext.Provider value={contextElement}>
-          <div className="bg-forthly 2xl:flex 2xl:justify-center 2xl:items-center" > 
+          <div className="bg-thirdl bg-forthly 2xl:flex 2xl:justify-center 2xl:items-center" > 
           <div className="2xl:w-2000" >
             <HeaderDash />
 
@@ -134,6 +134,5 @@ export default function DashboardLayout({children}) {
           </div>
         </dashboardContext.Provider>
         </>
-    
     )
 }

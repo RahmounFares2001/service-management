@@ -60,7 +60,7 @@ export default function SearchBar() {
             <MdSearch className='w-6 h-6' />
           </div>
 
-          <div>
+          <div className='flex flex-col gap-2' >
             <button className='bg-gray-300 hover:bg-gray-400 text-gray-900 py-1 px-4 rounded-md
                         hover:bg-gradient-to-br sm:hidden block' >All projects</button>
             <Link href='/developerDashboard/MyProjects' >

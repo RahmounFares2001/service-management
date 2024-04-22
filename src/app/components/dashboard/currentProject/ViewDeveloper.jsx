@@ -21,7 +21,10 @@ export default function ViewDeveloper() {
 
 
     // review exist ?
-    const [developer, setDeveloper] = useState();
+    const [developer, setDeveloper] = useState({
+        name: '',
+        email: ''
+    });
 
 
 
@@ -29,12 +32,10 @@ export default function ViewDeveloper() {
     // check if review exist 
     const getDeveloper = async () => {
         try {
-            const repsonse1 = await axios.post('/api/user/getDeveloper', {project: developerToShow});
-            const repsonse = await axios.get('/api/user/getDeveloper');
+            const repsonse1 = await axios.post('/api/users/getDeveloper', {project: developerToShow});
+            const repsonse = await axios.get('/api/users/getDeveloper');
             const developer = repsonse.data.developer;
-            setDeveloper(developer);
-
-            
+            setDeveloper(developer);            
         } catch (error) {
             console.log(error);
         }
@@ -65,7 +66,6 @@ export default function ViewDeveloper() {
                         disabled />
                     <span className='absolute top-1 left-2 pointer-events-none duration-500 text-sm text-gray-300'>Developer Email</span>
             </li>
-
 
 
 
