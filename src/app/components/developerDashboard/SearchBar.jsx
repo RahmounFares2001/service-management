@@ -62,10 +62,10 @@ export default function SearchBar() {
 
           <div className='flex flex-col gap-2' >
             <button className='bg-gray-300 hover:bg-gray-400 text-gray-900 py-1 px-4 rounded-md
-                        hover:bg-gradient-to-br sm:hidden block' >All projects</button>
+                        hover:bg-gradient-to-br sm:hidden block w-52' >All projects</button>
             <Link href='/developerDashboard/MyProjects' >
               <button className='bg-gradient-to-tr from-green-700 to-green-900 py-1 px-4 rounded-md
-                          hover:bg-gradient-to-br sm:hidden block' >My project</button>
+                          hover:bg-gradient-to-br sm:hidden block w-52' >My project</button>
             </Link>
           </div>
         </div>

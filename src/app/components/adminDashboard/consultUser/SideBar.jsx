@@ -114,7 +114,7 @@ export default function SideBar() {
         </ul>
 
         <div className='flex justify-center font-bold'>
-        <Link href='./dashboard' className='flex justify-center items-center gap-5 bg-gray-300 hover:bg-gray-100 text-black rounded-md cursor-pointer
+        <Link href='/adminDashboard' className='flex justify-center items-center gap-5 bg-gray-300 hover:bg-gray-100 text-black rounded-md cursor-pointer
                             w-5/6 sm:w-4/5 py-3'>
             <IoHomeOutline className='text-black' />
             <span>Back to Dashboard</span>
@@ -185,7 +185,7 @@ export default function SideBar() {
 
         {/* back to Dashboard btn */}
         <div className='flex justify-center font-bold'>
-        <Link href='/dashboard'  className='flex justify-center items-center gap-5 bg-primary hover:bg-thirdly rounded-md cursor-pointer
+        <Link href='/adminDashboard'  className='flex justify-center items-center gap-5 bg-primary hover:bg-thirdly rounded-md cursor-pointer
                             w-5/6 sm:w-4/5 py-3 sm:text-xl'>
             <IoHomeOutline className='text-gray-300' />
             <span className='text-gray-300'>Back to Dashboard</span>
