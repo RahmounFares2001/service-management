@@ -61,13 +61,13 @@ export default function Search2() {
           </div>
 
           <div className='flex flex-col gap-3'>
-            <Link href='/adminDashboard' >
+            <Link href='/developerDashboard' >
                 <button className='bg-gradient-to-tr from-green-700 to-green-900 py-1 px-4 rounded-md
-                            hover:bg-gradient-to-br sm:hidden block w-52' >All Projects</button>
+                            hover:bg-gradient-to-br sm:hidden block w-44 text-sm' >All Projects</button>
             </Link>
 
             <button className='bg-gray-300 hover:bg-gray-400 text-gray-900 py-1 px-4 rounded-md
-                          hover:bg-gradient-to-br sm:hidden block w-52' >My Projects</button>
+                          hover:bg-gradient-to-br sm:hidden block w-44 text-sm' >My Projects</button>
           </div>
         </div>
 
