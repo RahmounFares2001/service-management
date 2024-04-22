@@ -28,14 +28,15 @@ export default function Services() {
         {/* cards sercices */}
         <motion.div className='flex flex-col lg:flex-row gap-7 jusify-center items-center w-full md:px-32 md:mb-0
                     sm:px-10 '
-                    initial={{opacity: 0, x: '-25vw'}}
-                    whileInView={{opacity: 1, x: '0vw'}}
-                    transition={{delay: 0.2, duration: 1}}
-                    viewport={{once: true}}>
+                    >
           {/* web dev */}
-          <div className='text-gray-200 lg:w-2/6 w-11/12 sm:w-4/5 flex flex-col gap-5 p-5 rounded-xl hover:bg-gradient-to-br
+          <motion.div className='text-gray-200 lg:w-2/6 w-11/12 sm:w-4/5 flex flex-col gap-5 p-5 rounded-xl hover:bg-gradient-to-br
                     hover:from-gray-800 hover:to-black' 
-                style={{backgroundColor: '#191a1c'}}> 
+                style={{backgroundColor: '#191a1c'}}
+                initial={{opacity: 0, y: '25vh'}}
+                whileInView={{opacity: 1, y: '0vh'}}
+                transition={{delay: 0.2, duration: 1}}
+                viewport={{once: true}}> 
             <div className='flex justify-between items-center'>
               <FaLaptopCode className='text-rose-700 w-16 h-16 sm:w-24 sm:h-24' />
               <h1 className='text-5xl text-rose-800'>01</h1>  
@@ -47,12 +48,16 @@ export default function Services() {
             </div>
             
             <h1 className='text-end text-xl font-bold text-rose-700 cursor-pointer' >Read More</h1>
-          </div>
+          </motion.div>
 
           {/* mobile app */}
-          <div className='text-gray-200 lg:w-2/6 w-11/12 sm:w-4/5 flex flex-col gap-5 p-5 rounded-xl hover:bg-gradient-to-br cursor-pointer
+          <motion.div className='text-gray-200 lg:w-2/6 w-11/12 sm:w-4/5 flex flex-col gap-5 p-5 rounded-xl hover:bg-gradient-to-br cursor-pointer
                     hover:from-gray-800 hover:to-black' 
-                style={{backgroundColor: '#191a1c'}}> 
+                style={{backgroundColor: '#191a1c'}}
+                initial={{opacity: 0, y: '25vh'}}
+                whileInView={{opacity: 1, y: '0vh'}}
+                transition={{delay: 0.2, duration: 1}}
+                viewport={{once: true}}> 
             <div className='flex justify-between items-center'>
               <FaAndroid className='text-rose-700 w-16 h-16 sm:w-24 sm:h-24' />
               <h1 className='text-5xl text-rose-800'>02</h1>  
@@ -64,12 +69,16 @@ export default function Services() {
             </div>
             
             <h1 className='text-end text-xl font-bold text-rose-700 cursor-pointer' >Read More</h1>
-          </div>
+          </motion.div>
 
           {/* ui ux */}
-          <div className='text-gray-200 lg:w-2/6 w-11/12 sm:w-4/5 flex flex-col gap-5 p-5 rounded-xl hover:bg-gradient-to-br
+          <motion.div className='text-gray-200 lg:w-2/6 w-11/12 sm:w-4/5 flex flex-col gap-5 p-5 rounded-xl hover:bg-gradient-to-br
                     hover:from-gray-800 hover:to-black' 
-                style={{backgroundColor: '#191a1c'}}> 
+                style={{backgroundColor: '#191a1c'}}
+                initial={{opacity: 0, y: '25vh'}}
+                whileInView={{opacity: 1, y: '0vh'}}
+                transition={{delay: 0.2, duration: 1}}
+                viewport={{once: true}}> 
             <div className='flex justify-between items-center'>
               <SiMaterialdesignicons className='text-rose-700 w-16 h-16 sm:w-24 sm:h-24' />
               <h1 className='text-5xl text-rose-800'>03</h1>  
@@ -81,7 +90,7 @@ export default function Services() {
             </div>
             
             <h1 className='text-end text-xl font-bold text-rose-700 cursor-pointer' >Read More</h1>
-          </div>
+          </motion.div>
         </motion.div>
        
     </motion.section>

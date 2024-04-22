@@ -27,8 +27,8 @@ export default function About() {
             <motion.div className='flex flex-col gap-5 font-bold rounded-3xl px-10 md:py-6 sm:py-4 py-3 shadow-lg shadow-rose-700/70
                         mt-5 sm:mt-0 hover:bg-gradient-to-br hover:from-gray-800 hover:to-black'
                     style={{backgroundColor: '#0d0d0e'}}
-                    initial={{opacity: 0, x: '-10vw'}}
-                    whileInView={{opacity: 1, x: '0vw'}}
+                    initial={{opacity: 0, y: '10vh'}}
+                    whileInView={{opacity: 1, y: '0vh'}}
                     transition={{delay: 0.2, duration: 0.7}}
                     viewport={{once: true}}>
                 <div className='flex items-center gap-2 cursor-pointer' >
@@ -47,8 +47,8 @@ export default function About() {
 
         {/* right img */}
         <motion.div className='w-full lg:w-1/2 h-full  flex items-center justify-center'
-                    initial={{opacity: 0, x: '25vw'}}
-                    whileInView={{opacity: 1, x: '0vw'}}
+                    initial={{opacity: 0, y: '25vw'}}
+                    whileInView={{opacity: 1, y: '0vw'}}
                     transition={{delay: 0.2, duration: 1}}
                     viewport={{once: true}}>
           <Image width={400} height={400} src="/images/home/about.jpg" alt="img"

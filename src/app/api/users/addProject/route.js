@@ -88,15 +88,16 @@ export async function GET(request) {
 
       const project = await Project.findOne({
           clientId: client._id,
-          statuss: { $in: ['pending', 'cancelled'] } });
+          statuss: { $in: ['confirmed', 'pending'] } });
 
-      var projectExist;
+          console.log('he')
+          console.log(project);
+      let projectExist;
       if(project){
           projectExist = true;
       } else {
           projectExist = false;
       };
-
 
       return NextResponse.json({
           message: 'login sucess',
