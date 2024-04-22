@@ -10,6 +10,7 @@ import React, { useState } from 'react';
 export const adminDashboardContext = React.createContext();
 
 import {Toaster} from 'react-hot-toast';
+import { IoMenu } from 'react-icons/io5';
 
 export default function Username({params}) {
 
@@ -74,6 +75,18 @@ export default function Username({params}) {
 
     <div className='flex lg:flex-row lg:justify-center lg:pl-72 xl:pl-56 lg:gap-24 bg-gray-10 bg-forthly
               font-mono h-full relative pt-20 lg:pt-0'>
+
+        {/* overlay when mobile menu is showed */}
+        {showMenu && 
+        <div className='fixed top-0 right-0 w-screen h-screen bg-gray-200/90 z-20 lg:hidden'
+              onClick={()=> {setShowMenu(false)}}>
+        </div> }
+
+        {/* Menu Icon */}
+        <div className='flex justify-end lg:hidden absolute top-1 right-3 z-10'
+                onClick={()=> {setShowMenu(true)}}>
+          <IoMenu className='w-16 h-16 text-gray-300' />
+        </div> 
         <SideBar />
 
         {/* other components */}
