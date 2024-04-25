@@ -55,7 +55,7 @@ export default function Search2() {
           <div className='bg-gray-700/50 w-max h-max flex justify-center items-center rounded-md'>
             <input type="text" className='bg-gray-700/50 p-1 border-none outline-none rounded-r-md
                                   text-sm md:text-base'
-                      placeholder='Search for a developer'
+                      placeholder='Search for a project'
                        />
             <MdSearch className='w-6 h-6' />
           </div>
