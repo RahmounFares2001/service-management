@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export function middleware(request) {
+export async function middleware(request) {
+     
     const path = request.nextUrl.pathname
-
+    
     const isPublicPath = path == '/sign' || path == '/' 
 
+    // get token
     const token = request.cookies.get('token')?.value ||''
 
     // redirect user with token 

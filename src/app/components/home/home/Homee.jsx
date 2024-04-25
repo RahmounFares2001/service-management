@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 
 import {motion} from "framer-motion";
+import Link from 'next/link';
 
 export default function Homee() {
   return (
@@ -31,13 +32,15 @@ export default function Homee() {
               hover:text-black hover:bg-rose-700'
                   initial={{opacity: 0, x: '-10vw'}}
                   animate={{opacity: 1, x: '0vw'}}
-                  transition={{delay: 0.7, duration: 0.2}}>Pricing</motion.button>
+                  transition={{delay: 0.7, duration: 0.2}}>
+                    <Link href='/sign' >Pricing</Link></motion.button>
 
           <motion.button className='border-2 border-gray-300  px-10 py-2 rounded-sm 
               hover:text-black hover:bg-rose-700'
                   initial={{opacity: 0, x: '-10vw'}}
                   animate={{opacity: 1, x: '0vw'}}
-                  transition={{delay: 0.9, duration: 0.2}}>Projects</motion.button>
+                  transition={{delay: 0.9, duration: 0.2}}>
+                    <Link href='/sign' >Projects</Link></motion.button>
 
         </div>
       </div>

@@ -61,11 +61,11 @@ export default function SearchBar() {
           </div>
 
           <div className='flex flex-col gap-2'>
-            <button className='bg-gray-300 hover:bg-gray-400 text-gray-900 py-1 px-4 rounded-md
-                        hover:bg-gradient-to-br sm:hidden block w-44 text-sm' >Consult Developers</button>
+            <button className='bg-gray-300 hover:bg-gray-400 text-gray-900 py-1 px-1 sm:px-4 rounded-md
+                        hover:bg-gradient-to-br sm:hidden block w-44 text-sm' >Consult Users</button>
 
             <Link href='/adminDashboard/developers' > 
-              <button className='bg-gradient-to-tr from-green-700 to-green-900 py-1 px-4 rounded-md
+              <button className='bg-gradient-to-tr from-green-700 to-green-900 py-1 px-1 sm:px-4 rounded-md
                           hover:bg-gradient-to-br sm:hidden block w-44 text-sm' >Consult Developers</button>
             </Link>
           </div>

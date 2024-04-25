@@ -207,7 +207,7 @@ export default function HeaderDash() {
 
         {/* menu */}
 
-        <motion.div className='text-gray-300 px-10 py-4 justify-between text-s 2xl:text-2xl
+        <motion.div className='text-gray-300 px-10 py-4 justify-between text-s 
                   hidden lg:flex 2xl:flex-wrap 2xl:px-24 font-bold border-t border-b bg-forthly z-0'> 
           {/* dashboard */}
           <motion.div initial={{opacity: 0}}
@@ -216,7 +216,7 @@ export default function HeaderDash() {
             <Link href='/dashboard'
                   className={`flex gap-2 items-center hover:text-rose-700 cursor-pointer ${clickedBtnPc('dashboard')}`}
                   onClick={()=>{ setBtn('dashboard')}}>
-                <RxDashboard className='w-5 h-5' />
+                <RxDashboard className='w-5 h-5 2xl:w-10 2xl:h-10' />
                 <h1>Dashboard</h1>
             </Link>
           </motion.div>
