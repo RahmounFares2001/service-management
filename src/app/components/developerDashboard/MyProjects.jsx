@@ -17,7 +17,7 @@ export default function MyProjects() {
     const query = {q: ''};
  
     // table head
-    const heads = ['Name','Email','Status','Role','Action'];
+    const heads = ['Name','Type','Status','Progression','Action'];
 
     // fetch users
     const [projects, setProjects] = useState([]);
@@ -80,7 +80,7 @@ export default function MyProjects() {
                     <td className={`px-2 py-4 md:px-10 md:py-5 ${project.statuss == 'pending' ? 'text-yellow-700' :
                                                                 project.statuss == 'confirmed' ? 'text-green-700' :
                                                                 project.statuss == 'cancelled' ? 'text-gray-300': 'text-gray-300' } `}>{project.statuss}</td>
-                    <td className={`px-2 py-4 md:px-10 md:py-5 ${project.progression == 'in progress' ? 'text-yellow-700' :
+                    <td className={`px-2 py-4 md:px-10 md:py-5 ${project.progression == 'In progress' ? 'text-yellow-700' :
                                                                 project.progression == 'delivered' ? 'text-green-700' : 'text-gray-300' } `}>{project.statuss == 'pending' ? '/' : project.progression}</td>
                     
                     <td className='px-2 py-4 md:px-10 md:py-5 flex flex-col gap-2'>

@@ -32,10 +32,12 @@ export default function SideBar() {
                 onClick={()=> {setBtn("deliver")}} >Deliver <span className='hidden sm:inline' >Project</span></button>
 
         {/* Back to dashboard */}
-        <button className='lg:text-xl hover:bg-gray-300 hover:text-gray-900 text-sm sm:text-base
-                    w-full py-2 lg:py-3'>
-            <Link href='/developerDashboard/MyProjects' ><span className='hidden sm:inline' >Back to </span>dashboard</Link>
-        </button>
+        <Link href='/developerDashboard/MyProjects' >
+            <button className='lg:text-xl hover:bg-gray-300 hover:text-gray-900 text-sm sm:text-base
+                        w-full py-2 lg:py-3'>
+                <span className='hidden sm:inline' >Back to </span>dashboard
+            </button>
+        </Link>
 
     </div>
   )
