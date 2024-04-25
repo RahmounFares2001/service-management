@@ -92,7 +92,7 @@ export default function Projects() {
                     <td className={`px-2 py-4 md:px-10 md:py-5 ${project.taken ? 'text-red-900' : 'text-yellow-700'  } `}>{project.taken ? 'taken' : 'not takne'}</td>
                     
                     <td className='px-2 py-4 md:px-10 md:py-5 flex flex-col gap-2'>
-                        {!project.taken && project.statuss != 'pending' ? 
+                        {!project.taken && project.statuss == 'pending' ? 
                             <>
                             <div className='bg-green-800 hover:bg-green-900 px-5 py-1 rounded-md cursor-pointer'>
                                 <div className='w-full h-full'
