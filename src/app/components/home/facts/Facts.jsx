@@ -54,7 +54,7 @@ export default function Facts() {
                 <BsEmojiSmileFill className='w-16 h-16 lg:w-20 lg:h-20 text-rose-700' />
                 <div>
                     <h1 className='text-4xl text-center'>229 +</h1>
-                    <p className='text-base sm:text-xl text-center'>Project Completed</p>
+                    <p className='text-base sm:text-xl text-center'>Satisfied Clients</p>
                 </div>
             </motion.div>
 
@@ -70,7 +70,7 @@ export default function Facts() {
                 <IoIosPeople className='w-16 h-16 lg:w-20 lg:h-20 text-rose-700' />
                 <div>
                     <h1 className='text-4xl text-center'>99 +</h1>
-                    <p className='text-base sm:text-xl text-center'>Project Completed</p>
+                    <p className='text-base sm:text-xl text-center'>Expert Teams</p>
                 </div>
             </motion.div>
         </motion.div>
