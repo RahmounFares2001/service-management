@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useContext, useState } from 'react'
 import InputFile from './InputFile'
 import { consultProjectContext } from '@/app/developerDashboard/MyProjects/[projectId]/page';
@@ -7,22 +9,38 @@ import axios from 'axios';
 import styles from './consultProject.module.css';
 import { FaLock } from 'react-icons/fa';
 
+import { useRouter } from 'next/navigation';
+import {toast} from 'react-hot-toast';
+
+
 export default function DeliverProject() {
+  const router = useRouter();
 
   // context
   const {project} = useContext(consultProjectContext);
 
   //
   const [githubRepo, setGithubRepo] = useState('');
+
+  // submit btn spin
+  const [spin, setSpin] = useState(false);
+
   // 
   const onDeliver = async () => {
     try {
+      setSpin(true);
       const response = await axios.post('/api/developer/deliverProject', {
                           project: project,
                           delivery: {
                             githubRepo: githubRepo
                           } });
+      setSpin(false);
+      toast.success('Project delivered');
+      router.push('/developerDashboard/MyProjects');
+
     } catch (error) {
+      setSpin(false);
+      toast.error('Email or password wrong!');
       console.log(error);
     }
   };
@@ -43,8 +61,8 @@ export default function DeliverProject() {
 
       <InputFile />
 
-      <button className='px-10 py-1 bg-gray-300 text-gray-900 sm:bg-forthly sm:text-gray-300 rounded-sm hover:bg-primary
-                lg:text-xl' 
+      <button className={`${spin && 'button button-loading'} px-10 py-1 bg-gray-300 text-gray-900 sm:bg-forthly sm:text-gray-300 rounded-sm hover:bg-primary
+                lg:text-xl`} 
               onClick={onDeliver}>Deliver</button>
       
     </div>
