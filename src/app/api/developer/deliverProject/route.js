@@ -5,6 +5,7 @@ import { NextResponse } from 'next/server';
 
 import Delivery from '@/models/deliveryModel';
 import { getDataFromToken } from '@/app/helpers/getDataFromToken';
+import Project from '@/models/projectModel';
 
 connect();
 
@@ -24,7 +25,7 @@ export async function POST(request) {
 
     // get developer
     const developer = await getDataFromToken(request);
-    const developerId = develoeper.id;
+    const developerId = developer.id;
 
     // Save delivery
     const newDelivery = new Delivery({
@@ -34,6 +35,12 @@ export async function POST(request) {
         developerId: developerId
     });
     const savedDelivery = await newDelivery.save();
+
+    const projectt = await Project.findOneAndUpdate(
+      {_id: projectId},
+      {statuss: 'delivered'},
+      {new: true});
+      
 
     return NextResponse.json({
     message: 'Success',
