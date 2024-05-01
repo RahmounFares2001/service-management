@@ -14,6 +14,7 @@ import {toast, Toaster} from 'react-hot-toast';
 
 import {motion} from 'framer-motion';
 import ViewDeveloper from '@/app/components/dashboard/currentProject/ViewDeveloper';
+import ViewProject from '@/app/components/dashboard/currentProject/ViewProject';
 
 
 export const currentProjectContext = React.createContext();
