@@ -63,7 +63,7 @@ export default function DeliverProject() {
 
       <button className={`${spin && 'button button-loading'} px-10 py-1 bg-gray-300 text-gray-900 sm:bg-forthly sm:text-gray-300 rounded-sm hover:bg-primary
                 lg:text-xl`} 
-              onClick={onDeliver}>Deliver</button>
+              onClick={onDeliver}><span className='button-text' >Deliver</span></button>
       
     </div>
   )

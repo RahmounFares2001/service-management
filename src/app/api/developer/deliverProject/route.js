@@ -38,7 +38,7 @@ export async function POST(request) {
 
     const projectt = await Project.findOneAndUpdate(
       {_id: projectId},
-      {statuss: 'delivered'},
+      {progression: 'delivered'},
       {new: true});
       
 
